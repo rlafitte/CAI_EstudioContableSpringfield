@@ -1,0 +1,10 @@
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.csprojAssemblyReference.cache
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.Liquidacion.resources
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.Properties.Resources.resources
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.csproj.GenerateResource.cache
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.csproj.CoreCompileInputs.cache
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\bin\Debug\Liquidaciones.exe.config
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\bin\Debug\Liquidaciones.exe
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\bin\Debug\Liquidaciones.pdb
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.exe
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.pdb

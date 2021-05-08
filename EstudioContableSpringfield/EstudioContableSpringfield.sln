@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstudioContableSpringfieldG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Estudio.Libreria", "Estudio.Libreria\Estudio.Libreria.csproj", "{33829751-FD2B-4156-A86A-4D6682C2272E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Liquidaciones", "Liquidaciones\Liquidaciones.csproj", "{820D96AB-2352-49E4-89E9-0A2BD73DC409}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{33829751-FD2B-4156-A86A-4D6682C2272E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33829751-FD2B-4156-A86A-4D6682C2272E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33829751-FD2B-4156-A86A-4D6682C2272E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{820D96AB-2352-49E4-89E9-0A2BD73DC409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{820D96AB-2352-49E4-89E9-0A2BD73DC409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{820D96AB-2352-49E4-89E9-0A2BD73DC409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{820D96AB-2352-49E4-89E9-0A2BD73DC409}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

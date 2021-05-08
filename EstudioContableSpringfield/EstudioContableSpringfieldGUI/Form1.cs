@@ -14,6 +14,7 @@ namespace EstudioContableSpringfieldGUI
     {
         public Form1()
         {
+            
             InitializeComponent();
         }
 
@@ -47,6 +48,49 @@ namespace EstudioContableSpringfieldGUI
         {
 
             btnCategorias.BackColor = Color.White;
+        }
+
+        private void btnReportes_MouseHover(object sender, EventArgs e)
+        {
+
+            btnReportes.BackColor = Color.Gray;
+        }
+
+        private void btnReportes_MouseLeave(object sender, EventArgs e)
+        {
+            btnReportes.BackColor = Color.White;
+
+        }
+
+        private void btnEmpresas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEmpleados_MouseHover(object sender, EventArgs e)
+        {
+            btnEmpleados.BackColor = Color.Gray;
+
+        }
+
+        private void btnEmpleados_MouseLeave(object sender, EventArgs e)
+        {
+
+            btnEmpleados.BackColor = Color.White;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnLiquidaciones_Click(object sender, EventArgs e)
+        {
+            
+            Liquidaciones.Liquidacion Frm = new Liquidaciones.Liquidacion();
+            Frm.Owner = this;
+            Frm.Show();
+            this.Hide();
         }
     }
 }
