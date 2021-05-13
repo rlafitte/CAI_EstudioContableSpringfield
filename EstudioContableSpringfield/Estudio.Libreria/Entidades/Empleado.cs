@@ -8,6 +8,6 @@ namespace Estudio.Libreria.Entidades
 {
     class Empleado
     {
-        public string _pepito;
+        public string _pepito; 
     }
 }
