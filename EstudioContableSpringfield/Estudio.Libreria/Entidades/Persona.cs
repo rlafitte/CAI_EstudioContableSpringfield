@@ -12,6 +12,7 @@ namespace Estudio.Libreria.Entidades
         private string _apellido;
         private int _tipoDocumento;
         private int _documento;
+        private DateTime _fechaNacimiento;
 
         public string Nombre { get => _nombre; set => _nombre = value; }
         public string Apellido { get => _apellido; set => _apellido = value; }
