@@ -10,19 +10,20 @@ namespace Estudio.Libreria.Entidades
     {
         private string _nombre;
         private string _apellido;
-        private int _tipoDocumento;
         private int _documento;
+        private DateTime _fechaNacimiento;
 
         public string Nombre { get => _nombre; set => _nombre = value; }
         public string Apellido { get => _apellido; set => _apellido = value; }
-        public int TipoDocumento { get => _tipoDocumento; set => _tipoDocumento = value; }
         public int Documento { get => _documento; set => _documento = value; }
-        public Persona(string s1, string s2, int i1, int i2)
+        public DateTime FechaNacimiento { get => _fechaNacimiento; set => _fechaNacimiento = value; }
+
+        public Persona(string nombre, string apellido, int documento, DateTime fehcaNac)
         {
-            this.Nombre = s1;
-            this.Apellido = s2;
-            this.TipoDocumento = i1;
-            this.Documento = i2;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.Documento = documento;
+            this.FechaNacimiento = fehcaNac;
         }
         public Persona()
         {
@@ -31,7 +32,7 @@ namespace Estudio.Libreria.Entidades
 
         public virtual string ToStringPersona()
         {
-            return $"Apellido: { this.Apellido}, Nombre: {this.Nombre}, Tipo y N° de documento:{this.TipoDocumento} - {this.Documento}";
+            return $"Apellido: { this.Apellido}, Nombre: {this.Nombre}, N° de documento: {this.Documento}";
         }
     }
 }
