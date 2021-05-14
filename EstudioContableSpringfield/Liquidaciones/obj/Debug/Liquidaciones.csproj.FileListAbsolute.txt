@@ -8,3 +8,13 @@ C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpri
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\bin\Debug\Liquidaciones.pdb
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.exe
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.pdb
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\bin\Debug\Liquidaciones.exe.config
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\bin\Debug\Liquidaciones.exe
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\bin\Debug\Liquidaciones.pdb
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.csprojAssemblyReference.cache
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.Liquidacion.resources
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.Properties.Resources.resources
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.csproj.GenerateResource.cache
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.csproj.CoreCompileInputs.cache
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.exe
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Liquidaciones\obj\Debug\Liquidaciones.pdb
