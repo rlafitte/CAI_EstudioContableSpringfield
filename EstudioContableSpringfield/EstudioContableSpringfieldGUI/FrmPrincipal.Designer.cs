@@ -1,7 +1,7 @@
 ﻿
 namespace EstudioContableSpringfieldGUI
 {
-    partial class Form1
+    partial class FrmPrincipal
     {
         /// <summary>
         /// Required designer variable.
@@ -39,20 +39,19 @@ namespace EstudioContableSpringfieldGUI
             // btnLiquidaciones
             // 
             this.btnLiquidaciones.BackColor = System.Drawing.Color.White;
-            this.btnLiquidaciones.Location = new System.Drawing.Point(94, 56);
+            this.btnLiquidaciones.Location = new System.Drawing.Point(527, 87);
             this.btnLiquidaciones.Name = "btnLiquidaciones";
             this.btnLiquidaciones.Size = new System.Drawing.Size(113, 48);
             this.btnLiquidaciones.TabIndex = 0;
             this.btnLiquidaciones.Text = "Liquidaciones";
             this.btnLiquidaciones.UseVisualStyleBackColor = false;
-            this.btnLiquidaciones.Click += new System.EventHandler(this.btnLiquidaciones_Click);
             this.btnLiquidaciones.MouseLeave += new System.EventHandler(this.btnLiquidaciones_MouseLeave);
             this.btnLiquidaciones.MouseHover += new System.EventHandler(this.btnLiquidaciones_MouseHover);
             // 
             // btnEmpresas
             // 
             this.btnEmpresas.BackColor = System.Drawing.Color.White;
-            this.btnEmpresas.Location = new System.Drawing.Point(233, 56);
+            this.btnEmpresas.Location = new System.Drawing.Point(170, 87);
             this.btnEmpresas.Name = "btnEmpresas";
             this.btnEmpresas.Size = new System.Drawing.Size(113, 48);
             this.btnEmpresas.TabIndex = 1;
@@ -65,7 +64,7 @@ namespace EstudioContableSpringfieldGUI
             // btnCategorias
             // 
             this.btnCategorias.BackColor = System.Drawing.Color.White;
-            this.btnCategorias.Location = new System.Drawing.Point(370, 56);
+            this.btnCategorias.Location = new System.Drawing.Point(408, 87);
             this.btnCategorias.Name = "btnCategorias";
             this.btnCategorias.Size = new System.Drawing.Size(113, 48);
             this.btnCategorias.TabIndex = 2;
@@ -77,7 +76,7 @@ namespace EstudioContableSpringfieldGUI
             // btnReportes
             // 
             this.btnReportes.BackColor = System.Drawing.Color.White;
-            this.btnReportes.Location = new System.Drawing.Point(327, 193);
+            this.btnReportes.Location = new System.Drawing.Point(345, 155);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(113, 48);
             this.btnReportes.TabIndex = 3;
@@ -89,16 +88,17 @@ namespace EstudioContableSpringfieldGUI
             // btnEmpleados
             // 
             this.btnEmpleados.BackColor = System.Drawing.Color.White;
-            this.btnEmpleados.Location = new System.Drawing.Point(506, 56);
+            this.btnEmpleados.Location = new System.Drawing.Point(289, 87);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Size = new System.Drawing.Size(113, 48);
             this.btnEmpleados.TabIndex = 4;
             this.btnEmpleados.Text = "Empleados";
             this.btnEmpleados.UseVisualStyleBackColor = false;
+            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
             this.btnEmpleados.MouseLeave += new System.EventHandler(this.btnEmpleados_MouseLeave);
             this.btnEmpleados.MouseHover += new System.EventHandler(this.btnEmpleados_MouseHover);
             // 
-            // Form1
+            // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,9 +108,8 @@ namespace EstudioContableSpringfieldGUI
             this.Controls.Add(this.btnCategorias);
             this.Controls.Add(this.btnEmpresas);
             this.Controls.Add(this.btnLiquidaciones);
-            this.Name = "Form1";
+            this.Name = "FrmPrincipal";
             this.Text = "Estudio Contable Springfield";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }

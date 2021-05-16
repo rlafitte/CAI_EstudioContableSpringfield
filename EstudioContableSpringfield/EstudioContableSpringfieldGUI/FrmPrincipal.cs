@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Estudio.Libreria.Entidades;
 
 namespace EstudioContableSpringfieldGUI
 {
-    public partial class Form1 : Form
+    public partial class FrmPrincipal : Form
     {
-        public Form1()
+        private EstudioContable _nuevoEstudioContable;
+
+        public FrmPrincipal()
         {
-            
+            _nuevoEstudioContable = new EstudioContable();
             InitializeComponent();
         }
 
@@ -32,7 +35,7 @@ namespace EstudioContableSpringfieldGUI
         private void btnEmpresas_MouseHover(object sender, EventArgs e)
         {
             btnEmpresas.BackColor = Color.Gray;
-        }        
+        }
         private void btnEmpresas_MouseLeave(object sender, EventArgs e)
         {
             btnEmpresas.BackColor = Color.White;
@@ -62,11 +65,6 @@ namespace EstudioContableSpringfieldGUI
 
         }
 
-        private void btnEmpresas_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnEmpleados_MouseHover(object sender, EventArgs e)
         {
             btnEmpleados.BackColor = Color.Gray;
@@ -79,17 +77,19 @@ namespace EstudioContableSpringfieldGUI
             btnEmpleados.BackColor = Color.White;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btnEmpresas_Click(object sender, EventArgs e)
         {
-           
+            FrmEmpresas frm = new FrmEmpresas(_nuevoEstudioContable);
+            frm.Owner = this;
+            frm.Show();
+            this.Hide();
         }
 
-        private void btnLiquidaciones_Click(object sender, EventArgs e)
+        private void btnEmpleados_Click(object sender, EventArgs e)
         {
-            
-            Liquidaciones.Liquidacion Frm = new Liquidaciones.Liquidacion();
-            Frm.Owner = this;
-            Frm.Show();
+            FrmEmpleados frm = new FrmEmpleados(_nuevoEstudioContable);
+            frm.Owner = this;
+            frm.Show();
             this.Hide();
         }
     }

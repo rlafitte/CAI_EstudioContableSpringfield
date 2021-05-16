@@ -10,16 +10,18 @@ namespace Estudio.Libreria.Entidades
     {
         private int _id;
         private string _nombre;
-        private int _cuit;
-        private DateTime _inicioActividad;
+        private string _cuit;
+        private string _inicioActividad;
         private string _rubro;
         private string _domicilio;
         private List<Empleado> _empleados;
 
 
-        public int Id { get => _id; set => _id = value; }
+        public int Id { get => this._id; }
+        public string Nombre { get => this._nombre; }
+        public List<Empleado> Empleados { get => this._empleados; }
 
-        public Empresa(int id, string nombre, int cuit, DateTime inicioActiv, string rubro, string domicilio)
+        public Empresa(int id, string nombre, string cuit, string rubro, string inicioActiv, string domicilio)
         {
             this._id = id;
             this._nombre = nombre;
