@@ -24,6 +24,6 @@ namespace Estudio.Libreria.Entidades
             this._empresa = empresa;
             this._liqEmpleado = new List<Liquidacion>();
         }
-
+         
     }
 }
