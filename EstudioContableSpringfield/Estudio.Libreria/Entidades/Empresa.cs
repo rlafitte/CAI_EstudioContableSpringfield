@@ -31,5 +31,9 @@ namespace Estudio.Libreria.Entidades
             this._domicilio = domicilio;
             this._empleados = new List<Empleado>();
         }
+        public Empresa()
+        {
+
+        }
     }
 }
