@@ -45,6 +45,7 @@ namespace EstudioContableSpringfieldGUI
             this.btnLiquidaciones.TabIndex = 0;
             this.btnLiquidaciones.Text = "Liquidaciones";
             this.btnLiquidaciones.UseVisualStyleBackColor = false;
+            this.btnLiquidaciones.Click += new System.EventHandler(this.btnLiquidaciones_Click);
             this.btnLiquidaciones.MouseLeave += new System.EventHandler(this.btnLiquidaciones_MouseLeave);
             this.btnLiquidaciones.MouseHover += new System.EventHandler(this.btnLiquidaciones_MouseHover);
             // 
