@@ -10,21 +10,18 @@ namespace Estudio.Libreria.Entidades
     {
         private int _legajo;
         private string _domicilio;
-        private int _cuil;
-        private int _codEmpresa;
+        private string _cuil;
+        private string _empresa;
         //categoria: int idCategoria u objeto categoria? 
         List<Liquidacion> _liqEmpleado;
 
 
-        public Empleado(int legajo, string domicilio, int cuil, int codEmpresa, Persona p)
+        public Empleado(string nombre, string apellido, int dni, string cuil, string domicilio, int legajo, string empresa) : base(nombre, apellido, dni)
         {
-            this._legajo = legajo;
-            this._domicilio = domicilio;
             this._cuil = cuil;
-            this._codEmpresa = codEmpresa;
-            this.Nombre = p.Nombre;
-            this.Apellido = p.Apellido;
-            this.Documento = p.Documento;
+            this._domicilio = domicilio;
+            this._legajo = legajo;
+            this._empresa = empresa;
             this._liqEmpleado = new List<Liquidacion>();
         }
 
