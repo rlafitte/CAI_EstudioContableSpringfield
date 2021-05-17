@@ -1,7 +1,7 @@
 ﻿
-namespace Liquidaciones
+namespace EstudioContableSpringfieldGUI
 {
-    partial class Liquidacion
+    partial class FrmLiquidacion
     {
         /// <summary>
         /// Required designer variable.
@@ -72,6 +72,7 @@ namespace Liquidaciones
             this.btnAgregar.TabIndex = 47;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label5
             // 

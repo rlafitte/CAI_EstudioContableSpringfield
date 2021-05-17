@@ -95,7 +95,7 @@ namespace EstudioContableSpringfieldGUI
 
         private void btnLiquidaciones_Click(object sender, EventArgs e)
         {
-            FrmLiquidaciones frm = new FrmLiquidaciones(_nuevoEstudioContable);
+            FrmLiquidacion frm = new FrmLiquidacion(_nuevoEstudioContable);
             frm.Owner = this;
             frm.Show();
             this.Hide();

@@ -7,13 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Estudio.Libreria.Entidades;
 
-namespace Liquidaciones
+namespace EstudioContableSpringfieldGUI
 {
-    public partial class Liquidacion : Form
+    public partial class FrmLiquidacion : Form
     {
-        public Liquidacion()
+
+        private EstudioContable _estContable;
+
+
+        public FrmLiquidacion(EstudioContable estudio)
         {
+            this._estContable = estudio;
             InitializeComponent();
         }
 
@@ -26,6 +32,11 @@ namespace Liquidaciones
 
             this.Owner.Show();
             this.Close();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
