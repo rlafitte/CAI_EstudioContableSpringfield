@@ -56,8 +56,8 @@ namespace EstudioContableSpringfieldGUI
                 Liquidacion nuevaLiq= new Liquidacion(codLiq, mes, año, tipo, fecha, empre, emple, bruto, retenciones, neto);
                 //double bruto, double retenciones, double neto)
                 {
-                    this._estContable.Empresas.Add(nuevaLiq);
-
+                    //this._estContable.Li.Add(nuevaLiq);
+                }
                 MessageBox.Show("Liquidación agregada correctamente.");
                 ResetearFormulario();
             }
