@@ -15,7 +15,7 @@ namespace Estudio.Libreria.Entidades
         //categoria: int idCategoria u objeto categoria? 
         private List<Liquidacion> _liqEmpleado;
 
-        public List<Liquidacion> LiqEmpleado { get => this._liqEmpleado; }
+        public List<Liquidacion> LiqEmpleado { get => this._liqEmpleado; set => _liqEmpleado = value; }
         public Empleado(string nombre, string apellido, int dni, string cuil, string domicilio, int legajo, string empresa) : base(nombre, apellido, dni)
         {
             this._cuil = cuil;
