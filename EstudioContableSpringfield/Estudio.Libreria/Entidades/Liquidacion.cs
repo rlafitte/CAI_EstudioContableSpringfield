@@ -34,5 +34,9 @@ namespace Estudio.Libreria.Entidades
             this._retenciones = retenciones;
             this._neto = neto;
         }
+        public Liquidacion()
+        {
+
+        }
     }
 }
