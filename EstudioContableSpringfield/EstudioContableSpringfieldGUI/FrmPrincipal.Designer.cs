@@ -71,6 +71,7 @@ namespace EstudioContableSpringfieldGUI
             this.btnCategorias.TabIndex = 2;
             this.btnCategorias.Text = "Categorías";
             this.btnCategorias.UseVisualStyleBackColor = false;
+            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
             this.btnCategorias.MouseLeave += new System.EventHandler(this.btnCategorias_MouseLeave);
             this.btnCategorias.MouseHover += new System.EventHandler(this.btnCategorias_MouseHover);
             // 

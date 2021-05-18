@@ -23,5 +23,22 @@ namespace Estudio.Libreria.Entidades
             this._siConvenio = siConvenio;
             this._cCT = cCT;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj != null)
+            {
+                return false;
+            }
+            if(!(obj is Categoria))
+            {
+                return false;
+            }
+            else
+            {
+                Categoria categoria = (Categoria)obj;
+                return this._idCategoria == categoria._idCategoria;
+            }
+        }
     }
 }

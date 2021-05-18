@@ -100,5 +100,13 @@ namespace EstudioContableSpringfieldGUI
             frm.Show();
             this.Hide();
         }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            FrmCategorias frm = new FrmCategorias (_nuevoEstudioContable);
+            frm.Owner = this;
+            frm.Show();
+            this.Hide();
+        }
     }
 }
