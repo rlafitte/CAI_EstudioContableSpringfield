@@ -22,5 +22,17 @@ namespace Estudio.Libreria.Entidades
             this._empresas = new List<Empresa>();
             this._categorias = new List<Categoria>();
         }
+
+        public void GuardarCategoria(Categoria categoriaAgre)
+        {
+            foreach (Categoria categoria in this._categorias)
+            {
+                if (categoria.Equals(categoriaAgre))
+                {
+                    throw new Exception("La categoría ya existe");
+                }
+            }
+            this._categorias.Add(categoriaAgre);
+        }
     }
 }
