@@ -230,6 +230,7 @@ namespace EstudioContableSpringfieldGUI
             this.txtRetenciones.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRetenciones.Location = new System.Drawing.Point(536, 188);
             this.txtRetenciones.Name = "txtRetenciones";
+            this.txtRetenciones.ReadOnly = true;
             this.txtRetenciones.Size = new System.Drawing.Size(165, 29);
             this.txtRetenciones.TabIndex = 52;
             // 
@@ -238,6 +239,7 @@ namespace EstudioContableSpringfieldGUI
             this.txtBruto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBruto.Location = new System.Drawing.Point(536, 153);
             this.txtBruto.Name = "txtBruto";
+            this.txtBruto.ReadOnly = true;
             this.txtBruto.Size = new System.Drawing.Size(165, 29);
             this.txtBruto.TabIndex = 51;
             // 
@@ -267,6 +269,7 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(165, 29);
             this.comboBox2.TabIndex = 61;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // FrmLiquidacion
             // 

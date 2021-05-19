@@ -85,5 +85,33 @@ namespace EstudioContableSpringfieldGUI
             this.list1.DataSource = null;
             this.list1.DataSource = listaEmpresas;
         }
+
+        private void btnConsultaEmpleado_Click(object sender, EventArgs e)
+        {
+            List<Empleado> listaEmpleados = new List<Empleado>();
+
+            foreach (Liquidacion liq in this._liquidacionesTotales)
+            {
+                if (!listaEmpleados.Contains(liq.Empleado))
+                    listaEmpleados.Add(liq.Empleado);
+            }
+
+            this.list1.DataSource = null;
+            this.list1.DataSource = listaEmpleados;
+        }
+
+        private void btnConsultaCategoria_Click(object sender, EventArgs e)
+        {
+            List<Categoria> listaCategorias = new List<Categoria>();
+
+            foreach (Liquidacion liq in this._liquidacionesTotales)
+            {
+                if (!listaCategorias.Contains(liq.Categoria))
+                    listaCategorias.Add(liq.Categoria);
+            }
+
+            this.list1.DataSource = null;
+            this.list1.DataSource = listaCategorias;
+        }
     }
 }

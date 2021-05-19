@@ -75,17 +75,17 @@
             // 
             // list1
             // 
-            this.list1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.list1.Font = new System.Drawing.Font("Segoe UI", 6.75F);
             this.list1.FormattingEnabled = true;
-            this.list1.ItemHeight = 17;
-            this.list1.Location = new System.Drawing.Point(244, 9);
+            this.list1.ItemHeight = 12;
+            this.list1.Location = new System.Drawing.Point(207, 9);
             this.list1.Name = "list1";
-            this.list1.Size = new System.Drawing.Size(544, 327);
+            this.list1.Size = new System.Drawing.Size(698, 316);
             this.list1.TabIndex = 3;
             // 
             // btnConsultaEmpresa
             // 
-            this.btnConsultaEmpresa.Location = new System.Drawing.Point(327, 392);
+            this.btnConsultaEmpresa.Location = new System.Drawing.Point(441, 390);
             this.btnConsultaEmpresa.Name = "btnConsultaEmpresa";
             this.btnConsultaEmpresa.Size = new System.Drawing.Size(100, 29);
             this.btnConsultaEmpresa.TabIndex = 4;
@@ -95,21 +95,23 @@
             // 
             // btnConsultaEmpleado
             // 
-            this.btnConsultaEmpleado.Location = new System.Drawing.Point(506, 389);
+            this.btnConsultaEmpleado.Location = new System.Drawing.Point(620, 387);
             this.btnConsultaEmpleado.Name = "btnConsultaEmpleado";
             this.btnConsultaEmpleado.Size = new System.Drawing.Size(93, 32);
             this.btnConsultaEmpleado.TabIndex = 5;
             this.btnConsultaEmpleado.Text = "Empleado";
             this.btnConsultaEmpleado.UseVisualStyleBackColor = true;
+            this.btnConsultaEmpleado.Click += new System.EventHandler(this.btnConsultaEmpleado_Click);
             // 
             // btnConsultaCategoria
             // 
-            this.btnConsultaCategoria.Location = new System.Drawing.Point(680, 389);
+            this.btnConsultaCategoria.Location = new System.Drawing.Point(794, 387);
             this.btnConsultaCategoria.Name = "btnConsultaCategoria";
             this.btnConsultaCategoria.Size = new System.Drawing.Size(93, 32);
             this.btnConsultaCategoria.TabIndex = 6;
             this.btnConsultaCategoria.Text = "Categoría";
             this.btnConsultaCategoria.UseVisualStyleBackColor = true;
+            this.btnConsultaCategoria.Click += new System.EventHandler(this.btnConsultaCategoria_Click);
             // 
             // btnVolver
             // 
@@ -135,7 +137,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(329, 358);
+            this.label3.Location = new System.Drawing.Point(443, 356);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 21);
             this.label3.TabIndex = 9;
@@ -145,7 +147,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(501, 358);
+            this.label4.Location = new System.Drawing.Point(615, 356);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 21);
             this.label4.TabIndex = 10;
@@ -155,7 +157,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(676, 358);
+            this.label5.Location = new System.Drawing.Point(790, 356);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 21);
             this.label5.TabIndex = 11;
@@ -165,7 +167,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(98, 383);
+            this.label6.Location = new System.Drawing.Point(212, 381);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 21);
             this.label6.TabIndex = 12;
@@ -174,7 +176,7 @@
             // textBoxCodReadOnly
             // 
             this.textBoxCodReadOnly.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCodReadOnly.Location = new System.Drawing.Point(164, 380);
+            this.textBoxCodReadOnly.Location = new System.Drawing.Point(278, 378);
             this.textBoxCodReadOnly.Name = "textBoxCodReadOnly";
             this.textBoxCodReadOnly.ReadOnly = true;
             this.textBoxCodReadOnly.Size = new System.Drawing.Size(87, 29);
@@ -184,7 +186,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(257, 362);
+            this.label7.Location = new System.Drawing.Point(371, 360);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 59);
             this.label7.TabIndex = 14;
@@ -194,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(917, 450);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxCodReadOnly);
             this.Controls.Add(this.label6);

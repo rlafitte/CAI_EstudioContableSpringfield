@@ -39,7 +39,7 @@ namespace EstudioContableSpringfieldGUI
             {
                 Categoria categoria = null;
                 ValidarCamposFormulario();
-                categoria = new Categoria(int.Parse(txtIdCategoria.Text), txtNombre.Text, double.Parse(txtBasico.Text), chkCCTSi.Checked, txtCCTNum.Text);
+                categoria = new Categoria(int.Parse(txtIdCategoria.Text), txtNombre.Text, double.Parse(txtBasico.Text), double.Parse(txtPorcRet.Text), chkCCTSi.Checked, txtCCTNum.Text);
                 _estContable.GuardarCategoria(categoria);
                 MessageBox.Show("Categoría agregada correctamente.");
                 ResetearFormulario();
@@ -55,7 +55,7 @@ namespace EstudioContableSpringfieldGUI
             if (
                 txtIdCategoria.Text == string.Empty ||
                 txtNombre.Text == string.Empty ||
-                txtCCTNum.Text == string.Empty ||
+                (chkCCTSi.Checked && txtCCTNum.Text == string.Empty) ||
                 txtBasico.Text == string.Empty
                 )
             {
@@ -63,6 +63,7 @@ namespace EstudioContableSpringfieldGUI
             }
             else if (
                 !double.TryParse(txtBasico.Text, out double basico )||
+                !double.TryParse(txtPorcRet.Text, out double porcRet ) ||
                 !int.TryParse(txtIdCategoria.Text, out int id)
                 )
             {
@@ -77,6 +78,7 @@ namespace EstudioContableSpringfieldGUI
             chkCCTSi.Text = string.Empty;
             txtCCTNum.Text = string.Empty;
             txtBasico.Text = string.Empty;
+            txtPorcRet.Text = string.Empty;
         }
 
         private void chkCCTSi_CheckedChanged(object sender, EventArgs e)
@@ -84,6 +86,10 @@ namespace EstudioContableSpringfieldGUI
             if (chkCCTSi.Checked)
             {
                 this.txtCCTNum.Enabled = true;
+            }
+            if (chkCCTSi.Checked==false)
+            {
+                this.txtCCTNum.Enabled = false;
             }
         }
     }

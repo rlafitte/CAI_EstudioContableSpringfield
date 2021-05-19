@@ -32,6 +32,12 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox1.DataSource = this._estContable.Empresas;
             this.comboBox1.DisplayMember = "Nombre";
             this.comboBox1.ValueMember = "Id";
+
+            this.comboBox2.DataSource = this._estContable.Categorias;
+            this.comboBox2.DisplayMember = "Nombre";
+            this.comboBox2.ValueMember = "IdCategoria";
+
+            ResetearFormulario();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -43,12 +49,13 @@ namespace EstudioContableSpringfieldGUI
                 string nombre = this.textBox1.Text;
                 string apellido = this.textBox2.Text;
                 int dni = int.Parse(this.textBox3.Text);
-                string cuil = this.textBox4.Text;
-                string direccion = this.textBox5.Text;
                 int legajo = int.Parse(this.textBox6.Text);
+                string direccion = this.textBox5.Text;
+                string cuil = this.textBox4.Text;
                 string empresa = this.comboBox1.Text;
+                Categoria categoria = (Categoria)comboBox2.SelectedItem;
 
-                Empleado nuevoEmpleado = new Empleado(nombre, apellido, dni, cuil, direccion, legajo, empresa);
+                Empleado nuevoEmpleado = new Empleado(nombre, apellido, dni, legajo, direccion, cuil, empresa, categoria);
 
                 Empresa empresaEmpleado = this._estContable.Empresas.SingleOrDefault(emp => emp.Nombre.ToLower() == empresa.ToLower());
 
@@ -71,7 +78,8 @@ namespace EstudioContableSpringfieldGUI
                 this.textBox4.Text == "" ||
                 this.textBox5.Text == "" ||
                 this.textBox6.Text == "" ||
-                this.comboBox1.SelectedIndex == -1)
+                this.comboBox1.SelectedIndex == -1||
+                this.comboBox2.SelectedIndex == -1)
             {
                 throw new Exception("Los campos no deben estar vacíos");
             }
@@ -85,6 +93,8 @@ namespace EstudioContableSpringfieldGUI
             this.textBox4.Text = "";
             this.textBox5.Text = "";
             this.textBox6.Text = "";
+            this.comboBox1.Text = "";
+            this.comboBox2.Text = "";
         }
     }
 }
