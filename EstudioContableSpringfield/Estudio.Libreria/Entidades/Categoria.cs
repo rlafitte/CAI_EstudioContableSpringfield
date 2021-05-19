@@ -11,18 +11,25 @@ namespace Estudio.Libreria.Entidades
         private int _idCategoria;
         private string _nombre;
         private double _sueldoBasico;
+        private double _porcRetenciones;
         private bool _siConvenio;
         private string _cCT; //Convenio colectivo de trabajo
 
+        public int IdCategoria { get => _idCategoria; }
+        public string Nombre { get => _nombre; }
+        public double SueldoBasico { get => _sueldoBasico; }
+        public double PorcRetenciones { get => _porcRetenciones; }
 
-        public Categoria(int idCategoria, string nombre, double sueldoBasico, bool siConvenio, string cCT)
+        public Categoria(int idCategoria, string nombre, double sueldoBasico, double porcRetenciones, bool siConvenio, string cCT)
         {
             this._idCategoria = idCategoria;
             this._nombre = nombre;
             this._sueldoBasico = sueldoBasico;
+            this._porcRetenciones = porcRetenciones;
             this._siConvenio = siConvenio;
             this._cCT = cCT;
         }
+
 
         public override bool Equals(object obj)
         {
@@ -39,6 +46,23 @@ namespace Estudio.Libreria.Entidades
                 Categoria categoria = (Categoria)obj;
                 return this._idCategoria == categoria._idCategoria;
             }
+        }
+
+        public override string ToString()
+        {
+            string convenio = "";
+            if (this._siConvenio == true) { convenio = this._cCT; } 
+            else { convenio = "Fuera de Convenio"; }
+            return $"{this._nombre} - {convenio}";
+        }
+
+        public double GetSueldoNeto()
+        {
+            return this._sueldoBasico - GetMontoRetenciones();
+        }
+        public double GetMontoRetenciones()
+        {
+            return this._sueldoBasico * this._porcRetenciones / 100;
         }
     }
 }

@@ -12,17 +12,19 @@ namespace Estudio.Libreria.Entidades
         private string _domicilio;
         private string _cuil;
         private string _empresa;
-        //categoria: int idCategoria u objeto categoria?
+        private Categoria _categoria;
 
         public int Legajo { get => this._legajo; }
+        public Categoria Categoria { get => _categoria; }
 
-
-        public Empleado(string nombre, string apellido, int dni, string cuil, string domicilio, int legajo, string empresa) : base(nombre, apellido, dni)
+        public Empleado(string nombre, string apellido, int dni, int legajo, string domicilio, string cuil, string empresa, Categoria categoria) : base(nombre, apellido, dni)
         {
-            this._cuil = cuil;
-            this._domicilio = domicilio;
             this._legajo = legajo;
+            this._domicilio = domicilio;
+            this._cuil = cuil;
             this._empresa = empresa;
+            this._categoria = categoria;
+
         }
         public Empleado()
         {

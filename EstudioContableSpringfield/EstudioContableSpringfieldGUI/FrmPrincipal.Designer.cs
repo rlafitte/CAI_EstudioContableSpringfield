@@ -43,7 +43,7 @@ namespace EstudioContableSpringfieldGUI
             this.btnLiquidaciones.Location = new System.Drawing.Point(527, 87);
             this.btnLiquidaciones.Name = "btnLiquidaciones";
             this.btnLiquidaciones.Size = new System.Drawing.Size(113, 48);
-            this.btnLiquidaciones.TabIndex = 0;
+            this.btnLiquidaciones.TabIndex = 4;
             this.btnLiquidaciones.Text = "Liquidaciones";
             this.btnLiquidaciones.UseVisualStyleBackColor = false;
             this.btnLiquidaciones.Click += new System.EventHandler(this.btnLiquidaciones_Click);
@@ -69,7 +69,7 @@ namespace EstudioContableSpringfieldGUI
             this.btnCategorias.Location = new System.Drawing.Point(408, 87);
             this.btnCategorias.Name = "btnCategorias";
             this.btnCategorias.Size = new System.Drawing.Size(113, 48);
-            this.btnCategorias.TabIndex = 2;
+            this.btnCategorias.TabIndex = 3;
             this.btnCategorias.Text = "Categorías";
             this.btnCategorias.UseVisualStyleBackColor = false;
             this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
@@ -82,7 +82,7 @@ namespace EstudioContableSpringfieldGUI
             this.btnReportes.Location = new System.Drawing.Point(345, 155);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(113, 48);
-            this.btnReportes.TabIndex = 3;
+            this.btnReportes.TabIndex = 5;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = false;
             this.btnReportes.MouseLeave += new System.EventHandler(this.btnReportes_MouseLeave);
@@ -94,7 +94,7 @@ namespace EstudioContableSpringfieldGUI
             this.btnEmpleados.Location = new System.Drawing.Point(289, 87);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Size = new System.Drawing.Size(113, 48);
-            this.btnEmpleados.TabIndex = 4;
+            this.btnEmpleados.TabIndex = 2;
             this.btnEmpleados.Text = "Empleados";
             this.btnEmpleados.UseVisualStyleBackColor = false;
             this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
@@ -107,7 +107,7 @@ namespace EstudioContableSpringfieldGUI
             this.btnConsulta.Location = new System.Drawing.Point(345, 231);
             this.btnConsulta.Name = "btnConsulta";
             this.btnConsulta.Size = new System.Drawing.Size(113, 48);
-            this.btnConsulta.TabIndex = 5;
+            this.btnConsulta.TabIndex = 6;
             this.btnConsulta.Text = "Consultar";
             this.btnConsulta.UseVisualStyleBackColor = false;
             this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
