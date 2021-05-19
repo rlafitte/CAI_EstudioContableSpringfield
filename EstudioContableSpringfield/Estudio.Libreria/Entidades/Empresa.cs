@@ -35,5 +35,10 @@ namespace Estudio.Libreria.Entidades
         {
 
         }
+
+        public override string ToString()
+        {
+            return $"{this._nombre}";
+        }
     }
 }

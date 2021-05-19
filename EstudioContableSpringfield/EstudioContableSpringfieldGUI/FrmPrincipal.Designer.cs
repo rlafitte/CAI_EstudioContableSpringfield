@@ -34,6 +34,7 @@ namespace EstudioContableSpringfieldGUI
             this.btnCategorias = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
+            this.btnConsulta = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLiquidaciones
@@ -100,11 +101,23 @@ namespace EstudioContableSpringfieldGUI
             this.btnEmpleados.MouseLeave += new System.EventHandler(this.btnEmpleados_MouseLeave);
             this.btnEmpleados.MouseHover += new System.EventHandler(this.btnEmpleados_MouseHover);
             // 
+            // btnConsulta
+            // 
+            this.btnConsulta.BackColor = System.Drawing.Color.White;
+            this.btnConsulta.Location = new System.Drawing.Point(345, 231);
+            this.btnConsulta.Name = "btnConsulta";
+            this.btnConsulta.Size = new System.Drawing.Size(113, 48);
+            this.btnConsulta.TabIndex = 5;
+            this.btnConsulta.Text = "Consultar";
+            this.btnConsulta.UseVisualStyleBackColor = false;
+            this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 291);
+            this.Controls.Add(this.btnConsulta);
             this.Controls.Add(this.btnEmpleados);
             this.Controls.Add(this.btnReportes);
             this.Controls.Add(this.btnCategorias);
@@ -123,6 +136,7 @@ namespace EstudioContableSpringfieldGUI
         private System.Windows.Forms.Button btnCategorias;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnEmpleados;
+        private System.Windows.Forms.Button btnConsulta;
     }
 }
 

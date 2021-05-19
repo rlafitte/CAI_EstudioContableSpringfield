@@ -49,9 +49,9 @@ namespace EstudioContableSpringfieldGUI
             this.label10 = new System.Windows.Forms.Label();
             this.txtRetenciones = new System.Windows.Forms.TextBox();
             this.txtBruto = new System.Windows.Forms.TextBox();
-            this.txtEmpleado = new System.Windows.Forms.TextBox();
-            this.txtEmpresa = new System.Windows.Forms.TextBox();
             this.dateFechaPago = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnVolver
@@ -241,22 +241,6 @@ namespace EstudioContableSpringfieldGUI
             this.txtBruto.Size = new System.Drawing.Size(165, 29);
             this.txtBruto.TabIndex = 51;
             // 
-            // txtEmpleado
-            // 
-            this.txtEmpleado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmpleado.Location = new System.Drawing.Point(536, 121);
-            this.txtEmpleado.Name = "txtEmpleado";
-            this.txtEmpleado.Size = new System.Drawing.Size(165, 29);
-            this.txtEmpleado.TabIndex = 50;
-            // 
-            // txtEmpresa
-            // 
-            this.txtEmpresa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmpresa.Location = new System.Drawing.Point(536, 86);
-            this.txtEmpresa.Name = "txtEmpresa";
-            this.txtEmpresa.Size = new System.Drawing.Size(165, 29);
-            this.txtEmpresa.TabIndex = 49;
-            // 
             // dateFechaPago
             // 
             this.dateFechaPago.Location = new System.Drawing.Point(172, 231);
@@ -264,11 +248,30 @@ namespace EstudioContableSpringfieldGUI
             this.dateFechaPago.Size = new System.Drawing.Size(189, 20);
             this.dateFechaPago.TabIndex = 59;
             // 
-            // Liquidacion
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(536, 89);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(159, 21);
+            this.comboBox1.TabIndex = 60;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(536, 121);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(159, 21);
+            this.comboBox2.TabIndex = 61;
+            // 
+            // FrmLiquidacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dateFechaPago);
             this.Controls.Add(this.txtNeto);
             this.Controls.Add(this.label6);
@@ -278,8 +281,6 @@ namespace EstudioContableSpringfieldGUI
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtRetenciones);
             this.Controls.Add(this.txtBruto);
-            this.Controls.Add(this.txtEmpleado);
-            this.Controls.Add(this.txtEmpresa);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -292,7 +293,7 @@ namespace EstudioContableSpringfieldGUI
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.LiquidacionesTitle);
             this.Controls.Add(this.btnVolver);
-            this.Name = "Liquidacion";
+            this.Name = "FrmLiquidacion";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -322,9 +323,9 @@ namespace EstudioContableSpringfieldGUI
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtRetenciones;
         private System.Windows.Forms.TextBox txtBruto;
-        private System.Windows.Forms.TextBox txtEmpleado;
-        private System.Windows.Forms.TextBox txtEmpresa;
         private System.Windows.Forms.DateTimePicker dateFechaPago;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
 
