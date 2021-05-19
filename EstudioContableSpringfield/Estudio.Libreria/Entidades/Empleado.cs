@@ -12,21 +12,26 @@ namespace Estudio.Libreria.Entidades
         private string _domicilio;
         private string _cuil;
         private string _empresa;
-        //categoria: int idCategoria u objeto categoria? 
-        private List<Liquidacion> _liqEmpleado;
+        //categoria: int idCategoria u objeto categoria?
 
-        public List<Liquidacion> LiqEmpleado { get => this._liqEmpleado; set => _liqEmpleado = value; }
+        public int Legajo { get => this._legajo; }
+
+
         public Empleado(string nombre, string apellido, int dni, string cuil, string domicilio, int legajo, string empresa) : base(nombre, apellido, dni)
         {
             this._cuil = cuil;
             this._domicilio = domicilio;
             this._legajo = legajo;
             this._empresa = empresa;
-            this._liqEmpleado = new List<Liquidacion>();
         }
         public Empleado()
         {
 
+        }
+
+        public override string ToString()
+        {
+            return $"{this._cuil} | {base.ToString()}";
         }
     }
 }
