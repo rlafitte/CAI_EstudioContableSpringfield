@@ -27,9 +27,9 @@ namespace Estudio.Libreria.Entidades
 
         }
 
-        public virtual string ToStringPersona()
+        public override string ToString()
         {
-            return $"Apellido: { this.Apellido}, Nombre: {this.Nombre}";
+            return $"{ this.Apellido}, {this.Nombre}";
         }
     }
 }

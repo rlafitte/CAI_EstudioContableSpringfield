@@ -32,7 +32,6 @@ namespace EstudioContableSpringfieldGUI
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-
             this.Owner.Show();
             this.Close();
         }

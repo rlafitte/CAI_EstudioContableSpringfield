@@ -46,7 +46,7 @@ namespace Estudio.Libreria.Entidades
 
         public override string ToString()
         {
-            return $"{this._codLiquidacion} | {this._mes}/{this._año} | {this._tipo} | {this._empresa.ToString()} | {this._empleado.ToString()}";
+            return $"Código: {this._codLiquidacion} | Fecha: {this._mes}/{this._año} | Tipo: {this._tipo} | Empresa: {this._empresa} | Empleado: {this._empleado}";
         }
     }
 }
