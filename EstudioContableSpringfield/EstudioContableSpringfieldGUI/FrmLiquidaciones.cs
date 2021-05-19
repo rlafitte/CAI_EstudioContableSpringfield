@@ -43,7 +43,7 @@ namespace EstudioContableSpringfieldGUI
             {
                 ValidarCamposFormulario();
 
-                string codLiq = this.txtCodigo.Text;
+                string codLiq = this.txtCodigo.Text.ToUpper();
                 int mes = Convert.ToInt32(this.txtMes.Text);
                 int año = Convert.ToInt32(this.txtAño.Text);
                 string tipo  = this.txtTipo.Text;

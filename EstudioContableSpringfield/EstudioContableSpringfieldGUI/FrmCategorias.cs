@@ -24,7 +24,6 @@ namespace EstudioContableSpringfieldGUI
         private void FrmCategorias_Load(object sender, EventArgs e)
         {
             ResetearFormulario();
-            this.txtCCTNum.Enabled = false;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -79,6 +78,7 @@ namespace EstudioContableSpringfieldGUI
             txtCCTNum.Text = string.Empty;
             txtBasico.Text = string.Empty;
             txtPorcRet.Text = string.Empty;
+            this.txtCCTNum.Enabled = false;
         }
 
         private void chkCCTSi_CheckedChanged(object sender, EventArgs e)

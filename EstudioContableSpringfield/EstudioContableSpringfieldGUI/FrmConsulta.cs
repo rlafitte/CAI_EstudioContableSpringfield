@@ -54,6 +54,7 @@ namespace EstudioContableSpringfieldGUI
         {
             if (this.textBox1.Text == "")
                 throw new Exception("Los campos no deben estar vacíos");
+            this.textBox1.Text = this.textBox1.Text.ToUpper();
         }
 
         private List<Liquidacion> ValidarCodigo(string codigo)
@@ -106,7 +107,13 @@ namespace EstudioContableSpringfieldGUI
 
             foreach (Liquidacion liq in this._liquidacionesTotales)
             {
-                if (!listaCategorias.Contains(liq.Categoria))
+                bool existe = false;
+                foreach (Categoria cat in listaCategorias)
+                {
+                    if (cat.IdCategoria==liq.Categoria.IdCategoria)
+                        existe = true;
+                }
+                if (!existe)
                     listaCategorias.Add(liq.Categoria);
             }
 

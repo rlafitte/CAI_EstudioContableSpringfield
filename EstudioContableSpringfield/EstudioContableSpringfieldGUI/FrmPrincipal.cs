@@ -20,7 +20,7 @@ namespace EstudioContableSpringfieldGUI
             _nuevoEstudioContable = new EstudioContable();
             InitializeComponent();
 
-            /*
+            
             Categoria cat1 = new Categoria(1, "ADM A", 57000, 19.5, true, "130 / 75");
             Categoria cat2 = new Categoria(2, "VEND B", 68500, 19.5, true, "130 / 75");
             Categoria cat3 = new Categoria(3, "AUXILIAR A", 78690.78, 19, true, "108 / 75");
@@ -58,7 +58,7 @@ namespace EstudioContableSpringfieldGUI
             _nuevoEstudioContable.Liquidaciones.Add(new Liquidacion("TYU", 1, 2020, "VAC", DateTime.Today, emp3, emple6));
             _nuevoEstudioContable.Liquidaciones.Add(new Liquidacion("BBB", 1, 2020, "MENSUAL", DateTime.Today, emp4, emple1));
             _nuevoEstudioContable.Liquidaciones.Add(new Liquidacion("BBB", 1, 2020, "1 QUINCENA", DateTime.Today, emp1, emple2));
-            */
+            
 
         }
 

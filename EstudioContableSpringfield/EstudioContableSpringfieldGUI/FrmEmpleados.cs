@@ -53,6 +53,7 @@ namespace EstudioContableSpringfieldGUI
                 string direccion = this.textBox5.Text;
                 string cuil = this.textBox4.Text;
                 string empresa = this.comboBox1.Text;
+
                 Categoria categoria = (Categoria)comboBox2.SelectedItem;
 
                 Empleado nuevoEmpleado = new Empleado(nombre, apellido, dni, legajo, direccion, cuil, empresa, categoria);
