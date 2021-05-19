@@ -12,7 +12,7 @@ namespace Estudio.Libreria.Entidades
         private int _mes;
         private int _año;
         private string _tipo;
-        private DateTime _fechaPago;
+        private string _fechaPago;
         private Empresa _empresa;
         private Empleado _empleado;
         private Categoria _categoria;
@@ -27,7 +27,7 @@ namespace Estudio.Libreria.Entidades
         public Empleado Empleado { get => this._empleado; }
         public Categoria Categoria { get => this._categoria; }
 
-        public Liquidacion(string codLiquidacion, int mes, int año, string tipo, DateTime fechaPago, Empresa empresa, Empleado empleado, double bruto, double retenciones, double neto)
+        public Liquidacion(string codLiquidacion, int mes, int año, string tipo, string fechaPago, Empresa empresa, Empleado empleado, double bruto, double retenciones, double neto)
         {
             this._codLiquidacion = codLiquidacion;
             this._mes = mes;

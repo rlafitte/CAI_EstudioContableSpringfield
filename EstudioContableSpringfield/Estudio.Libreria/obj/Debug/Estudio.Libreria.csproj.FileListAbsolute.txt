@@ -1,6 +1,5 @@
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Estudio.Libreria.dll
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Estudio.Libreria.pdb
-C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.csprojAssemblyReference.cache
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.csproj.CoreCompileInputs.cache
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.dll
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.pdb

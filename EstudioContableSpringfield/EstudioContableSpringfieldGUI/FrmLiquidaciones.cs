@@ -46,7 +46,7 @@ namespace EstudioContableSpringfieldGUI
                 int mes = Convert.ToInt32(this.txtMes.Text);
                 int año = Convert.ToInt32(this.txtAño.Text);
                 string tipo  = this.txtTipo.Text;
-                DateTime fecha = this.dateFechaPago.Value;
+                string fecha = this.tbFechaPago.Text;
                 string empresaTexto = this.comboBox1.Text;
                 string empleadoTexto = this.comboBox2.Text;
                 double bruto = Convert.ToDouble(this.txtBruto.Text);
@@ -71,9 +71,9 @@ namespace EstudioContableSpringfieldGUI
 
         private void ValidarCamposFormulario()
         {
-            if (
-                this.dateFechaPago.Value > System.DateTime.Today)
-                throw new Exception("La fecha no puede ser mayor a la fecha actual");
+            //if (
+            //    this.dateFechaPago.Value > System.DateTime.Today)
+            //    throw new Exception("La fecha no puede ser mayor a la fecha actual");
             if (
             this.txtCodigo.Text == "" ||
             this.txtMes.Text == "" ||
@@ -90,7 +90,7 @@ namespace EstudioContableSpringfieldGUI
         private void ResetearFormulario()
         {
 
-            this.dateFechaPago.Value = System.DateTime.Today;
+            this.tbFechaPago.Text = "";
             this.txtCodigo.Text = "";
             this.txtMes.Text = "";
             this.txtAño.Text = "";
@@ -130,6 +130,52 @@ namespace EstudioContableSpringfieldGUI
                 throw new Exception("No existe el empleado");
 
             return empleadoEncontrado;
+        }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double _br;
+                double.TryParse(txtBruto.Text, out _br);
+                if (_br > 0)
+                {
+
+                try
+                {
+
+                    double _ret;
+                    double.TryParse(txtRetenciones.Text, out _ret);
+                    if (_ret > 0)
+                        {
+
+                        try
+                        {
+                        txtNeto.Text = (_br * _ret).ToString();
+
+                        }
+                        catch (Exception ex)
+                        {
+                        txtBruto.Clear();
+                        txtRetenciones.Clear();
+                        throw new Exception("Valor incorrecto. Intente nuevamente");
+                        }
+                        }
+                }
+                catch (Exception ex)
+                {
+                    txtBruto.Clear();
+                    txtRetenciones.Clear();
+                    throw new Exception("Valor incorrecto. Intente nuevamente");
+                }
+                }
+            }
+            catch (Exception ex)
+            {
+                txtBruto.Clear();
+                txtRetenciones.Clear();
+                throw new Exception("Valor incorrecto. Intente nuevamente");
+            }
         }
     }
 }
