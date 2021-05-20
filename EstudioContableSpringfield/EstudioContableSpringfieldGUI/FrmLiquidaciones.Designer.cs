@@ -37,8 +37,6 @@ namespace EstudioContableSpringfieldGUI
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.TextBox();
-            this.txtAño = new System.Windows.Forms.TextBox();
-            this.txtMes = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.LiquidacionesTitle = new System.Windows.Forms.Label();
             this.txtNeto = new System.Windows.Forms.TextBox();
@@ -52,6 +50,8 @@ namespace EstudioContableSpringfieldGUI
             this.dateFechaPago = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dtAnio = new System.Windows.Forms.DateTimePicker();
+            this.dtMes = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btnVolver
@@ -90,9 +90,9 @@ namespace EstudioContableSpringfieldGUI
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(17, 191);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 21);
+            this.label4.Size = new System.Drawing.Size(47, 21);
             this.label4.TabIndex = 45;
-            this.label4.Text = "Tipo";
+            this.label4.Text = "Tipo*";
             // 
             // label3
             // 
@@ -120,9 +120,9 @@ namespace EstudioContableSpringfieldGUI
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 86);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 21);
+            this.label1.Size = new System.Drawing.Size(67, 21);
             this.label1.TabIndex = 42;
-            this.label1.Text = "Código";
+            this.label1.Text = "Código*";
             // 
             // txtTipo
             // 
@@ -131,22 +131,6 @@ namespace EstudioContableSpringfieldGUI
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(116, 29);
             this.txtTipo.TabIndex = 41;
-            // 
-            // txtAño
-            // 
-            this.txtAño.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAño.Location = new System.Drawing.Point(172, 153);
-            this.txtAño.Name = "txtAño";
-            this.txtAño.Size = new System.Drawing.Size(116, 29);
-            this.txtAño.TabIndex = 40;
-            // 
-            // txtMes
-            // 
-            this.txtMes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMes.Location = new System.Drawing.Point(172, 118);
-            this.txtMes.Name = "txtMes";
-            this.txtMes.Size = new System.Drawing.Size(116, 29);
-            this.txtMes.TabIndex = 39;
             // 
             // txtCodigo
             // 
@@ -211,9 +195,9 @@ namespace EstudioContableSpringfieldGUI
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(384, 126);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 21);
+            this.label9.Size = new System.Drawing.Size(86, 21);
             this.label9.TabIndex = 54;
-            this.label9.Text = "Empleado";
+            this.label9.Text = "Empleado*";
             // 
             // label10
             // 
@@ -221,9 +205,9 @@ namespace EstudioContableSpringfieldGUI
             this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(384, 91);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 21);
+            this.label10.Size = new System.Drawing.Size(77, 21);
             this.label10.TabIndex = 53;
-            this.label10.Text = "Empresa";
+            this.label10.Text = "Empresa*";
             // 
             // txtRetenciones
             // 
@@ -271,11 +255,28 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox2.TabIndex = 61;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
+            // dtAnio
+            // 
+            this.dtAnio.Location = new System.Drawing.Point(172, 161);
+            this.dtAnio.Name = "dtAnio";
+            this.dtAnio.Size = new System.Drawing.Size(116, 20);
+            this.dtAnio.TabIndex = 62;
+            this.dtAnio.ValueChanged += new System.EventHandler(this.dtAnio_ValueChanged);
+            // 
+            // dtMes
+            // 
+            this.dtMes.Location = new System.Drawing.Point(172, 126);
+            this.dtMes.Name = "dtMes";
+            this.dtMes.Size = new System.Drawing.Size(116, 20);
+            this.dtMes.TabIndex = 63;
+            // 
             // FrmLiquidacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dtMes);
+            this.Controls.Add(this.dtAnio);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dateFechaPago);
@@ -294,8 +295,6 @@ namespace EstudioContableSpringfieldGUI
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTipo);
-            this.Controls.Add(this.txtAño);
-            this.Controls.Add(this.txtMes);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.LiquidacionesTitle);
             this.Controls.Add(this.btnVolver);
@@ -317,8 +316,6 @@ namespace EstudioContableSpringfieldGUI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTipo;
-        private System.Windows.Forms.TextBox txtAño;
-        private System.Windows.Forms.TextBox txtMes;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label LiquidacionesTitle;
         private System.Windows.Forms.TextBox txtNeto;
@@ -332,6 +329,8 @@ namespace EstudioContableSpringfieldGUI
         private System.Windows.Forms.DateTimePicker dateFechaPago;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DateTimePicker dtAnio;
+        private System.Windows.Forms.DateTimePicker dtMes;
     }
 }
 
