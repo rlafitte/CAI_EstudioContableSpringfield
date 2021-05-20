@@ -125,6 +125,7 @@ namespace EstudioContableSpringfieldGUI
             this.Controls.Add(this.btnLiquidaciones);
             this.Name = "FrmPrincipal";
             this.Text = "Estudio Contable Springfield";
+            this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.ResumeLayout(false);
 
         }

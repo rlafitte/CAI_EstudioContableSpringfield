@@ -50,3 +50,5 @@ C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContable
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.FrmLiquidacion.resources
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.FrmConsulta.resources
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.FrmConsulta.resources
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.FrmCategorias.resources
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.FrmConsulta.resources
