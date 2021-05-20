@@ -27,7 +27,7 @@ namespace EstudioContableSpringfieldGUI
         {
             this.comboBox1.DataSource = this._estContable.Empresas;
             this.comboBox1.DisplayMember = "Nombre";
-            this.comboBox1.ValueMember = "Id";
+            this.comboBox1.ValueMember = "Cuit";
             this.dateFechaPago.Format = DateTimePickerFormat.Custom;
             this.dateFechaPago.CustomFormat = "dd/MM/yyyy";
             this.dtAnio.Format = DateTimePickerFormat.Custom;
@@ -55,7 +55,7 @@ namespace EstudioContableSpringfieldGUI
                 string codLiq = this.txtCodigo.Text.ToUpper();
                 int mes = Convert.ToInt32(this.dtMes.Text);
                 int año = Convert.ToInt32(this.dtAnio.Text);
-                string tipo  = this.txtTipo.Text;
+                string tipo = this.txtTipo.Text;
                 DateTime fecha = this.dateFechaPago.Value;
 
                 string empresaTexto = this.comboBox1.Text;
@@ -90,8 +90,8 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox1.Text == "" ||
             this.comboBox2.Text == "" ||
             this.txtBruto.Text == "" ||
-            this.txtRetenciones.Text == ""||
-            this.txtNeto.Text == "" 
+            this.txtRetenciones.Text == "" ||
+            this.txtNeto.Text == ""
             )
                 throw new Exception("Los campos marcados con * no deben estar vacíos");
         }
@@ -159,14 +159,5 @@ namespace EstudioContableSpringfieldGUI
             return empleadoEncontrado;
         }
 
-        private void dtAnio_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtAño_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

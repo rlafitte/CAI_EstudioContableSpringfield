@@ -265,7 +265,6 @@ namespace EstudioContableSpringfieldGUI
             this.dtAnio.Name = "dtAnio";
             this.dtAnio.Size = new System.Drawing.Size(165, 29);
             this.dtAnio.TabIndex = 62;
-            this.dtAnio.ValueChanged += new System.EventHandler(this.dtAnio_ValueChanged);
             // 
             // dtMes
             // 

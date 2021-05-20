@@ -45,7 +45,7 @@ namespace EstudioContableSpringfieldGUI
                 DateTime inicioActiv = this.dateTimePicker.Value;
                 string domicilio = this.textBox5.Text;
 
-                Empresa nuevaEmpresa = new Empresa(1, nombre, cuil, rubro, inicioActiv, domicilio);
+                Empresa nuevaEmpresa = new Empresa(nombre, cuil, rubro, inicioActiv, domicilio);
 
                 this._estContable.Empresas.Add(nuevaEmpresa);
 

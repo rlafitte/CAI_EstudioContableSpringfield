@@ -55,15 +55,16 @@ namespace EstudioContableSpringfieldGUI
                 txtIdCategoria.Text == string.Empty ||
                 txtNombre.Text == string.Empty ||
                 (chkCCTSi.Checked && txtCCTNum.Text == string.Empty) ||
-                txtBasico.Text == string.Empty
+                txtBasico.Text == string.Empty ||
+                txtPorcRet.Text == string.Empty
                 )
             {
                 throw new Exception("Ningún campo puede estar vacío");
             }
             else if (
+                !int.TryParse(txtIdCategoria.Text, out int id) ||
                 !double.TryParse(txtBasico.Text, out double basico )||
-                !double.TryParse(txtPorcRet.Text, out double porcRet ) ||
-                !int.TryParse(txtIdCategoria.Text, out int id)
+                !double.TryParse(txtPorcRet.Text, out double porcRet ) 
                 )
             {
                 throw new Exception("Debe ingresar un numero");
