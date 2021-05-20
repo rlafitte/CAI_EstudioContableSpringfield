@@ -15,3 +15,4 @@ C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContable
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.dll
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.pdb
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.csprojAssemblyReference.cache

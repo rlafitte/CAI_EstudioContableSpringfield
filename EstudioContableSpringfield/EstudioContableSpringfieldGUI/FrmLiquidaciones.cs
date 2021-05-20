@@ -30,6 +30,13 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox1.ValueMember = "Id";
             this.dateFechaPago.Format = DateTimePickerFormat.Custom;
             this.dateFechaPago.CustomFormat = "dd/MM/yyyy";
+            this.dtAnio.Format = DateTimePickerFormat.Custom;
+            this.dtAnio.CustomFormat = "yyyy";
+            this.dtAnio.ShowUpDown = true;
+            this.dtMes.Format = DateTimePickerFormat.Custom;
+            this.dtMes.CustomFormat = "MM";
+            this.dtMes.ShowUpDown = true;
+
             ResetearFormulario();
         }
 
@@ -46,8 +53,10 @@ namespace EstudioContableSpringfieldGUI
                 ValidarCamposFormulario();
 
                 string codLiq = this.txtCodigo.Text.ToUpper();
-                int mes = Convert.ToInt32(this.txtMes.Text);
-                int año = Convert.ToInt32(this.txtAño.Text);
+                //int mes = Convert.ToInt32(this.txtMes.Text);
+                int mes = Convert.ToInt32(this.dtMes.Text);
+                //int año = Convert.ToInt32(this.txtAño.Text);
+                int año = Convert.ToInt32(this.dtAnio.Text);
                 string tipo  = this.txtTipo.Text;
                 DateTime fecha = this.dateFechaPago.Value;
 
@@ -79,8 +88,8 @@ namespace EstudioContableSpringfieldGUI
                 throw new Exception("La fecha no puede ser mayor a la fecha actual");
             if (
             this.txtCodigo.Text == "" ||
-            this.txtMes.Text == "" ||
-            this.txtAño.Text == "" ||
+            //this.txtMes.Text == "" ||
+            //this.txtAño.Text == "" ||
             this.txtTipo.Text == "" ||
             this.comboBox1.Text == "" ||
             this.comboBox2.Text == "" ||
@@ -96,8 +105,8 @@ namespace EstudioContableSpringfieldGUI
 
             this.dateFechaPago.Value = System.DateTime.Today;
             this.txtCodigo.Text = "";
-            this.txtMes.Text = "";
-            this.txtAño.Text = "";
+            //this.txtMes.Text = "";
+            //this.txtAño.Text = "";
             this.txtTipo.Text = "";
             this.comboBox1.Text = "";
             this.comboBox2.Text = "";
@@ -152,6 +161,16 @@ namespace EstudioContableSpringfieldGUI
                 throw new Exception("No existe el empleado");
 
             return empleadoEncontrado;
+        }
+
+        private void dtAnio_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAño_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

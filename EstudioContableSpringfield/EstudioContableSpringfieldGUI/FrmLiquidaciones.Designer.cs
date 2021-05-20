@@ -37,8 +37,6 @@ namespace EstudioContableSpringfieldGUI
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.TextBox();
-            this.txtAño = new System.Windows.Forms.TextBox();
-            this.txtMes = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.LiquidacionesTitle = new System.Windows.Forms.Label();
             this.txtNeto = new System.Windows.Forms.TextBox();
@@ -52,6 +50,8 @@ namespace EstudioContableSpringfieldGUI
             this.dateFechaPago = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dtAnio = new System.Windows.Forms.DateTimePicker();
+            this.dtMes = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btnVolver
@@ -131,22 +131,6 @@ namespace EstudioContableSpringfieldGUI
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(116, 29);
             this.txtTipo.TabIndex = 41;
-            // 
-            // txtAño
-            // 
-            this.txtAño.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAño.Location = new System.Drawing.Point(172, 153);
-            this.txtAño.Name = "txtAño";
-            this.txtAño.Size = new System.Drawing.Size(116, 29);
-            this.txtAño.TabIndex = 40;
-            // 
-            // txtMes
-            // 
-            this.txtMes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMes.Location = new System.Drawing.Point(172, 118);
-            this.txtMes.Name = "txtMes";
-            this.txtMes.Size = new System.Drawing.Size(116, 29);
-            this.txtMes.TabIndex = 39;
             // 
             // txtCodigo
             // 
@@ -271,11 +255,28 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox2.TabIndex = 61;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
+            // dtAnio
+            // 
+            this.dtAnio.Location = new System.Drawing.Point(172, 161);
+            this.dtAnio.Name = "dtAnio";
+            this.dtAnio.Size = new System.Drawing.Size(116, 20);
+            this.dtAnio.TabIndex = 62;
+            this.dtAnio.ValueChanged += new System.EventHandler(this.dtAnio_ValueChanged);
+            // 
+            // dtMes
+            // 
+            this.dtMes.Location = new System.Drawing.Point(172, 126);
+            this.dtMes.Name = "dtMes";
+            this.dtMes.Size = new System.Drawing.Size(116, 20);
+            this.dtMes.TabIndex = 63;
+            // 
             // FrmLiquidacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dtMes);
+            this.Controls.Add(this.dtAnio);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dateFechaPago);
@@ -294,8 +295,6 @@ namespace EstudioContableSpringfieldGUI
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTipo);
-            this.Controls.Add(this.txtAño);
-            this.Controls.Add(this.txtMes);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.LiquidacionesTitle);
             this.Controls.Add(this.btnVolver);
@@ -317,8 +316,6 @@ namespace EstudioContableSpringfieldGUI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTipo;
-        private System.Windows.Forms.TextBox txtAño;
-        private System.Windows.Forms.TextBox txtMes;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label LiquidacionesTitle;
         private System.Windows.Forms.TextBox txtNeto;
@@ -332,6 +329,8 @@ namespace EstudioContableSpringfieldGUI
         private System.Windows.Forms.DateTimePicker dateFechaPago;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DateTimePicker dtAnio;
+        private System.Windows.Forms.DateTimePicker dtMes;
     }
 }
 
