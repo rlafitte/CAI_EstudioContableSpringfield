@@ -48,7 +48,7 @@ namespace EstudioContableSpringfieldGUI
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(19, 361);
+            this.btnVolver.Location = new System.Drawing.Point(19, 301);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(107, 34);
             this.btnVolver.TabIndex = 13;
@@ -192,7 +192,7 @@ namespace EstudioContableSpringfieldGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 407);
+            this.ClientSize = new System.Drawing.Size(386, 374);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtPorcRet);
             this.Controls.Add(this.label5);
