@@ -90,9 +90,9 @@ namespace EstudioContableSpringfieldGUI
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(17, 191);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 21);
+            this.label4.Size = new System.Drawing.Size(47, 21);
             this.label4.TabIndex = 45;
-            this.label4.Text = "Tipo";
+            this.label4.Text = "Tipo*";
             // 
             // label3
             // 
@@ -120,9 +120,9 @@ namespace EstudioContableSpringfieldGUI
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 86);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 21);
+            this.label1.Size = new System.Drawing.Size(67, 21);
             this.label1.TabIndex = 42;
-            this.label1.Text = "Código";
+            this.label1.Text = "Código*";
             // 
             // txtTipo
             // 
@@ -195,9 +195,9 @@ namespace EstudioContableSpringfieldGUI
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(384, 126);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 21);
+            this.label9.Size = new System.Drawing.Size(86, 21);
             this.label9.TabIndex = 54;
-            this.label9.Text = "Empleado";
+            this.label9.Text = "Empleado*";
             // 
             // label10
             // 
@@ -205,9 +205,9 @@ namespace EstudioContableSpringfieldGUI
             this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(384, 91);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 21);
+            this.label10.Size = new System.Drawing.Size(77, 21);
             this.label10.TabIndex = 53;
-            this.label10.Text = "Empresa";
+            this.label10.Text = "Empresa*";
             // 
             // txtRetenciones
             // 

@@ -97,7 +97,7 @@ namespace EstudioContableSpringfieldGUI
             this.txtRetenciones.Text == ""||
             this.txtNeto.Text == "" 
             )
-                throw new Exception("Los campos no deben estar vacíos");
+                throw new Exception("Los campos marcados con * no deben estar vacíos");
         }
 
         private void ResetearFormulario()
