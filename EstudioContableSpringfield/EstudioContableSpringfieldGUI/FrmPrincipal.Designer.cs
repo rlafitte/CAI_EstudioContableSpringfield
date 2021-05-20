@@ -35,12 +35,13 @@ namespace EstudioContableSpringfieldGUI
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnConsulta = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLiquidaciones
             // 
             this.btnLiquidaciones.BackColor = System.Drawing.Color.White;
-            this.btnLiquidaciones.Location = new System.Drawing.Point(527, 87);
+            this.btnLiquidaciones.Location = new System.Drawing.Point(173, 157);
             this.btnLiquidaciones.Name = "btnLiquidaciones";
             this.btnLiquidaciones.Size = new System.Drawing.Size(113, 48);
             this.btnLiquidaciones.TabIndex = 4;
@@ -53,7 +54,7 @@ namespace EstudioContableSpringfieldGUI
             // btnEmpresas
             // 
             this.btnEmpresas.BackColor = System.Drawing.Color.White;
-            this.btnEmpresas.Location = new System.Drawing.Point(170, 87);
+            this.btnEmpresas.Location = new System.Drawing.Point(54, 103);
             this.btnEmpresas.Name = "btnEmpresas";
             this.btnEmpresas.Size = new System.Drawing.Size(113, 48);
             this.btnEmpresas.TabIndex = 1;
@@ -66,7 +67,7 @@ namespace EstudioContableSpringfieldGUI
             // btnCategorias
             // 
             this.btnCategorias.BackColor = System.Drawing.Color.White;
-            this.btnCategorias.Location = new System.Drawing.Point(408, 87);
+            this.btnCategorias.Location = new System.Drawing.Point(54, 157);
             this.btnCategorias.Name = "btnCategorias";
             this.btnCategorias.Size = new System.Drawing.Size(113, 48);
             this.btnCategorias.TabIndex = 3;
@@ -79,7 +80,7 @@ namespace EstudioContableSpringfieldGUI
             // btnReportes
             // 
             this.btnReportes.BackColor = System.Drawing.Color.White;
-            this.btnReportes.Location = new System.Drawing.Point(345, 155);
+            this.btnReportes.Location = new System.Drawing.Point(114, 332);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(113, 48);
             this.btnReportes.TabIndex = 5;
@@ -91,7 +92,7 @@ namespace EstudioContableSpringfieldGUI
             // btnEmpleados
             // 
             this.btnEmpleados.BackColor = System.Drawing.Color.White;
-            this.btnEmpleados.Location = new System.Drawing.Point(289, 87);
+            this.btnEmpleados.Location = new System.Drawing.Point(173, 103);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Size = new System.Drawing.Size(113, 48);
             this.btnEmpleados.TabIndex = 2;
@@ -104,7 +105,7 @@ namespace EstudioContableSpringfieldGUI
             // btnConsulta
             // 
             this.btnConsulta.BackColor = System.Drawing.Color.White;
-            this.btnConsulta.Location = new System.Drawing.Point(345, 231);
+            this.btnConsulta.Location = new System.Drawing.Point(114, 241);
             this.btnConsulta.Name = "btnConsulta";
             this.btnConsulta.Size = new System.Drawing.Size(113, 48);
             this.btnConsulta.TabIndex = 6;
@@ -112,11 +113,22 @@ namespace EstudioContableSpringfieldGUI
             this.btnConsulta.UseVisualStyleBackColor = false;
             this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(319, 32);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Estudio Contable Springfield";
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 291);
+            this.ClientSize = new System.Drawing.Size(340, 410);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConsulta);
             this.Controls.Add(this.btnEmpleados);
             this.Controls.Add(this.btnReportes);
@@ -127,6 +139,7 @@ namespace EstudioContableSpringfieldGUI
             this.Text = "Estudio Contable Springfield";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -138,6 +151,7 @@ namespace EstudioContableSpringfieldGUI
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnEmpleados;
         private System.Windows.Forms.Button btnConsulta;
+        private System.Windows.Forms.Label label1;
     }
 }
 
