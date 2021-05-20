@@ -8,7 +8,6 @@ namespace Estudio.Libreria.Entidades
 {
     public class Empresa
     {
-        private int _id;
         private string _nombre;
         private string _cuit;
         private DateTime _inicioActividad;
@@ -17,13 +16,12 @@ namespace Estudio.Libreria.Entidades
         private List<Empleado> _empleados;
 
 
-        public int Id { get => this._id; }
         public string Nombre { get => this._nombre; }
+        public string Cuit { get => _cuit; }
         public List<Empleado> Empleados { get => this._empleados; }
 
-        public Empresa(int id, string nombre, string cuit, string rubro, DateTime inicioActiv, string domicilio)
+        public Empresa(string nombre, string cuit, string rubro, DateTime inicioActiv, string domicilio)
         {
-            this._id = id;
             this._nombre = nombre;
             this._cuit = cuit;
             this._inicioActividad = inicioActiv;

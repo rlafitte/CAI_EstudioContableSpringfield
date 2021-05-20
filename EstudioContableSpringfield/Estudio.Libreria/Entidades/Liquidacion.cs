@@ -17,7 +17,7 @@ namespace Estudio.Libreria.Entidades
         private Empleado _empleado;
         private Categoria _categoria;
 
-        //
+        
         private double _bruto;
         private double _retenciones;
         private double _neto;

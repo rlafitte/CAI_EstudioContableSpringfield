@@ -31,7 +31,7 @@ namespace EstudioContableSpringfieldGUI
         {
             this.comboBox1.DataSource = this._estContable.Empresas;
             this.comboBox1.DisplayMember = "Nombre";
-            this.comboBox1.ValueMember = "Id";
+            this.comboBox1.ValueMember = "Cuit";
 
             this.comboBox2.DataSource = this._estContable.Categorias;
             this.comboBox2.DisplayMember = "Nombre";

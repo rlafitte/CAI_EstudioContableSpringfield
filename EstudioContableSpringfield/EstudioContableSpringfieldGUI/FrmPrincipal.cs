@@ -29,10 +29,10 @@ namespace EstudioContableSpringfieldGUI
             _nuevoEstudioContable.Categorias.Add(cat2);
             _nuevoEstudioContable.Categorias.Add(cat3);
             _nuevoEstudioContable.Categorias.Add(cat4);
-            Empresa emp1 = new Empresa(1, "EMPRESA 1 ", "33 -33333333 - 3", "COMERCIALIZACION", DateTime.Today, "DOMICILIO EMPRESA1");
-            Empresa emp2 = new Empresa(2, "EMPRESA 2 ", "33 - 33333333 - 4", "FABRICACION", DateTime.Today, "DOMICILIO EMPRESA2");
-            Empresa emp3 = new Empresa(3, "EMPRESA 3 ", "33 - 33333333 - 5", "IMPORTACION", DateTime.Today, "DOMICILIO EMPRESA3");
-            Empresa emp4 = new Empresa(4, "EMPRESA 4 ", "33 - 33333333 - 6", "IMPORTACION", DateTime.Today, "DOMICILIO EMPRESA4");
+            Empresa emp1 = new Empresa("EMPRESA 1 ", "33 -33333333 - 3", "COMERCIALIZACION", DateTime.Today, "DOMICILIO EMPRESA1");
+            Empresa emp2 = new Empresa("EMPRESA 2 ", "33 - 33333333 - 4", "FABRICACION", DateTime.Today, "DOMICILIO EMPRESA2");
+            Empresa emp3 = new Empresa("EMPRESA 3 ", "33 - 33333333 - 5", "IMPORTACION", DateTime.Today, "DOMICILIO EMPRESA3");
+            Empresa emp4 = new Empresa("EMPRESA 4 ", "33 - 33333333 - 6", "IMPORTACION", DateTime.Today, "DOMICILIO EMPRESA4");
             _nuevoEstudioContable.Empresas.Add(emp1);
             _nuevoEstudioContable.Empresas.Add(emp2);
             _nuevoEstudioContable.Empresas.Add(emp3);

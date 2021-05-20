@@ -16,9 +16,7 @@ namespace Estudio.Libreria.Entidades
         private string _cCT; //Convenio colectivo de trabajo
 
         public int IdCategoria { get => _idCategoria; }
-        public string Nombre { get => _nombre; }
         public double SueldoBasico { get => _sueldoBasico; }
-        public double PorcRetenciones { get => _porcRetenciones; }
 
         public Categoria(int idCategoria, string nombre, double sueldoBasico, double porcRetenciones, bool siConvenio, string cCT)
         {
