@@ -21,6 +21,12 @@ namespace EstudioContableSpringfieldGUI
             InitializeComponent();
         }
 
+        private void FrmEmpresas_Load(object sender, EventArgs e)
+        {
+            this.dateTimePicker.Format = DateTimePickerFormat.Custom;
+            this.dateTimePicker.CustomFormat = "dd/MM/yyyy";
+        }
+
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Owner.Show();
@@ -36,7 +42,7 @@ namespace EstudioContableSpringfieldGUI
                 string nombre = this.textBox1.Text;
                 string cuil = this.textBox2.Text;
                 string rubro = this.textBox3.Text;
-                string inicioActiv = this.textBox4.Text;
+                DateTime inicioActiv = this.dateTimePicker.Value;
                 string domicilio = this.textBox5.Text;
 
                 Empresa nuevaEmpresa = new Empresa(1, nombre, cuil, rubro, inicioActiv, domicilio);
@@ -58,7 +64,6 @@ namespace EstudioContableSpringfieldGUI
             this.textBox1.Text == "" ||
             this.textBox2.Text == "" ||
             this.textBox3.Text == "" ||
-            this.textBox4.Text == "" ||
             this.textBox5.Text == "")
                 throw new Exception("Los campos no deben estar vacíos");
         }
@@ -68,7 +73,6 @@ namespace EstudioContableSpringfieldGUI
             this.textBox1.Text = "";
             this.textBox2.Text = "";
             this.textBox3.Text = "";
-            this.textBox4.Text = "";
             this.textBox5.Text = "";
         }
     }

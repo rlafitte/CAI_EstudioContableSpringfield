@@ -52,13 +52,16 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.dtAnio = new System.Windows.Forms.DateTimePicker();
             this.dtMes = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(43, 316);
+            this.btnVolver.Location = new System.Drawing.Point(12, 316);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(136, 51);
+            this.btnVolver.Size = new System.Drawing.Size(81, 25);
             this.btnVolver.TabIndex = 0;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
@@ -66,7 +69,7 @@ namespace EstudioContableSpringfieldGUI
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(565, 324);
+            this.btnAgregar.Location = new System.Drawing.Point(293, 280);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(107, 34);
             this.btnAgregar.TabIndex = 47;
@@ -78,7 +81,7 @@ namespace EstudioContableSpringfieldGUI
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 231);
+            this.label5.Location = new System.Drawing.Point(17, 228);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 21);
             this.label5.TabIndex = 46;
@@ -127,17 +130,17 @@ namespace EstudioContableSpringfieldGUI
             // txtTipo
             // 
             this.txtTipo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipo.Location = new System.Drawing.Point(172, 188);
+            this.txtTipo.Location = new System.Drawing.Point(144, 188);
             this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(116, 29);
+            this.txtTipo.Size = new System.Drawing.Size(165, 29);
             this.txtTipo.TabIndex = 41;
             // 
             // txtCodigo
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(172, 83);
+            this.txtCodigo.Location = new System.Drawing.Point(144, 83);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(116, 29);
+            this.txtCodigo.Size = new System.Drawing.Size(84, 29);
             this.txtCodigo.TabIndex = 38;
             // 
             // LiquidacionesTitle
@@ -153,10 +156,10 @@ namespace EstudioContableSpringfieldGUI
             // txtNeto
             // 
             this.txtNeto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNeto.Location = new System.Drawing.Point(536, 223);
+            this.txtNeto.Location = new System.Drawing.Point(559, 223);
             this.txtNeto.Name = "txtNeto";
             this.txtNeto.ReadOnly = true;
-            this.txtNeto.Size = new System.Drawing.Size(165, 29);
+            this.txtNeto.Size = new System.Drawing.Size(142, 29);
             this.txtNeto.TabIndex = 58;
             // 
             // label6
@@ -212,27 +215,27 @@ namespace EstudioContableSpringfieldGUI
             // txtRetenciones
             // 
             this.txtRetenciones.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRetenciones.Location = new System.Drawing.Point(536, 188);
+            this.txtRetenciones.Location = new System.Drawing.Point(559, 188);
             this.txtRetenciones.Name = "txtRetenciones";
             this.txtRetenciones.ReadOnly = true;
-            this.txtRetenciones.Size = new System.Drawing.Size(165, 29);
+            this.txtRetenciones.Size = new System.Drawing.Size(142, 29);
             this.txtRetenciones.TabIndex = 52;
             // 
             // txtBruto
             // 
             this.txtBruto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBruto.Location = new System.Drawing.Point(536, 153);
+            this.txtBruto.Location = new System.Drawing.Point(559, 153);
             this.txtBruto.Name = "txtBruto";
             this.txtBruto.ReadOnly = true;
-            this.txtBruto.Size = new System.Drawing.Size(165, 29);
+            this.txtBruto.Size = new System.Drawing.Size(142, 29);
             this.txtBruto.TabIndex = 51;
             // 
             // dateFechaPago
             // 
-            this.dateFechaPago.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateFechaPago.Location = new System.Drawing.Point(172, 225);
+            this.dateFechaPago.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFechaPago.Location = new System.Drawing.Point(144, 222);
             this.dateFechaPago.Name = "dateFechaPago";
-            this.dateFechaPago.Size = new System.Drawing.Size(116, 25);
+            this.dateFechaPago.Size = new System.Drawing.Size(165, 29);
             this.dateFechaPago.TabIndex = 59;
             // 
             // comboBox1
@@ -257,24 +260,59 @@ namespace EstudioContableSpringfieldGUI
             // 
             // dtAnio
             // 
-            this.dtAnio.Location = new System.Drawing.Point(172, 161);
+            this.dtAnio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtAnio.Location = new System.Drawing.Point(144, 153);
             this.dtAnio.Name = "dtAnio";
-            this.dtAnio.Size = new System.Drawing.Size(116, 20);
+            this.dtAnio.Size = new System.Drawing.Size(165, 29);
             this.dtAnio.TabIndex = 62;
             this.dtAnio.ValueChanged += new System.EventHandler(this.dtAnio_ValueChanged);
             // 
             // dtMes
             // 
-            this.dtMes.Location = new System.Drawing.Point(172, 126);
+            this.dtMes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtMes.Location = new System.Drawing.Point(144, 118);
             this.dtMes.Name = "dtMes";
-            this.dtMes.Size = new System.Drawing.Size(116, 20);
+            this.dtMes.Size = new System.Drawing.Size(165, 29);
             this.dtMes.TabIndex = 63;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(534, 156);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(19, 21);
+            this.label11.TabIndex = 64;
+            this.label11.Text = "$";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(534, 191);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(19, 21);
+            this.label12.TabIndex = 65;
+            this.label12.Text = "$";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(534, 226);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(19, 21);
+            this.label13.TabIndex = 66;
+            this.label13.Text = "$";
             // 
             // FrmLiquidacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(722, 353);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.dtMes);
             this.Controls.Add(this.dtAnio);
             this.Controls.Add(this.comboBox2);
@@ -331,6 +369,9 @@ namespace EstudioContableSpringfieldGUI
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.DateTimePicker dtAnio;
         private System.Windows.Forms.DateTimePicker dtMes;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }
 

@@ -53,14 +53,10 @@ namespace EstudioContableSpringfieldGUI
                 ValidarCamposFormulario();
 
                 string codLiq = this.txtCodigo.Text.ToUpper();
-                //int mes = Convert.ToInt32(this.txtMes.Text);
                 int mes = Convert.ToInt32(this.dtMes.Text);
-                //int año = Convert.ToInt32(this.txtAño.Text);
                 int año = Convert.ToInt32(this.dtAnio.Text);
                 string tipo  = this.txtTipo.Text;
                 DateTime fecha = this.dateFechaPago.Value;
-
-                //Empresa empresaSinBuscar = (Empresa)this.comboBox1.SelectedItem;
 
                 string empresaTexto = this.comboBox1.Text;
                 string empleadoTexto = this.comboBox2.Text;

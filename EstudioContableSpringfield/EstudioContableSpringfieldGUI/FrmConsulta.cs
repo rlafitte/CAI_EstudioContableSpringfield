@@ -23,18 +23,11 @@ namespace EstudioContableSpringfieldGUI
             InitializeComponent();
         }
 
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-            this.Owner.Show();
-            this.Close();
-        }
-
         private void btnConsultaLiquidaciones_Click(object sender, EventArgs e)
         {
             try
             {
-                this.list1.DataSource = null;
-                this.list1.Items.Clear();
+                VaciarLista();
                 ValidarCamposFormulario();
                 string codLiquidacion = this.textBox1.Text;
                 List<Liquidacion> listaLiquidaciones = ValidarCodigo(codLiquidacion);
@@ -50,11 +43,91 @@ namespace EstudioContableSpringfieldGUI
             }
         }
 
-        private void ValidarCamposFormulario()
+        private void btnConsultaEmpresa_Click(object sender, EventArgs e)
         {
-            if (this.textBox1.Text == "")
-                throw new Exception("Los campos no deben estar vacíos");
-            this.textBox1.Text = this.textBox1.Text.ToUpper();
+            try
+            {
+                ValidarCodigoReadOnly();
+
+                List<Empresa> listaEmpresas = new List<Empresa>();
+
+                foreach (Liquidacion liq in this._liquidacionesTotales)
+                {
+                    if (!listaEmpresas.Contains(liq.Empresa))
+                        listaEmpresas.Add(liq.Empresa);
+                }
+
+                this.list1.DataSource = null;
+                this.list1.DataSource = listaEmpresas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnConsultaEmpleado_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ValidarCodigoReadOnly();
+
+                List<Empleado> listaEmpleados = new List<Empleado>();
+
+                foreach (Liquidacion liq in this._liquidacionesTotales)
+                {
+                    if (!listaEmpleados.Contains(liq.Empleado))
+                        listaEmpleados.Add(liq.Empleado);
+                }
+
+                this.list1.DataSource = null;
+                this.list1.DataSource = listaEmpleados;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnConsultaCategoria_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ValidarCodigoReadOnly();
+
+                List<Categoria> listaCategorias = new List<Categoria>();
+
+                foreach (Liquidacion liq in this._liquidacionesTotales)
+                {
+                    bool existe = false;
+                    foreach (Categoria cat in listaCategorias)
+                    {
+                        if (cat.IdCategoria == liq.Categoria.IdCategoria)
+                            existe = true;
+                    }
+                    if (!existe)
+                        listaCategorias.Add(liq.Categoria);
+                }
+
+                this.list1.DataSource = null;
+                this.list1.DataSource = listaCategorias;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            VaciarLista();
+            this.textBoxCodReadOnly.Text = "";
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Close();
         }
 
         private List<Liquidacion> ValidarCodigo(string codigo)
@@ -73,52 +146,23 @@ namespace EstudioContableSpringfieldGUI
             return liquidacionesPorCodigo;
         }
 
-        private void btnConsultaEmpresa_Click(object sender, EventArgs e)
+        private void ValidarCodigoReadOnly()
         {
-            List<Empresa> listaEmpresas = new List<Empresa>();
-
-            foreach (Liquidacion liq in this._liquidacionesTotales)
-            {
-                if (!listaEmpresas.Contains(liq.Empresa))
-                    listaEmpresas.Add(liq.Empresa);
-            }
-
-            this.list1.DataSource = null;
-            this.list1.DataSource = listaEmpresas;
+            if (this.textBoxCodReadOnly.Text == "")
+                throw new Exception("Debe ingresar un código para filtrar");
         }
 
-        private void btnConsultaEmpleado_Click(object sender, EventArgs e)
+        private void ValidarCamposFormulario()
         {
-            List<Empleado> listaEmpleados = new List<Empleado>();
-
-            foreach (Liquidacion liq in this._liquidacionesTotales)
-            {
-                if (!listaEmpleados.Contains(liq.Empleado))
-                    listaEmpleados.Add(liq.Empleado);
-            }
-
-            this.list1.DataSource = null;
-            this.list1.DataSource = listaEmpleados;
+            if (this.textBox1.Text == "")
+                throw new Exception("Los campos no deben estar vacíos");
+            this.textBox1.Text = this.textBox1.Text.ToUpper();
         }
 
-        private void btnConsultaCategoria_Click(object sender, EventArgs e)
+        private void VaciarLista()
         {
-            List<Categoria> listaCategorias = new List<Categoria>();
-
-            foreach (Liquidacion liq in this._liquidacionesTotales)
-            {
-                bool existe = false;
-                foreach (Categoria cat in listaCategorias)
-                {
-                    if (cat.IdCategoria==liq.Categoria.IdCategoria)
-                        existe = true;
-                }
-                if (!existe)
-                    listaCategorias.Add(liq.Categoria);
-            }
-
             this.list1.DataSource = null;
-            this.list1.DataSource = listaCategorias;
+            this.list1.Items.Clear();
         }
     }
 }
