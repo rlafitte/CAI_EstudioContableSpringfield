@@ -28,6 +28,8 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox1.DataSource = this._estContable.Empresas;
             this.comboBox1.DisplayMember = "Nombre";
             this.comboBox1.ValueMember = "Id";
+            this.dateFechaPago.Format = DateTimePickerFormat.Custom;
+            this.dateFechaPago.CustomFormat = "dd/MM/yyyy";
             ResetearFormulario();
         }
 
