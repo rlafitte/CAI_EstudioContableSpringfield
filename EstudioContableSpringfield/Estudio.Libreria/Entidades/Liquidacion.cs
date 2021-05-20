@@ -12,7 +12,7 @@ namespace Estudio.Libreria.Entidades
         private int _mes;
         private int _año;
         private string _tipo;
-        private string _fechaPago;
+        private DateTime _fechaPago;
         private Empresa _empresa;
         private Empleado _empleado;
         private Categoria _categoria;
@@ -27,7 +27,7 @@ namespace Estudio.Libreria.Entidades
         public Empleado Empleado { get => this._empleado; }
         public Categoria Categoria { get => this._categoria; }
 
-        public Liquidacion(string codLiquidacion, int mes, int año, string tipo, string fechaPago, Empresa empresa, Empleado empleado, double bruto, double retenciones, double neto)
+        public Liquidacion(string codLiquidacion, int mes, int año, string tipo, DateTime fechaPago, Empresa empresa, Empleado empleado)
         {
             this._codLiquidacion = codLiquidacion;
             this._mes = mes;
@@ -36,9 +36,10 @@ namespace Estudio.Libreria.Entidades
             this._fechaPago = fechaPago;
             this._empresa = empresa;
             this._empleado = empleado;
-            this._bruto = bruto;
-            this._retenciones = retenciones;
-            this._neto = neto;
+            this._categoria = empleado.Categoria;
+            this._bruto = _categoria.SueldoBasico;
+            this._retenciones = _categoria.GetMontoRetenciones();
+            this._neto = _categoria.GetSueldoNeto();
         }
         public Liquidacion() 
         { 
@@ -46,7 +47,7 @@ namespace Estudio.Libreria.Entidades
 
         public override string ToString()
         {
-            return $"Código: {this._codLiquidacion} | Fecha: {this._mes}/{this._año} | Tipo: {this._tipo} | Empresa: {this._empresa} | Empleado: {this._empleado}";
+            return $"Código: {this._codLiquidacion} | Fecha: {this._mes}/{this._año} | Tipo: {this._tipo} | Empresa: {this._empresa} | Empleado: {this._empleado} | Categoria: {this._categoria}";
         }
     }
 }

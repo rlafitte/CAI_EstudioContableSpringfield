@@ -42,24 +42,26 @@ namespace EstudioContableSpringfieldGUI
             this.chkCCTSi = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtIdCategoria = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPorcRet = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(19, 334);
+            this.btnVolver.Location = new System.Drawing.Point(19, 361);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(107, 34);
-            this.btnVolver.TabIndex = 11;
+            this.btnVolver.TabIndex = 13;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(233, 253);
+            this.btnAgregar.Location = new System.Drawing.Point(233, 301);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(107, 34);
-            this.btnAgregar.TabIndex = 10;
+            this.btnAgregar.TabIndex = 12;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -168,11 +170,31 @@ namespace EstudioContableSpringfieldGUI
             this.txtIdCategoria.Size = new System.Drawing.Size(165, 29);
             this.txtIdCategoria.TabIndex = 1;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(20, 256);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(111, 21);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Retenciones %";
+            // 
+            // txtPorcRet
+            // 
+            this.txtPorcRet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorcRet.Location = new System.Drawing.Point(175, 253);
+            this.txtPorcRet.Name = "txtPorcRet";
+            this.txtPorcRet.Size = new System.Drawing.Size(165, 29);
+            this.txtPorcRet.TabIndex = 11;
+            // 
             // FrmCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 388);
+            this.ClientSize = new System.Drawing.Size(386, 407);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtPorcRet);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtIdCategoria);
             this.Controls.Add(this.chkCCTSi);
@@ -208,5 +230,7 @@ namespace EstudioContableSpringfieldGUI
         private System.Windows.Forms.CheckBox chkCCTSi;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtIdCategoria;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtPorcRet;
     }
 }

@@ -49,10 +49,9 @@ namespace EstudioContableSpringfieldGUI
             this.label10 = new System.Windows.Forms.Label();
             this.txtRetenciones = new System.Windows.Forms.TextBox();
             this.txtBruto = new System.Windows.Forms.TextBox();
+            this.dateFechaPago = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.tbFechaPago = new System.Windows.Forms.TextBox();
-            this.btnCalcular = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVolver
@@ -173,7 +172,7 @@ namespace EstudioContableSpringfieldGUI
             this.txtNeto.Location = new System.Drawing.Point(536, 223);
             this.txtNeto.Name = "txtNeto";
             this.txtNeto.ReadOnly = true;
-            this.txtNeto.Size = new System.Drawing.Size(254, 29);
+            this.txtNeto.Size = new System.Drawing.Size(165, 29);
             this.txtNeto.TabIndex = 58;
             // 
             // label6
@@ -231,7 +230,8 @@ namespace EstudioContableSpringfieldGUI
             this.txtRetenciones.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRetenciones.Location = new System.Drawing.Point(536, 188);
             this.txtRetenciones.Name = "txtRetenciones";
-            this.txtRetenciones.Size = new System.Drawing.Size(254, 29);
+            this.txtRetenciones.ReadOnly = true;
+            this.txtRetenciones.Size = new System.Drawing.Size(165, 29);
             this.txtRetenciones.TabIndex = 52;
             // 
             // txtBruto
@@ -239,8 +239,17 @@ namespace EstudioContableSpringfieldGUI
             this.txtBruto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBruto.Location = new System.Drawing.Point(536, 153);
             this.txtBruto.Name = "txtBruto";
-            this.txtBruto.Size = new System.Drawing.Size(254, 29);
+            this.txtBruto.ReadOnly = true;
+            this.txtBruto.Size = new System.Drawing.Size(165, 29);
             this.txtBruto.TabIndex = 51;
+            // 
+            // dateFechaPago
+            // 
+            this.dateFechaPago.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFechaPago.Location = new System.Drawing.Point(172, 225);
+            this.dateFechaPago.Name = "dateFechaPago";
+            this.dateFechaPago.Size = new System.Drawing.Size(165, 29);
+            this.dateFechaPago.TabIndex = 59;
             // 
             // comboBox1
             // 
@@ -248,7 +257,7 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(536, 83);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(254, 29);
+            this.comboBox1.Size = new System.Drawing.Size(165, 29);
             this.comboBox1.TabIndex = 60;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -258,36 +267,18 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(536, 118);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(254, 29);
+            this.comboBox2.Size = new System.Drawing.Size(165, 29);
             this.comboBox2.TabIndex = 61;
-            // 
-            // tbFechaPago
-            // 
-            this.tbFechaPago.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFechaPago.Location = new System.Drawing.Point(172, 231);
-            this.tbFechaPago.Name = "tbFechaPago";
-            this.tbFechaPago.Size = new System.Drawing.Size(165, 29);
-            this.tbFechaPago.TabIndex = 62;
-            // 
-            // btnCalcular
-            // 
-            this.btnCalcular.Location = new System.Drawing.Point(796, 221);
-            this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(107, 34);
-            this.btnCalcular.TabIndex = 63;
-            this.btnCalcular.Text = "Calcular";
-            this.btnCalcular.UseVisualStyleBackColor = true;
-            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // FrmLiquidacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 450);
-            this.Controls.Add(this.btnCalcular);
-            this.Controls.Add(this.tbFechaPago);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.dateFechaPago);
             this.Controls.Add(this.txtNeto);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -338,10 +329,9 @@ namespace EstudioContableSpringfieldGUI
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtRetenciones;
         private System.Windows.Forms.TextBox txtBruto;
+        private System.Windows.Forms.DateTimePicker dateFechaPago;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox tbFechaPago;
-        private System.Windows.Forms.Button btnCalcular;
     }
 }
 

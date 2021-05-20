@@ -54,6 +54,7 @@ namespace EstudioContableSpringfieldGUI
         {
             if (this.textBox1.Text == "")
                 throw new Exception("Los campos no deben estar vacíos");
+            this.textBox1.Text = this.textBox1.Text.ToUpper();
         }
 
         private List<Liquidacion> ValidarCodigo(string codigo)
@@ -84,6 +85,40 @@ namespace EstudioContableSpringfieldGUI
 
             this.list1.DataSource = null;
             this.list1.DataSource = listaEmpresas;
+        }
+
+        private void btnConsultaEmpleado_Click(object sender, EventArgs e)
+        {
+            List<Empleado> listaEmpleados = new List<Empleado>();
+
+            foreach (Liquidacion liq in this._liquidacionesTotales)
+            {
+                if (!listaEmpleados.Contains(liq.Empleado))
+                    listaEmpleados.Add(liq.Empleado);
+            }
+
+            this.list1.DataSource = null;
+            this.list1.DataSource = listaEmpleados;
+        }
+
+        private void btnConsultaCategoria_Click(object sender, EventArgs e)
+        {
+            List<Categoria> listaCategorias = new List<Categoria>();
+
+            foreach (Liquidacion liq in this._liquidacionesTotales)
+            {
+                bool existe = false;
+                foreach (Categoria cat in listaCategorias)
+                {
+                    if (cat.IdCategoria==liq.Categoria.IdCategoria)
+                        existe = true;
+                }
+                if (!existe)
+                    listaCategorias.Add(liq.Categoria);
+            }
+
+            this.list1.DataSource = null;
+            this.list1.DataSource = listaCategorias;
         }
     }
 }

@@ -28,6 +28,7 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox1.DataSource = this._estContable.Empresas;
             this.comboBox1.DisplayMember = "Nombre";
             this.comboBox1.ValueMember = "Id";
+            ResetearFormulario();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -42,21 +43,21 @@ namespace EstudioContableSpringfieldGUI
             {
                 ValidarCamposFormulario();
 
-                string codLiq = this.txtCodigo.Text;
+                string codLiq = this.txtCodigo.Text.ToUpper();
                 int mes = Convert.ToInt32(this.txtMes.Text);
                 int año = Convert.ToInt32(this.txtAño.Text);
                 string tipo  = this.txtTipo.Text;
-                string fecha = this.tbFechaPago.Text;
+                DateTime fecha = this.dateFechaPago.Value;
+
+                //Empresa empresaSinBuscar = (Empresa)this.comboBox1.SelectedItem;
+
                 string empresaTexto = this.comboBox1.Text;
                 string empleadoTexto = this.comboBox2.Text;
-                double bruto = Convert.ToDouble(this.txtBruto.Text);
-                double retenciones = Convert.ToDouble(this.txtRetenciones.Text);
-                double neto = bruto * (1 - retenciones);
 
                 Empresa empresa = BuscarEmpresa(empresaTexto);
                 Empleado empleado = BuscarEmpleado(empleadoTexto, empresa);
 
-                Liquidacion nuevaLiq= new Liquidacion(codLiq, mes, año, tipo, fecha, empresa, empleado , bruto, retenciones, neto);
+                Liquidacion nuevaLiq = new Liquidacion(codLiq, mes, año, tipo, fecha, empresa, empleado);
 
                 this._estContable.Liquidaciones.Add(nuevaLiq);
 
@@ -71,9 +72,9 @@ namespace EstudioContableSpringfieldGUI
 
         private void ValidarCamposFormulario()
         {
-            //if (
-            //    this.dateFechaPago.Value > System.DateTime.Today)
-            //    throw new Exception("La fecha no puede ser mayor a la fecha actual");
+            if (
+                this.dateFechaPago.Value > System.DateTime.Today)
+                throw new Exception("La fecha no puede ser mayor a la fecha actual");
             if (
             this.txtCodigo.Text == "" ||
             this.txtMes.Text == "" ||
@@ -82,7 +83,8 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox1.Text == "" ||
             this.comboBox2.Text == "" ||
             this.txtBruto.Text == "" ||
-            this.txtRetenciones.Text == ""
+            this.txtRetenciones.Text == ""||
+            this.txtNeto.Text == "" 
             )
                 throw new Exception("Los campos no deben estar vacíos");
         }
@@ -90,7 +92,7 @@ namespace EstudioContableSpringfieldGUI
         private void ResetearFormulario()
         {
 
-            this.tbFechaPago.Text = "";
+            this.dateFechaPago.Value = System.DateTime.Today;
             this.txtCodigo.Text = "";
             this.txtMes.Text = "";
             this.txtAño.Text = "";
@@ -99,6 +101,7 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox2.Text = "";
             this.txtBruto.Text = "";
             this.txtRetenciones.Text = "";
+            this.txtNeto.Text = "";
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -110,6 +113,23 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox2.DataSource = empresaFiltro.Empleados;
             this.comboBox2.DisplayMember = "Nombre";
             this.comboBox2.ValueMember = "Legajo";
+        }
+
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MostrarMontosLiquidacion();
+        }
+
+        private void MostrarMontosLiquidacion()
+        {
+            if (comboBox2.DataSource != null)
+            {
+                Empleado empleado = (Empleado)comboBox2.SelectedItem;
+                txtBruto.Text = empleado.Categoria.SueldoBasico.ToString();
+                txtRetenciones.Text = empleado.Categoria.GetMontoRetenciones().ToString();
+                txtNeto.Text = empleado.Categoria.GetSueldoNeto().ToString();
+            }
         }
 
         private Empresa BuscarEmpresa(string nombreEmpresa)
@@ -130,52 +150,6 @@ namespace EstudioContableSpringfieldGUI
                 throw new Exception("No existe el empleado");
 
             return empleadoEncontrado;
-        }
-
-        private void btnCalcular_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                double _br;
-                double.TryParse(txtBruto.Text, out _br);
-                if (_br > 0)
-                {
-
-                try
-                {
-
-                    double _ret;
-                    double.TryParse(txtRetenciones.Text, out _ret);
-                    if (_ret > 0)
-                        {
-
-                        try
-                        {
-                        txtNeto.Text = (_br * _ret).ToString();
-
-                        }
-                        catch (Exception ex)
-                        {
-                        txtBruto.Clear();
-                        txtRetenciones.Clear();
-                        throw new Exception("Valor incorrecto. Intente nuevamente");
-                        }
-                        }
-                }
-                catch (Exception ex)
-                {
-                    txtBruto.Clear();
-                    txtRetenciones.Clear();
-                    throw new Exception("Valor incorrecto. Intente nuevamente");
-                }
-                }
-            }
-            catch (Exception ex)
-            {
-                txtBruto.Clear();
-                txtRetenciones.Clear();
-                throw new Exception("Valor incorrecto. Intente nuevamente");
-            }
         }
     }
 }
