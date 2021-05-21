@@ -109,6 +109,7 @@ namespace EstudioContableSpringfieldGUI
             this.txtBruto.Text = "";
             this.txtRetenciones.Text = "";
             this.txtNeto.Text = "";
+            this.comboBox2.Enabled = false;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -120,6 +121,7 @@ namespace EstudioContableSpringfieldGUI
             this.comboBox2.DataSource = empresaFiltro.Empleados;
             this.comboBox2.DisplayMember = "Nombre";
             this.comboBox2.ValueMember = "Legajo";
+            this.comboBox2.Enabled = true;
         }
 
 
