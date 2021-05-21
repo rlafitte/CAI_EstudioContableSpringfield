@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnConsultaLiquidaciones = new System.Windows.Forms.Button();
             this.list1 = new System.Windows.Forms.ListBox();
@@ -43,16 +42,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxCodReadOnly = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(19, 111);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 29);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -193,11 +184,20 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "→";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(19, 119);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(100, 21);
+            this.comboBox1.TabIndex = 15;
+            // 
             // FrmConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 450);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxCodReadOnly);
             this.Controls.Add(this.label6);
@@ -212,17 +212,15 @@
             this.Controls.Add(this.list1);
             this.Controls.Add(this.btnConsultaLiquidaciones);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
             this.Name = "FrmConsulta";
             this.Text = "FrmConsulta";
+            this.Load += new System.EventHandler(this.FrmConsulta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnConsultaLiquidaciones;
         private System.Windows.Forms.ListBox list1;
@@ -237,5 +235,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxCodReadOnly;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

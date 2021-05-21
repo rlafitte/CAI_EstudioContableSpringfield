@@ -29,7 +29,8 @@ namespace EstudioContableSpringfieldGUI
             {
                 VaciarLista();
                 ValidarCamposFormulario();
-                string codLiquidacion = this.textBox1.Text;
+                /*string codLiquidacion = this.textBox1.Text; *///VERIFICAR
+                string codLiquidacion = this.comboBox1.SelectedItem.ToString(); //VERIFICAR
                 List<Liquidacion> listaLiquidaciones = ValidarCodigo(codLiquidacion);
                 this._liquidacionesTotales = listaLiquidaciones;
 
@@ -148,15 +149,32 @@ namespace EstudioContableSpringfieldGUI
 
         private void ValidarCamposFormulario()
         {
-            if (this.textBox1.Text == "")
+            //if (this.textBox1.Text == "") //VERIFICAR
+            if (this.comboBox1.SelectedItem.ToString() == "") //VERIFICAR
                 throw new Exception("Los campos no deben estar vacíos");
-            this.textBox1.Text = this.textBox1.Text.ToUpper();
+            //this.textBox1.Text = this.textBox1.Text.ToUpper();//VERIFICAR
         }
 
         private void VaciarLista()
         {
             this.list1.DataSource = null;
             this.list1.Items.Clear();
+        }
+
+        private void FrmConsulta_Load(object sender, EventArgs e)
+        {
+            string s1 = "";
+            foreach (Liquidacion liq in this._listaLiquidaciones)
+            {
+                //if (liq.CodLiquidacion == codigo)
+                //    liquidacionesPorCodigo.Add(liq);
+                int i = comboBox1.FindStringExact(liq.CodLiquidacion);
+                if (i < 0)
+                {
+                comboBox1.Items.Add(liq.CodLiquidacion);
+
+                }
+            }
         }
     }
 }
