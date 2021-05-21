@@ -16,6 +16,7 @@ namespace Estudio.Libreria.Entidades
 
         public int Legajo { get => this._legajo; }
         public Categoria Categoria { get => _categoria; }
+        public string Cuil { get => _cuil; }
 
         public Empleado(string nombre, string apellido, int dni, int legajo, string domicilio, string cuil, string empresa, Categoria categoria) : base(nombre, apellido, dni)
         {
@@ -35,5 +36,6 @@ namespace Estudio.Libreria.Entidades
         {
             return $"{this._cuil} | {base.ToString()}";
         }
+
     }
 }

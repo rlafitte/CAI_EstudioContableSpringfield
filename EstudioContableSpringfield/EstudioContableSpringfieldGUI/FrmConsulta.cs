@@ -99,13 +99,7 @@ namespace EstudioContableSpringfieldGUI
 
                 foreach (Liquidacion liq in this._liquidacionesTotales)
                 {
-                    bool existe = false;
-                    foreach (Categoria cat in listaCategorias)
-                    {
-                        if (cat.IdCategoria == liq.Categoria.IdCategoria)
-                            existe = true;
-                    }
-                    if (!existe)
+                    if (!listaCategorias.Contains(liq.Categoria))
                         listaCategorias.Add(liq.Categoria);
                 }
 
