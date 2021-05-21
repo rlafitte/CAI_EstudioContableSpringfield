@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Estudio.Libreria.Entidades
 {
@@ -38,14 +39,15 @@ namespace Estudio.Libreria.Entidades
         {
             return $"{this._nombre}";
         }
-        public string ListaEmpleados()
+        public void ListaEmpleados(ListBox lst)
         {
             string str = "";
             foreach(Empleado _e in _empleados)
             {
-                str += _e.ToString() + ";";
+                lst.Items.Add(_e.ToString() + Environment.NewLine);
+                //str += _e.ToString() + ";";
             }
-            return str;
+            return;
         }
         
     }
