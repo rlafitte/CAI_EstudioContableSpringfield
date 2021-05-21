@@ -38,5 +38,15 @@ namespace Estudio.Libreria.Entidades
         {
             return $"{this._nombre}";
         }
+        public string ListaEmpleados()
+        {
+            string str = "";
+            foreach(Empleado _e in _empleados)
+            {
+                str += _e.Apellido + ", " + _e.Nombre + System.Environment.NewLine;
+            }
+            return str;
+        }
+        
     }
 }

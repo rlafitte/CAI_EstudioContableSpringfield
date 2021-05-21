@@ -86,6 +86,7 @@ namespace EstudioContableSpringfieldGUI
             this.btnReportes.TabIndex = 5;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = false;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             this.btnReportes.MouseLeave += new System.EventHandler(this.btnReportes_MouseLeave);
             this.btnReportes.MouseHover += new System.EventHandler(this.btnReportes_MouseHover);
             // 

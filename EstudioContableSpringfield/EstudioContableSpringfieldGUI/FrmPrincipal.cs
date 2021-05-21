@@ -163,5 +163,14 @@ namespace EstudioContableSpringfieldGUI
         {
 
         }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            
+            FrmReportes frm = new FrmReportes(_nuevoEstudioContable);
+            frm.Owner = this;
+            frm.Show();
+            this.Hide();
+        }
     }
 }
