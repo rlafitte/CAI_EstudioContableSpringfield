@@ -76,7 +76,7 @@ namespace EstudioContableSpringfieldGUI
 
                 Empresa empresaEmpleado = this._estContable.Empresas.SingleOrDefault(emp => emp.Nombre.ToLower() == empresa.ToLower());
 
-                empresaEmpleado.Empleados.Add(nuevoEmpleado);
+                this._estContable.AgregarEmpleado(empresaEmpleado, nuevoEmpleado);
 
                 MessageBox.Show("Empleado agregado correctamente.");
                 ResetearFormulario();

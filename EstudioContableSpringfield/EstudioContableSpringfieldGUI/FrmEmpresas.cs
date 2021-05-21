@@ -47,7 +47,7 @@ namespace EstudioContableSpringfieldGUI
 
                 Empresa nuevaEmpresa = new Empresa(nombre, cuil, rubro, inicioActiv, domicilio);
 
-                this._estContable.Empresas.Add(nuevaEmpresa);
+                this._estContable.AgregarEmpresa(nuevaEmpresa);
 
                 MessageBox.Show("Empresa agregada correctamente.");
                 ResetearFormulario();
