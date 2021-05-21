@@ -62,7 +62,7 @@ namespace EstudioContableSpringfieldGUI
                 {
                     if (_cat.IdCategoria == _liq.Categoria.IdCategoria)
                     {
-                    lstReporte.Items.Add("---" + _liq.CodLiquidacion);
+                    lstReporte.Items.Add("---" + _liq.ToString());
                     }
                 }
                 lstReporte.Items.Add(Environment.NewLine);
