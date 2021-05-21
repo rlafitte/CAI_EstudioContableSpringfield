@@ -43,7 +43,7 @@ namespace EstudioContableSpringfieldGUI
             {
                 
                 lstReporte.Items.Add(_em.Nombre);
-                lstReporte.Items.Add(_em.ListaEmpleados());
+                _em.ListaEmpleados(lstReporte);
                 lstReporte.Items.Add(Environment.NewLine);
             }
 
