@@ -39,9 +39,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxCodReadOnly = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -49,15 +46,15 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 78);
+            this.label1.Location = new System.Drawing.Point(108, 394);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 21);
+            this.label1.Size = new System.Drawing.Size(63, 21);
             this.label1.TabIndex = 1;
-            this.label1.Text = "por código de liquidación";
+            this.label1.Text = "Código:";
             // 
             // btnConsultaLiquidaciones
             // 
-            this.btnConsultaLiquidaciones.Location = new System.Drawing.Point(19, 146);
+            this.btnConsultaLiquidaciones.Location = new System.Drawing.Point(177, 427);
             this.btnConsultaLiquidaciones.Name = "btnConsultaLiquidaciones";
             this.btnConsultaLiquidaciones.Size = new System.Drawing.Size(100, 29);
             this.btnConsultaLiquidaciones.TabIndex = 2;
@@ -67,17 +64,17 @@
             // 
             // list1
             // 
-            this.list1.Font = new System.Drawing.Font("Segoe UI", 6.75F);
+            this.list1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.list1.FormattingEnabled = true;
-            this.list1.ItemHeight = 12;
-            this.list1.Location = new System.Drawing.Point(207, 9);
+            this.list1.ItemHeight = 15;
+            this.list1.Location = new System.Drawing.Point(12, 52);
             this.list1.Name = "list1";
-            this.list1.Size = new System.Drawing.Size(698, 316);
+            this.list1.Size = new System.Drawing.Size(842, 304);
             this.list1.TabIndex = 3;
             // 
             // btnConsultaEmpresa
             // 
-            this.btnConsultaEmpresa.Location = new System.Drawing.Point(441, 390);
+            this.btnConsultaEmpresa.Location = new System.Drawing.Point(344, 428);
             this.btnConsultaEmpresa.Name = "btnConsultaEmpresa";
             this.btnConsultaEmpresa.Size = new System.Drawing.Size(100, 29);
             this.btnConsultaEmpresa.TabIndex = 4;
@@ -87,7 +84,7 @@
             // 
             // btnConsultaEmpleado
             // 
-            this.btnConsultaEmpleado.Location = new System.Drawing.Point(620, 387);
+            this.btnConsultaEmpleado.Location = new System.Drawing.Point(523, 425);
             this.btnConsultaEmpleado.Name = "btnConsultaEmpleado";
             this.btnConsultaEmpleado.Size = new System.Drawing.Size(93, 32);
             this.btnConsultaEmpleado.TabIndex = 5;
@@ -97,7 +94,7 @@
             // 
             // btnConsultaCategoria
             // 
-            this.btnConsultaCategoria.Location = new System.Drawing.Point(794, 387);
+            this.btnConsultaCategoria.Location = new System.Drawing.Point(697, 425);
             this.btnConsultaCategoria.Name = "btnConsultaCategoria";
             this.btnConsultaCategoria.Size = new System.Drawing.Size(93, 32);
             this.btnConsultaCategoria.TabIndex = 6;
@@ -107,7 +104,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(12, 415);
+            this.btnVolver.Location = new System.Drawing.Point(12, 445);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
             this.btnVolver.TabIndex = 7;
@@ -129,7 +126,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(443, 356);
+            this.label3.Location = new System.Drawing.Point(346, 394);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 21);
             this.label3.TabIndex = 9;
@@ -139,7 +136,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(615, 356);
+            this.label4.Location = new System.Drawing.Point(518, 394);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 21);
             this.label4.TabIndex = 10;
@@ -149,58 +146,28 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(790, 356);
+            this.label5.Location = new System.Drawing.Point(693, 394);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 21);
             this.label5.TabIndex = 11;
             this.label5.Text = "por categoría";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(212, 381);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 21);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Código";
-            // 
-            // textBoxCodReadOnly
-            // 
-            this.textBoxCodReadOnly.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCodReadOnly.Location = new System.Drawing.Point(278, 378);
-            this.textBoxCodReadOnly.Name = "textBoxCodReadOnly";
-            this.textBoxCodReadOnly.ReadOnly = true;
-            this.textBoxCodReadOnly.Size = new System.Drawing.Size(87, 29);
-            this.textBoxCodReadOnly.TabIndex = 13;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(371, 360);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 59);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "→";
-            // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(19, 119);
+            this.comboBox1.Location = new System.Drawing.Point(177, 394);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 21);
             this.comboBox1.TabIndex = 15;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // FrmConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 450);
+            this.ClientSize = new System.Drawing.Size(866, 480);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBoxCodReadOnly);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -232,9 +199,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxCodReadOnly;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox1;
     }
 }

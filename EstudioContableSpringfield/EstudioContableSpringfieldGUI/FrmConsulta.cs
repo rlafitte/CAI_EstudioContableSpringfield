@@ -29,14 +29,16 @@ namespace EstudioContableSpringfieldGUI
             {
                 VaciarLista();
                 ValidarCamposFormulario();
-                /*string codLiquidacion = this.textBox1.Text; *///VERIFICAR
-                string codLiquidacion = this.comboBox1.SelectedItem.ToString(); //VERIFICAR
+                string codLiquidacion = this.comboBox1.SelectedItem.ToString();
                 List<Liquidacion> listaLiquidaciones = ValidarCodigo(codLiquidacion);
                 this._liquidacionesTotales = listaLiquidaciones;
 
-                this.textBoxCodReadOnly.Text = codLiquidacion;
                 this.list1.DataSource = null;
                 this.list1.DataSource = this._liquidacionesTotales;
+
+                this.btnConsultaEmpresa.Enabled = true;
+                this.btnConsultaEmpleado.Enabled = true;
+                this.btnConsultaCategoria.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -113,12 +115,6 @@ namespace EstudioContableSpringfieldGUI
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            VaciarLista();
-            this.textBoxCodReadOnly.Text = "";
-        }
-
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Owner.Show();
@@ -143,16 +139,14 @@ namespace EstudioContableSpringfieldGUI
 
         private void ValidarCodigoReadOnly()
         {
-            if (this.textBoxCodReadOnly.Text == "")
+            if (this.comboBox1.SelectedItem == null)
                 throw new Exception("Debe ingresar un código para filtrar");
         }
 
         private void ValidarCamposFormulario()
         {
-            //if (this.textBox1.Text == "") //VERIFICAR
-            if (this.comboBox1.SelectedItem.ToString() == "") //VERIFICAR
+            if (this.comboBox1.SelectedItem == null)
                 throw new Exception("Los campos no deben estar vacíos");
-            //this.textBox1.Text = this.textBox1.Text.ToUpper();//VERIFICAR
         }
 
         private void VaciarLista()
@@ -163,18 +157,19 @@ namespace EstudioContableSpringfieldGUI
 
         private void FrmConsulta_Load(object sender, EventArgs e)
         {
-            string s1 = "";
             foreach (Liquidacion liq in this._listaLiquidaciones)
             {
-                //if (liq.CodLiquidacion == codigo)
-                //    liquidacionesPorCodigo.Add(liq);
                 int i = comboBox1.FindStringExact(liq.CodLiquidacion);
                 if (i < 0)
-                {
-                comboBox1.Items.Add(liq.CodLiquidacion);
-
-                }
+                    comboBox1.Items.Add(liq.CodLiquidacion);
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnConsultaEmpresa.Enabled = false;
+            this.btnConsultaEmpleado.Enabled = false;
+            this.btnConsultaCategoria.Enabled = false;
         }
     }
 }
