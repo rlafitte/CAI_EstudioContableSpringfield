@@ -39,7 +39,7 @@ namespace EstudioContableSpringfieldGUI
                 Categoria categoria = null;
                 ValidarCamposFormulario();
                 categoria = new Categoria(int.Parse(txtIdCategoria.Text), txtNombre.Text, double.Parse(txtBasico.Text), double.Parse(txtPorcRet.Text), chkCCTSi.Checked, txtCCTNum.Text);
-                _estContable.GuardarCategoria(categoria);
+                _estContable.AgregarCategoria(categoria);
                 MessageBox.Show("Categoría agregada correctamente.");
                 ResetearFormulario();
             }

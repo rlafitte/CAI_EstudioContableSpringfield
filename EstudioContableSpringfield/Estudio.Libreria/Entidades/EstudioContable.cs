@@ -23,16 +23,41 @@ namespace Estudio.Libreria.Entidades
             this._liquidaciones = new List<Liquidacion>();
         }
 
-        public void GuardarCategoria(Categoria categoriaAgre)
+        public void AgregarCategoria(Categoria nuevaCategroia)
         {
             foreach (Categoria categoria in this._categorias)
             {
-                if (categoria.Equals(categoriaAgre))
+                if (categoria.IdCategoria==nuevaCategroia.IdCategoria)
                 {
                     throw new Exception("La categoría ya existe");
                 }
             }
-            this._categorias.Add(categoriaAgre);
+            this._categorias.Add(nuevaCategroia);
         }
+
+        public void AgregarEmpresa(Empresa nuevaEmpresa)
+        {
+            foreach (Empresa empresa in this._empresas)
+            {
+                if (nuevaEmpresa.Cuit==empresa.Cuit)
+                {
+                    throw new Exception("La empresa ya existe");
+                }
+            }
+            this._empresas.Add(nuevaEmpresa);
+        }
+
+        public void AgregarEmpleado(Empresa empresa, Empleado nuevoEmpleado)
+        {
+            foreach (Empleado empleado in empresa.Empleados)
+            {
+                if (nuevoEmpleado.Cuil == empleado.Cuil)
+                {
+                    throw new Exception("El empleado ya existe en la empresa");
+                }
+            }
+            empresa.Empleados.Add(nuevoEmpleado);
+        }
+
     }
 }
