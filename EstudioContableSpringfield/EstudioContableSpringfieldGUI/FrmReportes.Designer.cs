@@ -59,9 +59,9 @@ namespace EstudioContableSpringfieldGUI
             // lstReporte
             // 
             this.lstReporte.FormattingEnabled = true;
-            this.lstReporte.Location = new System.Drawing.Point(35, 120);
+            this.lstReporte.Location = new System.Drawing.Point(12, 120);
             this.lstReporte.Name = "lstReporte";
-            this.lstReporte.Size = new System.Drawing.Size(720, 238);
+            this.lstReporte.Size = new System.Drawing.Size(776, 238);
             this.lstReporte.TabIndex = 2;
             // 
             // btnVolver
