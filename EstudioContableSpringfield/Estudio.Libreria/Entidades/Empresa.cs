@@ -43,7 +43,7 @@ namespace Estudio.Libreria.Entidades
             string str = "";
             foreach(Empleado _e in _empleados)
             {
-                str += _e.Apellido + ", " + _e.Nombre + ";";
+                str += _e.ToString() + ";";
             }
             return str;
         }
