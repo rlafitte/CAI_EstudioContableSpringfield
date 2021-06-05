@@ -1,0 +1,11 @@
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\bin\Debug\Estudio.Datos.dll
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\bin\Debug\Estudio.Datos.pdb
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\bin\Debug\Estudio.Libreria.dll
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\bin\Debug\Estudio.Libreria.pdb
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\bin\Debug\Newtonsoft.Json.xml
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\obj\Debug\Estudio.Datos.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\obj\Debug\Estudio.Datos.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\obj\Debug\Estudio.Datos.csproj.CopyComplete
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\obj\Debug\Estudio.Datos.dll
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\obj\Debug\Estudio.Datos.pdb

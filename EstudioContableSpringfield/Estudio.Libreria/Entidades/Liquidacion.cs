@@ -5,9 +5,8 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Estudio.Libreria.Entidades
+namespace Estudio.Entidades.Entidades
 {
-    [DataContract]
     public class Liquidacion
     {
         private LiquidacionMapper _liqMap;
@@ -16,14 +15,17 @@ namespace Estudio.Libreria.Entidades
         private int _año;
         private string _tipo;
         private DateTime _fechaPago;
-      
+        private int _id;
+        private double _bruto;
+        private double _retenciones;
+
         private Empresa _empresa;
         private Empleado _empleado;
         private Categoria _categoria;
 
-        
         private double _neto;
-       
+
+        public string CodLiquidacion { get => this._codLiquidacion; }
         public Empresa Empresa { get => this._empresa; }
         public Empleado Empleado { get => this._empleado; }
         public Categoria Categoria { get => this._categoria; }
@@ -36,42 +38,41 @@ namespace Estudio.Libreria.Entidades
 
         //Periodo
         //integer($int32)
-        [DataMember(Name ="Periodo")]
-        public int Mes { get => _mes; set => _mes = value; }
-        
-        
+        [DataMember(Name = "Periodo")]
+        public int Periodo { get => ObtenerPeriodo(this._mes, this._año); set => _mes = value; }
+
         //CodigoTransferencia
         //string
 
-        [DataMember(Name ="CodigoTransferencia")]
-        public string CodLiquidacion { get => this._codLiquidacion; }
-        
-        [DataMember(Name ="Bruto")]
+        [DataMember(Name = "CodigoTransferencia")]
+        public string CodigoTransferencia { get => this._codLiquidacion; }
+
+        [DataMember(Name = "Bruto")]
         //Bruto
         //number($double)
-        private double _bruto;
+        public double Bruto { get => this._bruto; }
 
         //Descuentos
         //number($double)
-        [DataMember(Name ="Descuentos")]
-        private double _retenciones;
+        [DataMember(Name = "Descuentos")]
+        public double Descuentos { get => this._retenciones; }
 
         //FechaAlta
         //string ($date-time)
-        [DataMember(Name ="FechaAlta")]
-        private string _fechaAlta;
-        
+        [DataMember(Name = "FechaAlta")]
+        public string FechaAlta { get => this._fechaPago.ToString("yyyy-MM-dd"); }
+
         //id
         //integer($int32)
         [DataMember(Name = "id")]
-        private int _id;
+        public int Id { get => this._id; }
         //fin de datos de post en Swagger
 
         public Liquidacion(string codLiquidacion, int mes, int año, string tipo, DateTime fechaPago, Empresa empresa, Empleado empleado)
         {
             _liqMap = new LiquidacionMapper();
             this._codLiquidacion = codLiquidacion;
-            this.Mes = mes;
+            this._mes = mes;
             this._año = año;
             this._tipo = tipo;
             this._fechaPago = fechaPago;
@@ -82,14 +83,14 @@ namespace Estudio.Libreria.Entidades
             this._retenciones = _categoria.GetMontoRetenciones();
             this._neto = _categoria.GetSueldoNeto();
         }
-        public Liquidacion() 
-        { 
+        public Liquidacion()
+        {
             _liqMap = new LiquidacionMapper();
         }
 
         public override string ToString()
         {
-            return $"Código: {this._codLiquidacion} | Fecha: {this.Mes}/{this._año} | Tipo: {this._tipo} | Empresa: {this._empresa} | Empleado: {this._empleado} | Categoria: {this._categoria}";
+            return $"Código: {this._codLiquidacion} | Período: {this.Periodo} | Tipo: {this._tipo} | Empresa: {this._empresa} | Empleado: {this._empleado} | Categoria: {this._categoria}";
         }
 
         public List<Liquidacion> TraerLiq()
@@ -97,6 +98,16 @@ namespace Estudio.Libreria.Entidades
             List<Liquidacion> _lista = new List<Liquidacion>();
             _lista = _liqMap.TraerTodos();
             return _lista;
+        }
+
+        public int ObtenerPeriodo(int mes, int año)
+        {
+            string stringMes = $"{mes}";
+            if (mes < 10)
+                stringMes = $"0{mes}";
+
+            string periodo = $"{año}{stringMes}";
+            return int.Parse(periodo);
         }
     }
 }
