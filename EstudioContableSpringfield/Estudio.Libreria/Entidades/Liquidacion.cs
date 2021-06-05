@@ -10,6 +10,7 @@ namespace Estudio.Libreria.Entidades
     [DataContract]
     public class Liquidacion
     {
+        private LiquidacionMapper _liqMap;
         private string _codLiquidacion;
         private int _mes;
         private int _año;
@@ -68,6 +69,7 @@ namespace Estudio.Libreria.Entidades
 
         public Liquidacion(string codLiquidacion, int mes, int año, string tipo, DateTime fechaPago, Empresa empresa, Empleado empleado)
         {
+            _liqMap = new LiquidacionMapper();
             this._codLiquidacion = codLiquidacion;
             this.Mes = mes;
             this._año = año;
@@ -82,11 +84,19 @@ namespace Estudio.Libreria.Entidades
         }
         public Liquidacion() 
         { 
+            _liqMap = new LiquidacionMapper();
         }
 
         public override string ToString()
         {
             return $"Código: {this._codLiquidacion} | Fecha: {this.Mes}/{this._año} | Tipo: {this._tipo} | Empresa: {this._empresa} | Empleado: {this._empleado} | Categoria: {this._categoria}";
+        }
+
+        public List<Liquidacion> TraerLiq()
+        {
+            List<Liquidacion> _lista = new List<Liquidacion>();
+            _lista = _liqMap.TraerTodos();
+            return _lista;
         }
     }
 }

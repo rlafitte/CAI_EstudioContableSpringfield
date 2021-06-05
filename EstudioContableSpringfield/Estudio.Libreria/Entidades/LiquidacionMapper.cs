@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Estudio.Libreria.Entidades
 {
-    class LiquidacionMapper
+    public class LiquidacionMapper
     {
         public List<Liquidacion> TraerTodos()
         {
-            string json = WebHelper.Get("cliente");
+            string json = WebHelper.Get("Liquidaciones");
             List<Liquidacion> resultado = MapList(json);
             return resultado;
         }

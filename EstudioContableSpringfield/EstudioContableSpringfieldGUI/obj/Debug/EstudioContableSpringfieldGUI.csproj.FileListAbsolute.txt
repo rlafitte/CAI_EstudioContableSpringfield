@@ -54,3 +54,5 @@ C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpri
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.FrmConsulta.resources
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.FrmReportes.resources
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.FrmReportes.resources
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Newtonsoft.Json.xml
