@@ -8,15 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Estudio.Entidades.Entidades;
+using Estudio.Negocio;
 
 namespace EstudioContableSpringfieldGUI
 {
     public partial class FrmEmpresas : Form
     {
         private EstudioContable _estContable;
+        private EmpresaNegocio _empresaNegocio;
 
         public FrmEmpresas(EstudioContable estudio)
         {
+            this._empresaNegocio = new EmpresaNegocio();
             this._estContable = estudio;
             InitializeComponent();
         }
@@ -40,16 +43,14 @@ namespace EstudioContableSpringfieldGUI
                 ValidarCamposFormulario();
 
                 string nombre = this.textBox1.Text;
-                string cuil = this.textBox2.Text;
-                string rubro = this.textBox3.Text;
-                DateTime inicioActiv = this.dateTimePicker.Value;
+                int cuil = int.Parse(this.textBox2.Text);
                 string domicilio = this.textBox5.Text;
 
-                Empresa nuevaEmpresa = new Empresa(nombre, cuil, rubro, inicioActiv, domicilio);
+                Empresa nuevaEmpresa = new Empresa(nombre, cuil, domicilio);
 
-                this._estContable.AgregarEmpresa(nuevaEmpresa);
+                TransactionResult resultado = this._empresaNegocio.Agregar(nuevaEmpresa);
 
-                MessageBox.Show("Empresa agregada correctamente.");
+                MessageBox.Show(resultado.ToString());
                 ResetearFormulario();
             }
             catch (Exception ex)
@@ -63,7 +64,6 @@ namespace EstudioContableSpringfieldGUI
             if (
             this.textBox1.Text == "" ||
             this.textBox2.Text == "" ||
-            this.textBox3.Text == "" ||
             this.textBox5.Text == "")
                 throw new Exception("Los campos no deben estar vacíos");
         }
@@ -72,7 +72,6 @@ namespace EstudioContableSpringfieldGUI
         {
             this.textBox1.Text = "";
             this.textBox2.Text = "";
-            this.textBox3.Text = "";
             this.textBox5.Text = "";
         }
     }

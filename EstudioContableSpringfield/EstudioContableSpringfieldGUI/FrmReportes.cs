@@ -43,7 +43,7 @@ namespace EstudioContableSpringfieldGUI
             foreach(Empresa _em in _listA)
             {
                 
-                lstReporte.Items.Add(_em.Nombre);
+                lstReporte.Items.Add(_em.RazonSocial);
                 _em.ListaEmpleados(lstReporte);
                 lstReporte.Items.Add(Environment.NewLine);
             }

@@ -24,8 +24,10 @@ namespace Estudio.Datos
             return lista;
         }
 
-        public TransactionResult Agregar(Empleado empleado)
+        public TransactionResult Agregar(Empleado emple)
         {
+            Empleado empleado = new Empleado();
+
             NameValueCollection parametros = ReverseMap(empleado);
             string json = WebHelper.Post("/EstudioContable/Empleados", parametros);
             TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
