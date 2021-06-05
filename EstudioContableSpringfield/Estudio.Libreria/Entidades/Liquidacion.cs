@@ -23,13 +23,37 @@ namespace Estudio.Libreria.Entidades
         private double _bruto;
         private double _retenciones;
         private double _neto;
-        [DataMember(Name = "apellido")]
-        public string CodLiquidacion { get => this._codLiquidacion; }
+       
         public Empresa Empresa { get => this._empresa; }
         public Empleado Empleado { get => this._empleado; }
         public Categoria Categoria { get => this._categoria; }
+
+        //inicio de datos de post en Swagger
+        //idEmpleado
+        //integer($int32)
+        [DataMember(Name = "idEmpleado")]
+        public int _idEmpleado { get => this._empleado.Legajo; }
+
+        //Periodo
+        //integer($int32)
         [DataMember(Name ="Periodo")]
         public int Mes { get => _mes; set => _mes = value; }
+        
+        
+        //CodigoTransferencia
+        //string
+
+        [DataMember(Name ="CodigoTransferencia")]
+        public string CodLiquidacion { get => this._codLiquidacion; }
+        //Bruto
+        //number($double)
+        //Descuentos
+        //number($double)
+        //FechaAlta
+        //string ($date-time)
+        //id
+        //integer($int32)
+        //fin de datos de post en Swagger
 
         public Liquidacion(string codLiquidacion, int mes, int año, string tipo, DateTime fechaPago, Empresa empresa, Empleado empleado)
         {
