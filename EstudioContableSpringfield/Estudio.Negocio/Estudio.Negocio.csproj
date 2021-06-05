@@ -41,10 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CategoriaNegocio.cs" />
-    <Compile Include="EmpleadoNegocio.cs" />
-    <Compile Include="EmpresaNegocio.cs" />
-    <Compile Include="LiqudacionNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

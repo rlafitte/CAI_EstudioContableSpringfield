@@ -27,7 +27,7 @@ namespace Estudio.Entidades.Entidades
         {
             foreach (Categoria categoria in this._categorias)
             {
-                if (categoria.Id==nuevaCategroia.Id)
+                if (categoria.IdCategoria==nuevaCategroia.IdCategoria)
                 {
                     throw new Exception("La categoría ya existe");
                 }
