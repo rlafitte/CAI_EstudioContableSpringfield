@@ -16,16 +16,6 @@ namespace Estudio.Entidades.Entidades
             public int Id { get; set; }
             [DataMember]
             public string Error { get; set; }
-
-        public override string ToString()
-        {
-            if (IsOk)
-                return $"Operación exitosa: {this.Id}";
-            else
-                return $"La operación no pudo realizarse: {this.Error}";
         }
-
-    }
-
     
 }

@@ -1,43 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Estudio.Entidades.Entidades
 {
-    [DataContract]
     public class Categoria
     {
-        private int _id;
+        private int _idCategoria;
         private string _nombre;
         private double _sueldoBasico;
-        private string _convenio; //Convenio colectivo de trabajo
-
         private double _porcRetenciones;
-        [DataMember(Name = "id")]
-        public int Id { get => _id; set => _id = value; }
-        [DataMember(Name = "nombre")]
+        private bool _siConvenio;
+        private string _cCT; //Convenio colectivo de trabajo
 
-        public string Nombre { get => _nombre; set => _nombre = value; }
-        [DataMember(Name = "sueldoBasico")]
+        public int IdCategoria { get => _idCategoria; }
+        public double SueldoBasico { get => _sueldoBasico; }
 
-        public double SueldoBasico { get => _sueldoBasico; set => _sueldoBasico = value; }
-        [DataMember(Name = "convenio")]
-        public string Convenio { get => _convenio; set => _convenio = value; }
-
-        public Categoria(string nombre, double sueldoBasico, double porcRetenciones, string cCT)
+        public Categoria(int idCategoria, string nombre, double sueldoBasico, double porcRetenciones, bool siConvenio, string cCT)
         {
+            this._idCategoria = idCategoria;
             this._nombre = nombre;
             this._sueldoBasico = sueldoBasico;
             this._porcRetenciones = porcRetenciones;
-            this._convenio = cCT;
+            this._siConvenio = siConvenio;
+            this._cCT = cCT;
         }
 
         public override string ToString()
         {
-            return $"{this._nombre} - {this.Convenio}";
+            string convenio = "";
+            if (this._siConvenio == true) { convenio = this._cCT; } 
+            else { convenio = "Fuera de Convenio"; }
+            return $"{this._nombre} - {convenio}";
         }
 
         public double GetSueldoNeto()
