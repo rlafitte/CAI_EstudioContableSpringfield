@@ -19,3 +19,6 @@ C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpri
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Newtonsoft.Json.dll
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Newtonsoft.Json.xml
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.csproj.CopyComplete
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Newtonsoft.Json.xml
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.csproj.CopyComplete

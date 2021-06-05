@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Estudio.Libreria.Entidades
+namespace Estudio.Entidades.Entidades
 {
     public abstract class Persona
     {

@@ -1,4 +1,4 @@
-﻿using Estudio.Libreria.Entidades;
+﻿using Estudio.Entidades.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,13 +30,13 @@ namespace EstudioContableSpringfieldGUI
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            lstReporte.Items.Clear();
             this.Owner.Show();
             this.Close();
         }
 
         private void btnEmpleXEmpre_Click(object sender, EventArgs e)
         {
+            lstReporte.DataSource = null;
             lstReporte.Items.Clear();
             List<Empresa> _listA = nuevoEstudioContable.Empresas;
 

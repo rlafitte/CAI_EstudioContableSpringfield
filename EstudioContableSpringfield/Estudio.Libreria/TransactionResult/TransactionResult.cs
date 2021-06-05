@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
-namespace Estudio.Libreria.Entidades
+namespace Estudio.Entidades.Entidades
 {
    [DataContract]
         public class TransactionResult

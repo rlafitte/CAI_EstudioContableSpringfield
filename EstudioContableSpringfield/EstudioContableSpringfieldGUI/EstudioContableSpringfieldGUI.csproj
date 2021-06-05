@@ -134,9 +134,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Estudio.Libreria\Estudio.Libreria.csproj">
+    <ProjectReference Include="..\Estudio.Libreria\Estudio.Entidades.csproj">
       <Project>{33829751-fd2b-4156-a86a-4d6682c2272e}</Project>
-      <Name>Estudio.Libreria</Name>
+      <Name>Estudio.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Estudio.Negocio\Estudio.Negocio.csproj">
+      <Project>{17bfd05e-15dd-4e87-9b68-7b193c5f51d9}</Project>
+      <Name>Estudio.Negocio</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
