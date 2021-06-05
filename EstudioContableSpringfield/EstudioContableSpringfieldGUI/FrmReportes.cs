@@ -14,7 +14,6 @@ namespace EstudioContableSpringfieldGUI
     public partial class FrmReportes : Form
     {
         private EstudioContable nuevoEstudioContable;
-        private LiquidacionMapper _liqMapper;
 
         public FrmReportes()
         {
