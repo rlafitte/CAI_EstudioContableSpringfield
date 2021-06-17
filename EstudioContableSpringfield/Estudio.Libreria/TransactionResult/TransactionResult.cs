@@ -8,14 +8,21 @@ using System.Runtime.Serialization;
 namespace Estudio.Entidades.Entidades
 {
    [DataContract]
-        public class TransactionResult
+    public class TransactionResult
+    {
+        [DataMember]
+        public bool IsOk { get; set; }
+        [DataMember]
+        public int Id { get; set; }
+        [DataMember]
+        public string Error { get; set; }
+
+        public string DarMensaje()
         {
-            [DataMember]
-            public bool IsOk { get; set; }
-            [DataMember]
-            public int Id { get; set; }
-            [DataMember]
-            public string Error { get; set; }
+            if (this.IsOk)
+                return $"Agregado! Id: {this.Id}";
+
+            return $"Hubo un error. Error: {this.Error}";
         }
-    
+    }
 }

@@ -43,14 +43,14 @@ namespace EstudioContableSpringfieldGUI
                 ValidarCamposFormulario();
 
                 string nombre = this.textBox1.Text;
-                int cuil = int.Parse(this.textBox2.Text);
+                long cuit = int.Parse(this.textBox2.Text);
                 string domicilio = this.textBox5.Text;
 
-                Empresa nuevaEmpresa = new Empresa(nombre, cuil, domicilio);
+                Empresa nuevaEmpresa = new Empresa(nombre, cuit, domicilio);
 
                 TransactionResult resultado = this._empresaNegocio.Agregar(nuevaEmpresa);
 
-                MessageBox.Show(resultado.ToString());
+                MessageBox.Show(resultado.DarMensaje());
                 ResetearFormulario();
             }
             catch (Exception ex)

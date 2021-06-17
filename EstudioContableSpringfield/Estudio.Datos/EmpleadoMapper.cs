@@ -12,16 +12,18 @@ namespace Estudio.Datos
 {
     public class EmpleadoMapper
     {
-        static string rutaMapper;
+        static string rutaMapperGET;
+        static string rutaMapperPOST_PUT;
 
         public EmpleadoMapper()
         {
-            rutaMapper = ConfigurationManager.AppSettings["URL_EMPLEADOS"];
+            rutaMapperGET = ConfigurationManager.AppSettings["URL_EMPLEADOS"];
+            rutaMapperPOST_PUT = ConfigurationManager.AppSettings["URL_EMPLEADO"];
         }
 
         public List<Empleado> TraerTodos()
         {
-            string json = WebHelper.Get(rutaMapper);
+            string json = WebHelper.Get(rutaMapperGET);
             List<Empleado> resultado = MapList(json);
             return resultado;
         }
@@ -37,7 +39,7 @@ namespace Estudio.Datos
             Empleado empleado = new Empleado();
 
             NameValueCollection parametros = ReverseMap(empleado);
-            string json = WebHelper.Post(rutaMapper, parametros);
+            string json = WebHelper.Post(rutaMapperPOST_PUT, parametros);
             TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
             return resultado;
         }
@@ -62,7 +64,7 @@ namespace Estudio.Datos
         public TransactionResult Modificar(Empleado empleado)
         {
             NameValueCollection parametros = ReverseMap(empleado);
-            string json = WebHelper.Put("/EstudioContable/Empleados", parametros);
+            string json = WebHelper.Put($"rutaMapperPOST_PUT/id", parametros);
             TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
             return resultado;
         }
@@ -70,7 +72,7 @@ namespace Estudio.Datos
         public TransactionResult Eliminar(Empleado empleado)
         {
             NameValueCollection parametros = ReverseMap(empleado);
-            string json = WebHelper.Delete("/EstudioContable/Empleados", parametros);
+            string json = WebHelper.Delete($"rutaMapperPOST_PUT/id", parametros);
             TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
             return resultado;
         }

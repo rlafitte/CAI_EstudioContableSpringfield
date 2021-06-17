@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Estudio.Entidades.Entidades;
+using Estudio.Negocio;
 
 namespace EstudioContableSpringfieldGUI
 {
@@ -15,19 +16,23 @@ namespace EstudioContableSpringfieldGUI
     {
 
         private EstudioContable _estContable;
+        private EmpresaNegocio _empresaNegocio;
+        private EmpleadoNegocio _empleadoNegocio;
 
 
         public FrmLiquidacion(EstudioContable estudio)
         {
             this._estContable = estudio;
+            this._empresaNegocio = new EmpresaNegocio();
+            this._empleadoNegocio = new EmpleadoNegocio();
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.comboBox1.DataSource = this._estContable.Empresas;
-            this.comboBox1.DisplayMember = "Nombre";
+            this.comboBox1.DataSource = this._empresaNegocio.Traer();
             this.comboBox1.ValueMember = "Cuit";
+            this.comboBox1.DisplayMember = "RazonSocial";
             this.dateFechaPago.Format = DateTimePickerFormat.Custom;
             this.dateFechaPago.CustomFormat = "dd/MM/yyyy";
             this.dtAnio.Format = DateTimePickerFormat.Custom;
@@ -117,11 +122,13 @@ namespace EstudioContableSpringfieldGUI
         {
             string nombreEmpresa = this.comboBox1.Text;
 
-            Empresa empresaFiltro = this._estContable.Empresas.SingleOrDefault(emp => emp.RazonSocial == nombreEmpresa);
+            Empresa empresaSeleccionada = this._empresaNegocio.Traer().SingleOrDefault(empresa => empresa.RazonSocial.ToLower() == nombreEmpresa.ToLower());
 
-            this.comboBox2.DataSource = empresaFiltro.Empleados;
-            this.comboBox2.DisplayMember = "Nombre";
+            List<Empleado> empleadosEmpresa = this._empleadoNegocio.Traer().FindAll(emp => emp.IdEmpresa == empresaSeleccionada.Id);
+
+            this.comboBox2.DataSource = empleadosEmpresa;
             this.comboBox2.ValueMember = "Legajo";
+            this.comboBox2.DisplayMember = "Nombre";
             this.comboBox2.Enabled = true;
         }
 
