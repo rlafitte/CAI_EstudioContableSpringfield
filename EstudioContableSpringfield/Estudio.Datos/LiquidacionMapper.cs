@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +11,16 @@ namespace Estudio.Entidades.Entidades
 {
     public class LiquidacionMapper
     {
+        static string rutaMapper;
+
+        public LiquidacionMapper()
+        {
+            rutaMapper = ConfigurationManager.AppSettings["URL_LIQUIDACIONES"];
+        }
+
         public List<Liquidacion> TraerTodos()
         {
-            string json = WebHelper.Get("Liquidaciones");
+            string json = WebHelper.Get(rutaMapper);
             List<Liquidacion> resultado = MapList(json);
             return resultado;
         }
@@ -24,26 +32,32 @@ namespace Estudio.Entidades.Entidades
         }
 
 
-        public TransactionResult Insertar(Liquidacion liq)
+        public TransactionResult Insertar(Liquidacion liquidacion)
         {
-            NameValueCollection obj = ReverseMap(liq);
+            NameValueCollection obj = ReverseMap(liquidacion);
 
-            string json = WebHelper.Post("Liquidacion", obj);
+            string json = WebHelper.Post(rutaMapper, obj);
 
             TransactionResult lst = JsonConvert.DeserializeObject<TransactionResult>(json);
 
             return lst;
         }
-        private NameValueCollection ReverseMap(Liquidacion liq)
+        private NameValueCollection ReverseMap(Liquidacion liquidacion)
         {
             NameValueCollection n = new NameValueCollection();
-            //n.Add("id", cliente.id.ToString());
-            //n.Add("nombre", cliente.Nombre);
-            //n.Add("apellido", cliente.Ape);
-            //n.Add("direccion", cliente.Direccion);
-            //n.Add("DNI", cliente.DNI);
-            //n.Add("fechaNacimiento", "2000-01-01");
-            //n.Add("usuario", "1");
+
+            /*
+             *Chequear!
+             
+            n.Add("idEmpleado", liquidacion._idEmpleado.ToString());
+            n.Add("Periodo", liquidacion.Periodo.ToString());
+            n.Add("CodigoTransferencia", liquidacion.CodigoTransferencia);
+            n.Add("Bruto", liquidacion.Bruto.ToString("0.00"));
+            n.Add("Descuentos", liquidacion.Descuentos.ToString("0.00"));
+            n.Add("FechaAlta", liquidacion.FechaAlta);
+            n.Add("id", "0");
+            */
+
             return n;
         }
     }

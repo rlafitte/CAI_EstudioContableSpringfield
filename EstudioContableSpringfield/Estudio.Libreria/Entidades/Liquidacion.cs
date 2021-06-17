@@ -67,6 +67,12 @@ namespace Estudio.Entidades.Entidades
         public int Id { get => this._id; }
         //fin de datos de post en Swagger
 
+
+        
+        public Liquidacion()
+        {
+        }
+
         public Liquidacion(string codLiquidacion, int mes, int año, string tipo, DateTime fechaPago, Empresa empresa, Empleado empleado)
         {
             this._codLiquidacion = codLiquidacion;
@@ -81,20 +87,11 @@ namespace Estudio.Entidades.Entidades
             this._retenciones = _categoria.GetMontoRetenciones();
             this._neto = _categoria.GetSueldoNeto();
         }
-        public Liquidacion()
-        {
-        }
 
         public override string ToString()
         {
             return $"Código: {this._codLiquidacion} | Período: {this.Periodo} | Tipo: {this._tipo} | Empresa: {this._empresa} | Empleado: {this._empleado} | Categoria: {this._categoria}";
-        }
-
-        public List<Liquidacion> TraerLiq()
-        {
-            List<Liquidacion> _lista = new List<Liquidacion>();
-            return _lista;
-        }
+        }        
 
         public int ObtenerPeriodo(int mes, int año)
         {
