@@ -13,7 +13,7 @@ namespace Estudio.Datos
     {
         public List<Empresa> TraerTodos()
         {
-            string json = WebHelper.Get("/ EstudioContable / Empresas");
+            string json = WebHelper.Get("/EstudioContable/Empresas");
             List<Empresa> resultado = MapList(json);
             return resultado;
         }
@@ -27,7 +27,7 @@ namespace Estudio.Datos
         public TransactionResult Agregar(Empresa empresa)
         {
             NameValueCollection parametros = ReverseMap(empresa);
-            string json = WebHelper.Post("/ EstudioContable / Empresas", parametros);
+            string json = WebHelper.Post("/EstudioContable/Empresas", parametros);
             TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
             return resultado;
         }
