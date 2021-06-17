@@ -14,19 +14,34 @@ namespace EstudioContableSpringfieldGUI
 {
     public partial class FrmCategorias : Form
     {
-        private CategoriaNegocio categoriaNegocio;
+        private CategoriaNegocio _categoriaNegocio;
         private EstudioContable _estContable;
 
         public FrmCategorias(EstudioContable estudio)
         {
             this._estContable = estudio;
-            this.categoriaNegocio = new CategoriaNegocio();
+            this._categoriaNegocio = new CategoriaNegocio();
             InitializeComponent();
         }
 
         private void FrmCategorias_Load(object sender, EventArgs e)
         {
+            CargarCategorias();
             ResetearFormulario();
+        }
+
+        private void CargarCategorias()
+        {
+            try
+            {
+                cmbCategorias.DataSource = null;
+                cmbCategorias.DataSource = this._categoriaNegocio.Traer();
+            }
+
+            catch (Exception exe)
+            {
+                MessageBox.Show(exe.Message);
+            }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -39,10 +54,9 @@ namespace EstudioContableSpringfieldGUI
         {
             try
             {
-                Categoria categoria = null;
                 ValidarCamposFormulario();
-                categoria = new Categoria(txtNombre.Text, double.Parse(txtBasico.Text), double.Parse(txtPorcRet.Text), txtCCTNum.Text);
-                TransactionResult resultado = categoriaNegocio.Agregar(categoria);
+                Categoria categoria = new Categoria(txtNombre.Text, double.Parse(txtBasico.Text), txtCCTNum.Text);
+                TransactionResult resultado = _categoriaNegocio.Agregar(categoria);
                 MessageBox.Show(resultado.ToString());
                 ResetearFormulario();
             }
@@ -56,19 +70,15 @@ namespace EstudioContableSpringfieldGUI
         {
             if (
                 txtNombre.Text == string.Empty ||
-                txtBasico.Text == string.Empty ||
-                txtPorcRet.Text == string.Empty
+                txtBasico.Text == string.Empty
                 )
-            {
+
                 throw new Exception("Ningún campo puede estar vacío");
-            }
-            else if (
-                !double.TryParse(txtBasico.Text, out double basico )||
-                !double.TryParse(txtPorcRet.Text, out double porcRet ) 
+
+            if (
+                !double.TryParse(txtBasico.Text, out double basico )
                 )
-            {
                 throw new Exception("Debe ingresar un numero");
-            }
         }
 
         private void ResetearFormulario()
@@ -76,8 +86,6 @@ namespace EstudioContableSpringfieldGUI
             txtNombre.Text = string.Empty;
             txtCCTNum.Text = string.Empty;
             txtBasico.Text = string.Empty;
-            txtPorcRet.Text = string.Empty;
         }
-
     }
 }

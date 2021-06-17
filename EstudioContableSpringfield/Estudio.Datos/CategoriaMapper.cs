@@ -46,8 +46,8 @@ namespace Estudio.Datos
             
             n.Add("nombre", categoria.Nombre);
             n.Add("convenio", categoria.Convenio);
-            n.Add("sueldoBasico", categoria.SueldoBasico.ToString());
-            n.Add("id", categoria.Id.ToString());
+            n.Add("sueldoBasico", categoria.SueldoBasico.ToString("0.00"));
+            n.Add("id", "0");
             
             return n;
         }
