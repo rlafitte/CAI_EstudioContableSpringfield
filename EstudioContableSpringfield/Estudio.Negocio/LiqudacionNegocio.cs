@@ -10,7 +10,7 @@ namespace Estudio.Negocio
 {
     public class LiqudacionNegocio
     {
-        /*
+        
         private List<Liquidacion> _listaLiquidaciones;
         private LiquidacionMapper _liquidacionMapper;
 
@@ -28,10 +28,11 @@ namespace Estudio.Negocio
 
         public TransactionResult Agregar (Liquidacion liquidacion)
         {
-            TransactionResult resultado = this._liquidacionMapper.Agregar(liquidacion);
+            TransactionResult resultado = this._liquidacionMapper.Insertar(liquidacion);
             return resultado;
         }
 
+        /*
         public TransactionResult Modificar(Liquidacion liquidacion)
         {
             TransactionResult resultado = this._liquidacionMapper.Modificar(liquidacion);
@@ -44,6 +45,7 @@ namespace Estudio.Negocio
             return resultado;
         }
         */
+        
 
     }
 }

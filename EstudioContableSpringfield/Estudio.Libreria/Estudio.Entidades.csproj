@@ -51,10 +51,8 @@
     <Compile Include="Entidades\Empleado.cs" />
     <Compile Include="Entidades\EstudioContable.cs" />
     <Compile Include="Entidades\Liquidacion.cs" />
-    <Compile Include="Entidades\LiquidacionMapper.cs" />
     <Compile Include="Entidades\Persona.cs" />
     <Compile Include="TransactionResult\TransactionResult.cs" />
-    <Compile Include="Entidades\WebHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

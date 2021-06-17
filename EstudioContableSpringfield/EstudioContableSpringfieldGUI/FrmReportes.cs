@@ -1,4 +1,5 @@
 ﻿using Estudio.Entidades.Entidades;
+using Estudio.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,16 +15,13 @@ namespace EstudioContableSpringfieldGUI
     public partial class FrmReportes : Form
     {
         private EstudioContable nuevoEstudioContable;
-        private LiquidacionMapper _liqMapper;
+        private LiqudacionNegocio _liquidacionNegocio;
 
-        public FrmReportes()
-        {
-            InitializeComponent();
-        }
 
         public FrmReportes(EstudioContable nuevoEstudioContable)
         {
             this.nuevoEstudioContable = nuevoEstudioContable;
+            this._liquidacionNegocio = new LiqudacionNegocio();
             
             InitializeComponent();
         }
@@ -68,9 +66,9 @@ namespace EstudioContableSpringfieldGUI
             //    }
             //    lstReporte.Items.Add(Environment.NewLine);
             //}
-            Liquidacion liq = new Liquidacion();
+            
             lstReporte.DataSource = null;
-            lstReporte.DataSource = liq.TraerLiq();
+            lstReporte.DataSource = this._liquidacionNegocio.Traer();
 
         }
 
