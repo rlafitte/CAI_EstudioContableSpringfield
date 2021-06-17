@@ -41,7 +41,13 @@ C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContable
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\EstudioContableSpringfieldGUI.exe
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\EstudioContableSpringfieldGUI.pdb
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Estudio.Libreria.dll
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Estudio.Negocio.dll
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Estudio.Datos.dll
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Newtonsoft.Json.dll
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Estudio.Libreria.pdb
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Estudio.Negocio.pdb
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Estudio.Datos.pdb
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Newtonsoft.Json.xml
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.csprojAssemblyReference.cache
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.FrmCategorias.resources
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.FrmConsulta.resources

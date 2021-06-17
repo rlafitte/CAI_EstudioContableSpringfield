@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Estudio.Entidades.Entidades;
+using Estudio.Negocio;
 
 namespace EstudioContableSpringfieldGUI
 {
     public partial class FrmCategorias : Form
     {
         private EstudioContable _estContable;
+        private CategoriaNegocio _cat;
 
         public FrmCategorias(EstudioContable estudio)
         {
