@@ -73,7 +73,7 @@ namespace Estudio.Entidades.Entidades
         {
         }
 
-        public Liquidacion(string codLiquidacion, int mes, int año, string tipo, DateTime fechaPago, Empresa empresa, Empleado empleado)
+        public Liquidacion(string codLiquidacion, int mes, int año, string tipo, DateTime fechaPago, Empresa empresa, Empleado empleado, double porcRetenciones)
         {
             this._codLiquidacion = codLiquidacion;
             this._mes = mes;
@@ -84,8 +84,8 @@ namespace Estudio.Entidades.Entidades
             this._empleado = empleado;
             this._categoria = empleado.Categoria;
             this._bruto = _categoria.SueldoBasico;
-            this._retenciones = _categoria.GetMontoRetenciones();
-            this._neto = _categoria.GetSueldoNeto();
+            this._retenciones = this.GetMontoRetenciones(porcRetenciones);
+            this._neto = this.GetSueldoNeto();
         }
 
         public override string ToString()
@@ -102,5 +102,15 @@ namespace Estudio.Entidades.Entidades
             string periodo = $"{año}{stringMes}";
             return int.Parse(periodo);
         }
+
+        public double GetSueldoNeto()
+        {
+            return this._bruto - this._retenciones;
+        }
+        public double GetMontoRetenciones(double porcRetenciones)
+        {
+            return this._bruto * porcRetenciones / 100;
+        }
+
     }
 }

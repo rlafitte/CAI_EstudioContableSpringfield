@@ -69,7 +69,7 @@ namespace EstudioContableSpringfieldGUI
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(293, 280);
+            this.btnAgregar.Location = new System.Drawing.Point(294, 297);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(107, 34);
             this.btnAgregar.TabIndex = 47;

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Estudio.Entidades.Entidades;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Estudio.Entidades.Entidades
+namespace Estudio.Datos
 {
     public class LiquidacionMapper
     {

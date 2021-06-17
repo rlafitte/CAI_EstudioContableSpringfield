@@ -64,7 +64,8 @@ namespace EstudioContableSpringfieldGUI
                 Empresa empresa = BuscarEmpresa(empresaTexto);
                 Empleado empleado = BuscarEmpleado(empleadoTexto, empresa);
 
-                Liquidacion nuevaLiq = new Liquidacion(codLiq, mes, año, tipo, fecha, empresa, empleado);
+                //Agregar textbox para ingresar % de retencion y que lo calcule la clase liquidacion?
+                Liquidacion nuevaLiq = new Liquidacion(codLiq, mes, año, tipo, fecha, empresa, empleado, 17);
 
                 this._estContable.Liquidaciones.Add(nuevaLiq);
 
@@ -135,9 +136,12 @@ namespace EstudioContableSpringfieldGUI
             if (comboBox2.DataSource != null)
             {
                 Empleado empleado = (Empleado)comboBox2.SelectedItem;
+                Liquidacion calculoLiquidacion = new Liquidacion();
+
                 txtBruto.Text = empleado.Categoria.SueldoBasico.ToString();
-                txtRetenciones.Text = empleado.Categoria.GetMontoRetenciones().ToString();
-                txtNeto.Text = empleado.Categoria.GetSueldoNeto().ToString();
+                //Agregar textbox para ingresar % de retencion y que lo calcule la clase liquidacion?:
+                txtRetenciones.Text = calculoLiquidacion.GetMontoRetenciones(17).ToString();
+                txtNeto.Text = calculoLiquidacion.GetSueldoNeto().ToString();
             }
         }
 
