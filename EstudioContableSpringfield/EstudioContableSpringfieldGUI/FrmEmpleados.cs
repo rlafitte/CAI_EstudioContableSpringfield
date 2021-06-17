@@ -8,16 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Estudio.Entidades.Entidades;
+using Estudio.Negocio;
 
 namespace EstudioContableSpringfieldGUI
 {
     public partial class FrmEmpleados : Form
     {
         private EstudioContable _estContable;
+        private EmpleadoNegocio _empleadoNegocio;
 
         public FrmEmpleados(EstudioContable estudio)
         {
             this._estContable = estudio;
+            this._empleadoNegocio = new EmpleadoNegocio();
             InitializeComponent();
         }
 
@@ -48,37 +51,25 @@ namespace EstudioContableSpringfieldGUI
 
                 string nombre = this.textBox1.Text;
                 string apellido = this.textBox2.Text;
-                int dni;
-                int legajo;
-                try
-                {
-                dni = int.Parse(this.textBox3.Text);
-                }
-                catch
-                {
-                    throw new Exception("DNI no numérico, corrija la entrada por favor");
-                }
-                try
-                {
-                legajo = int.Parse(this.textBox6.Text);
-                }
-                catch
-                {
-                    throw new Exception("Legajo no numérico, corrija la entrada por favor");
-                }
+                DateTime fechaNacim = this.dateTimePicker1.Value;
                 string direccion = this.textBox5.Text;
-                string cuil = this.textBox4.Text;
                 string empresa = this.comboBox1.Text;
 
+
+                if (!int.TryParse(this.textBox4.Text, out int cuil))
+                    throw new Exception("CUIL no numérico, corrija la entrada por favor");
+
+                if (!int.TryParse(this.textBox6.Text, out int legajo))
+                    throw new Exception("CUIL no numérico, corrija la entrada por favor");
+
                 Categoria categoria = (Categoria)comboBox2.SelectedItem;
+                Empresa empresaEmpleado = this._estContable.Empresas.SingleOrDefault(emp => emp.RazonSocial.ToLower() == empresa.ToLower());
 
-                Empleado nuevoEmpleado = new Empleado(nombre, apellido, dni, legajo, direccion, cuil, empresa, categoria);
+                Empleado nuevoEmpleado = new Empleado(nombre, apellido, legajo, direccion, cuil, empresaEmpleado, categoria, fechaNacim);
 
-                Empresa empresaEmpleado = this._estContable.Empresas.SingleOrDefault(emp => emp.Nombre.ToLower() == empresa.ToLower());
+                TransactionResult resultado = this._empleadoNegocio.Agregar(nuevoEmpleado);
 
-                this._estContable.AgregarEmpleado(empresaEmpleado, nuevoEmpleado);
-
-                MessageBox.Show("Empleado agregado correctamente.");
+                MessageBox.Show($"Empleado agregado correctamente: {resultado.Id}");
                 ResetearFormulario();
             }
             catch (Exception ex)
@@ -91,7 +82,7 @@ namespace EstudioContableSpringfieldGUI
         {
             if (this.textBox1.Text == "" ||
                 this.textBox2.Text == "" ||
-                this.textBox3.Text == "" ||
+                this.dateTimePicker1.Text == "" ||
                 this.textBox4.Text == "" ||
                 this.textBox5.Text == "" ||
                 this.textBox6.Text == "" ||
@@ -106,7 +97,7 @@ namespace EstudioContableSpringfieldGUI
         {
             this.textBox1.Text = "";
             this.textBox2.Text = "";
-            this.textBox3.Text = "";
+            this.dateTimePicker1.Text = "";
             this.textBox4.Text = "";
             this.textBox5.Text = "";
             this.textBox6.Text = "";

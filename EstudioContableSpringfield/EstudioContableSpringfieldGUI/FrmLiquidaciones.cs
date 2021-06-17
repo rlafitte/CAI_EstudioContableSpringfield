@@ -116,7 +116,7 @@ namespace EstudioContableSpringfieldGUI
         {
             string nombreEmpresa = this.comboBox1.Text;
 
-            Empresa empresaFiltro = this._estContable.Empresas.SingleOrDefault(emp => emp.Nombre == nombreEmpresa);
+            Empresa empresaFiltro = this._estContable.Empresas.SingleOrDefault(emp => emp.RazonSocial == nombreEmpresa);
 
             this.comboBox2.DataSource = empresaFiltro.Empleados;
             this.comboBox2.DisplayMember = "Nombre";
@@ -143,7 +143,7 @@ namespace EstudioContableSpringfieldGUI
 
         private Empresa BuscarEmpresa(string nombreEmpresa)
         {
-            Empresa empresaEncontrada = this._estContable.Empresas.SingleOrDefault(empresa => empresa.Nombre == nombreEmpresa);
+            Empresa empresaEncontrada = this._estContable.Empresas.SingleOrDefault(empresa => empresa.RazonSocial == nombreEmpresa);
 
             if (empresaEncontrada is null)
                 throw new Exception("No existe la empresa");
