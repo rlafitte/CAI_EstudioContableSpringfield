@@ -20,7 +20,7 @@ namespace EstudioContableSpringfieldGUI
             _nuevoEstudioContable = new EstudioContable();
             InitializeComponent();
 
-            
+            /*
             Categoria cat1 = new Categoria("ADM A", 57000, 19.5, "130 / 75");
             Categoria cat2 = new Categoria( "VEND B", 68500, 19.5,"130 / 75");
             Categoria cat3 = new Categoria( "AUXILIAR A", 78690.78, 19, "108 / 75");
@@ -29,7 +29,7 @@ namespace EstudioContableSpringfieldGUI
             _nuevoEstudioContable.Categorias.Add(cat2);
             _nuevoEstudioContable.Categorias.Add(cat3);
             _nuevoEstudioContable.Categorias.Add(cat4);
-            Empresa emp1 = new Empresa("Danonix ", Convert.ToInt32( 3034200673), "Viamonte 323");
+            Empresa emp1 = new Empresa("Danonix ", Convert.ToInt32(3034200673), "Viamonte 323");
             Empresa emp2 = new Empresa("Requiem ", Convert.ToInt32(30358833314),  "Monseñor Bufano 1715");
             Empresa emp3 = new Empresa("Hachiko ", Convert.ToInt32(332133387845),  "Diagonal norte 777");
             Empresa emp4 = new Empresa("Vasere SRL ", Convert.ToInt32(333312341336),  "F. J. Oro 1744");
@@ -58,7 +58,7 @@ namespace EstudioContableSpringfieldGUI
             _nuevoEstudioContable.Liquidaciones.Add(new Liquidacion("TYU", 9, 2020, "VAC", DateTime.Today, emp3, emple6));
             _nuevoEstudioContable.Liquidaciones.Add(new Liquidacion("BBB", 10, 2020, "MENSUAL", DateTime.Today, emp4, emple1));
             _nuevoEstudioContable.Liquidaciones.Add(new Liquidacion("BBB", 12, 2020, "1 QUINCENA", DateTime.Today, emp1, emple2));
-            
+            */
 
         }
 

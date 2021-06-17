@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -18,8 +19,7 @@ namespace Estudio.Entidades.Entidades
             {
                 client = new WebClient();
                 client.Encoding = Encoding.UTF8;
-                rutaBase = "https://cai-api.azurewebsites.net/api/v1/EstudioContable/";
-                //rutaBase = ConfigurationManager.AppSettings["URL_API"];
+                rutaBase = ConfigurationManager.AppSettings["URL_API"];
                 client.Headers.Add("ContentType", "application/json");
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             }
