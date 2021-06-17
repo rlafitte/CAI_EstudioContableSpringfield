@@ -13,7 +13,7 @@ namespace Estudio.Entidades.Entidades
     {
         private int _legajo;
         private string _domicilio;
-        private int _cuil;
+        private long _cuil;
         private Empresa _empresa;
         private Categoria _categoria;
         private DateTime _fechaAlta;
@@ -22,7 +22,7 @@ namespace Estudio.Entidades.Entidades
         public int Legajo { get => this._legajo; }
         public Categoria Categoria { get => _categoria; }
         [DataMember(Name = "cuil")]
-        public int Cuil { get => _cuil; }
+        public long Cuil { get => _cuil; }
         [DataMember(Name = "idEmpresa")]
         public int IdEmpresa { get => _empresa.Id; }
         [DataMember(Name = "idCategoria")]
@@ -31,7 +31,7 @@ namespace Estudio.Entidades.Entidades
 
         public DateTime FechaAlta { get => _fechaAlta;  }
 
-        public Empleado(string nombre, string apellido, int legajo, string domicilio, int cuil, Empresa empresa, Categoria categoria, DateTime fechaNac) : base(nombre, apellido, fechaNac)
+        public Empleado(string nombre, string apellido, int legajo, string domicilio, long cuil, Empresa empresa, Categoria categoria, DateTime fechaNac) : base(nombre, apellido, fechaNac)
         {
             this._legajo = legajo;
             this._domicilio = domicilio;

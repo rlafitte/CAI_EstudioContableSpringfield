@@ -15,12 +15,16 @@ namespace EstudioContableSpringfieldGUI
     public partial class FrmEmpleados : Form
     {
         private EstudioContable _estContable;
+        private EmpresaNegocio _empresaNegocio;
         private EmpleadoNegocio _empleadoNegocio;
+        private CategoriaNegocio _categoriaNegocio;
 
         public FrmEmpleados(EstudioContable estudio)
         {
             this._estContable = estudio;
+            this._empresaNegocio = new EmpresaNegocio();
             this._empleadoNegocio = new EmpleadoNegocio();
+            this._categoriaNegocio = new CategoriaNegocio();
             InitializeComponent();
         }
 
@@ -32,15 +36,13 @@ namespace EstudioContableSpringfieldGUI
 
         private void FrmEmpleados_Load(object sender, EventArgs e)
         {
-            this.comboBox1.DataSource = this._estContable.Empresas;
-            this.comboBox1.DisplayMember = "Nombre";
+            this.comboBox1.DataSource = this._empresaNegocio.Traer();
             this.comboBox1.ValueMember = "Cuit";
+            this.comboBox1.DisplayMember = "RazonSocial";
 
-            this.comboBox2.DataSource = this._estContable.Categorias;
+            this.comboBox2.DataSource = this._categoriaNegocio.Traer();
+            this.comboBox2.ValueMember = "Id";
             this.comboBox2.DisplayMember = "Nombre";
-            this.comboBox2.ValueMember = "IdCategoria";
-
-            ResetearFormulario();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -56,7 +58,7 @@ namespace EstudioContableSpringfieldGUI
                 string empresa = this.comboBox1.Text;
 
 
-                if (!int.TryParse(this.textBox4.Text, out int cuil))
+                if (!long.TryParse(this.textBox4.Text, out long cuil))
                     throw new Exception("CUIL no numérico, corrija la entrada por favor");
 
                 if (!int.TryParse(this.textBox6.Text, out int legajo))

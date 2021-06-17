@@ -12,7 +12,7 @@ namespace Estudio.Entidades.Entidades
     public class Empresa
     {
         private string _nombre;
-        private int _cuit;
+        private long _cuit;
         private DateTime _fechaAlta;
         private string _domicilio;
         private int _usuario;
@@ -21,9 +21,9 @@ namespace Estudio.Entidades.Entidades
         private List<Empleado> _empleados;
 
         [DataMember(Name = "razonSocial")]
-        public string RazonSocial { get => this._nombre; }
+        public string RazonSocial { get => this._nombre; set => this._nombre = value; }
         [DataMember(Name = "cuit")]
-        public int Cuit { get => _cuit; }
+        public long Cuit { get => _cuit; }
         [DataMember(Name = "fechaAlta")]
         public DateTime FechaAlta { get => _fechaAlta; }
         [DataMember(Name = "usuario")]
@@ -33,15 +33,17 @@ namespace Estudio.Entidades.Entidades
         [DataMember(Name = "domicilio")]
         public string Domicilio { get => _domicilio; }
 
-        public List<Empleado> Empleados { get => this._empleados; }
+        public List<Empleado> Empleados { get => this._empleados; set => this.Empleados = value; }
 
-        public Empresa(string nombre, int cuit, string domicilio)
+        public Empresa(string nombre, long cuit, string domicilio)
         {
             this._nombre = nombre;
             this._cuit = cuit;
             this._domicilio = domicilio;
             this._empleados = new List<Empleado>();
+            this._usuario = 898049;
         }
+
         public Empresa()
         {
 

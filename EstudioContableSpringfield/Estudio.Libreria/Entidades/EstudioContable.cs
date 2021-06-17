@@ -23,16 +23,16 @@ namespace Estudio.Entidades.Entidades
             this._liquidaciones = new List<Liquidacion>();
         }
 
-        public void AgregarCategoria(Categoria nuevaCategroia)
+        public void AgregarCategoria(Categoria nuevaCategoria)
         {
             foreach (Categoria categoria in this._categorias)
             {
-                if (categoria.IdCategoria==nuevaCategroia.IdCategoria)
+                if (categoria.Id == nuevaCategoria.Id)
                 {
                     throw new Exception("La categoría ya existe");
                 }
             }
-            this._categorias.Add(nuevaCategroia);
+            this._categorias.Add(nuevaCategoria);
         }
 
         public void AgregarEmpresa(Empresa nuevaEmpresa)
