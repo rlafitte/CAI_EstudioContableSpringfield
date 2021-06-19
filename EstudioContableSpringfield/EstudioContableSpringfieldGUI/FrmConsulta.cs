@@ -127,7 +127,7 @@ namespace EstudioContableSpringfieldGUI
 
             foreach (Liquidacion liq in this._listaLiquidaciones)
             {
-                if (liq.CodLiquidacion == codigo)
+                if (liq.CodigoTransferencia == codigo)
                     liquidacionesPorCodigo.Add(liq);
             }
 
@@ -159,9 +159,9 @@ namespace EstudioContableSpringfieldGUI
         {
             foreach (Liquidacion liq in this._listaLiquidaciones)
             {
-                int i = comboBox1.FindStringExact(liq.CodLiquidacion);
+                int i = comboBox1.FindStringExact(liq.CodigoTransferencia);
                 if (i < 0)
-                    comboBox1.Items.Add(liq.CodLiquidacion);
+                    comboBox1.Items.Add(liq.CodigoTransferencia);
             }
         }
 

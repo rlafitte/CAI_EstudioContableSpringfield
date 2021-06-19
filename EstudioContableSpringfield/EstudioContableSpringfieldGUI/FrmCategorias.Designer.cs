@@ -128,10 +128,12 @@ namespace EstudioContableSpringfieldGUI
             // cmbCategorias
             // 
             this.cmbCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategorias.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cmbCategorias.FormattingEnabled = true;
-            this.cmbCategorias.Location = new System.Drawing.Point(19, 65);
+            this.cmbCategorias.Location = new System.Drawing.Point(25, 81);
             this.cmbCategorias.Name = "cmbCategorias";
-            this.cmbCategorias.Size = new System.Drawing.Size(322, 21);
+            this.cmbCategorias.Size = new System.Drawing.Size(316, 29);
+            this.cmbCategorias.Sorted = true;
             this.cmbCategorias.TabIndex = 14;
             // 
             // FrmCategorias

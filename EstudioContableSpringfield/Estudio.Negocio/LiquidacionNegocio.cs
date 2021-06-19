@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Estudio.Negocio
 {
-    public class LiqudacionNegocio
+    public class LiquidacionNegocio
     {
         
         private List<Liquidacion> _listaLiquidaciones;
         private LiquidacionMapper _liquidacionMapper;
 
-        public LiqudacionNegocio()
+        public LiquidacionNegocio()
         {
             this._listaLiquidaciones = new List<Liquidacion>();
             this._liquidacionMapper = new LiquidacionMapper();

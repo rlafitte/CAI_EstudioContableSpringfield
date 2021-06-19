@@ -12,32 +12,40 @@ namespace Estudio.Entidades.Entidades
     public class Empleado : Persona
     {
         private int _legajo;
-        private string _domicilio;
-        private long _cuil;
-        private Empresa _empresa;
-        private Categoria _categoria;
+        private Int64 _cuil;
+        private int _idCategoria;
+        private int _idEmpresa;
         private DateTime _fechaAlta;
+        private Categoria _categoria;
+
+        //cargamos la empresa al hacer el get? serviría para algo en reportes/consultas?
+        private Empresa _empresa;
+        public Empresa Empresa { get => _empresa; set => _empresa = value; }
+
+
+        public Categoria Categoria { get => _categoria; set => _categoria = value; }
+
 
         [DataMember(Name = "id")]
-        public int Legajo { get => this._legajo; }
-        public Categoria Categoria { get => _categoria; }
+        public int Legajo { get => this._legajo; set => this._legajo = value; }
+
         [DataMember(Name = "cuil")]
-        public long Cuil { get => _cuil; }
+        public Int64 Cuil { get => _cuil; set => this._cuil = value; }
+
         [DataMember(Name = "idEmpresa")]
-        public int IdEmpresa { get => _empresa.Id; }
+        public int IdEmpresa { get => _idEmpresa; set => this._idEmpresa = value; }
+
         [DataMember(Name = "idCategoria")]
-        public int IdCategoria { get => _categoria.Id; }
+        public int IdCategoria { get => _idCategoria; set => this._idCategoria = value; }
+
         [DataMember(Name = "fechaAlta")]
+        public DateTime FechaAlta { get => _fechaAlta; set => this._fechaAlta = value; }
 
-        public DateTime FechaAlta { get => _fechaAlta;  }
-
-        public Empleado(string nombre, string apellido, int legajo, string domicilio, long cuil, Empresa empresa, Categoria categoria, DateTime fechaNac) : base(nombre, apellido, fechaNac)
+        public Empleado(string nombre, string apellido, DateTime fechaNac, Int64 cuil, int idEmpresa, int idCategoria) : base(nombre, apellido, fechaNac)
         {
-            this._legajo = legajo;
-            this._domicilio = domicilio;
             this._cuil = cuil;
-            this._empresa = empresa;
-            this._categoria = categoria;
+            this._idEmpresa = idEmpresa;
+            this._idCategoria = idCategoria;
             this._fechaAlta = DateTime.Now;
         }
         public Empleado()

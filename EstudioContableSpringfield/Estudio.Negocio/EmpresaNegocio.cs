@@ -12,11 +12,13 @@ namespace Estudio.Negocio
     {
         private List<Empresa> _listaEmpresas;
         private EmpresaMapper _empresaMapper;
+        private EmpleadoNegocio _empleadoNegocio;
 
         public EmpresaNegocio()
         {
             this._listaEmpresas = new List<Empresa>();
             this._empresaMapper = new EmpresaMapper();
+            this._empleadoNegocio = new EmpleadoNegocio();
         }
 
         public List<Empresa> Traer()
@@ -28,20 +30,22 @@ namespace Estudio.Negocio
 
         public TransactionResult Agregar(Empresa nuevaEmpresa)
         {
-            BuscarEmpresa(nuevaEmpresa);
+            if(EmpresaExiste(nuevaEmpresa))
+                throw new Exception("No puede darse de alta, la empresa ya existe"); 
+            
             TransactionResult resultado = this._empresaMapper.Agregar(nuevaEmpresa);
             return resultado;
         }
 
-        private void BuscarEmpresa(Empresa nuevaEmpresa)
+        private bool EmpresaExiste(Empresa nuevaEmpresa)
         {
+            bool empresaExiste = false;
             foreach (Empresa empresa in this._empresaMapper.TraerTodos())
             {
                 if (nuevaEmpresa.Cuit == empresa.Cuit)
-                {
-                    throw new Exception("La empresa ya existe");
-                }
+                    empresaExiste = true;
             }
+            return empresaExiste;
         }
 
         public TransactionResult Modificar(Empresa empresa)
@@ -50,5 +54,20 @@ namespace Estudio.Negocio
             return resultado;
         }
 
+        public object TraerConEmpleados()
+        {
+            List<Empresa> empresas = _empresaMapper.TraerTodos();
+            List<Empleado> empleados = this._empleadoNegocio.TraerConCategoria();
+
+            foreach (Empresa empresa in empresas)
+            {
+                foreach (Empleado empleado in empleados)
+                {
+                    if (empresa.Id == empleado.IdEmpresa)
+                        empresa.Empleados.Add(empleado);
+                }
+            }
+            return empresas;
+        }
     }
 }

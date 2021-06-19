@@ -36,6 +36,8 @@ namespace EstudioContableSpringfieldGUI
             {
                 cmbCategorias.DataSource = null;
                 cmbCategorias.DataSource = this._categoriaNegocio.Traer();
+                cmbCategorias.DisplayMember = "NombreYConvenio";
+                cmbCategorias.ValueMember = "Id";
             }
 
             catch (Exception exe)
@@ -58,6 +60,7 @@ namespace EstudioContableSpringfieldGUI
                 Categoria categoria = new Categoria(txtNombre.Text, double.Parse(txtBasico.Text), txtCCTNum.Text);
                 TransactionResult resultado = _categoriaNegocio.Agregar(categoria);
                 MessageBox.Show(resultado.ToString());
+                CargarCategorias();
                 ResetearFormulario();
             }
             catch (Exception exe)

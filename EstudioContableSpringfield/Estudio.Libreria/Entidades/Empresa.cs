@@ -22,16 +22,21 @@ namespace Estudio.Entidades.Entidades
 
         [DataMember(Name = "razonSocial")]
         public string RazonSocial { get => this._nombre; set => this._nombre = value; }
+
         [DataMember(Name = "cuit")]
-        public long Cuit { get => _cuit; }
+        public long Cuit { get => _cuit; set => this._cuit = value; }
+
         [DataMember(Name = "fechaAlta")]
-        public DateTime FechaAlta { get => _fechaAlta; }
+        public DateTime FechaAlta { get => _fechaAlta; set => this._fechaAlta = value; }
+
         [DataMember(Name = "usuario")]
-        public int Usuario { get => _usuario;  }
+        public int Usuario { get => _usuario; set => this._usuario = value; }
+
         [DataMember(Name = "id")]
-        public int Id { get => _id; }
+        public int Id { get => _id; set => this._id = value; }
+
         [DataMember(Name = "domicilio")]
-        public string Domicilio { get => _domicilio; }
+        public string Domicilio { get => _domicilio; set => this._domicilio = value; }
 
         public List<Empleado> Empleados { get => this._empleados; set => this.Empleados = value; }
 
@@ -46,7 +51,7 @@ namespace Estudio.Entidades.Entidades
 
         public Empresa()
         {
-
+            this._empleados = new List<Empleado>();
         }
 
         public override string ToString()

@@ -19,7 +19,8 @@ namespace Estudio.Entidades.Entidades
         [DataMember(Name = "apellido")]
         public string Apellido { get => _apellido; set => _apellido = value; }
         [DataMember(Name = "fechaNacimiento")]
-        public DateTime FechaNacimiento { get => _fechaNacimiento; }
+        public string FechaNacimiento { get => _fechaNacimiento.ToString("yyyy-MM-dd"); set => _fechaNacimiento = DateTime.Parse(value + " 00:00:00"); }
+        public string ApellidoYNombre { get => $"{ this.Apellido}, {this.Nombre}"; }
 
         public Persona(string nombre, string apellido, DateTime fechaNac)
         {
@@ -34,7 +35,7 @@ namespace Estudio.Entidades.Entidades
 
         public override string ToString()
         {
-            return $"{ this.Apellido}, {this.Nombre}";
+            return ApellidoYNombre;
         }
     }
 }

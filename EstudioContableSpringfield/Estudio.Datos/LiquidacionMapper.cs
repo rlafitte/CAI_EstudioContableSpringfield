@@ -12,16 +12,18 @@ namespace Estudio.Datos
 {
     public class LiquidacionMapper
     {
-        static string rutaMapper;
+        static string rutaMapperGET;
+        static string rutaMapperPOST_PUT_DELETE;
 
         public LiquidacionMapper()
         {
-            rutaMapper = ConfigurationManager.AppSettings["URL_LIQUIDACIONES"];
+            rutaMapperGET = ConfigurationManager.AppSettings["URL_LIQUIDACIONES"];
+            rutaMapperPOST_PUT_DELETE = ConfigurationManager.AppSettings["URL_LIQUIDACION"];
         }
 
         public List<Liquidacion> TraerTodos()
         {
-            string json = WebHelper.Get(rutaMapper);
+            string json = WebHelper.Get(rutaMapperGET);
             List<Liquidacion> resultado = MapList(json);
             return resultado;
         }
@@ -37,7 +39,7 @@ namespace Estudio.Datos
         {
             NameValueCollection obj = ReverseMap(liquidacion);
 
-            string json = WebHelper.Post(rutaMapper, obj);
+            string json = WebHelper.Post(rutaMapperPOST_PUT_DELETE, obj);
 
             TransactionResult lst = JsonConvert.DeserializeObject<TransactionResult>(json);
 
@@ -47,17 +49,13 @@ namespace Estudio.Datos
         {
             NameValueCollection n = new NameValueCollection();
 
-            /*
-             *Chequear!
-             
-            n.Add("idEmpleado", liquidacion._idEmpleado.ToString());
+            n.Add("idEmpleado", liquidacion.IdEmpleado.ToString());
             n.Add("Periodo", liquidacion.Periodo.ToString());
             n.Add("CodigoTransferencia", liquidacion.CodigoTransferencia);
             n.Add("Bruto", liquidacion.Bruto.ToString("0.00"));
             n.Add("Descuentos", liquidacion.Descuentos.ToString("0.00"));
             n.Add("FechaAlta", liquidacion.FechaAlta);
             n.Add("id", "0");
-            */
 
             return n;
         }
