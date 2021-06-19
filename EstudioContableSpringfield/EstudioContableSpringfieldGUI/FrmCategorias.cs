@@ -14,18 +14,36 @@ namespace EstudioContableSpringfieldGUI
 {
     public partial class FrmCategorias : Form
     {
+        private CategoriaNegocio _categoriaNegocio;
         private EstudioContable _estContable;
-        private CategoriaNegocio _cat;
 
         public FrmCategorias(EstudioContable estudio)
         {
             this._estContable = estudio;
+            this._categoriaNegocio = new CategoriaNegocio();
             InitializeComponent();
         }
 
         private void FrmCategorias_Load(object sender, EventArgs e)
         {
+            CargarCategorias();
             ResetearFormulario();
+        }
+
+        private void CargarCategorias()
+        {
+            try
+            {
+                cmbCategorias.DataSource = null;
+                cmbCategorias.DataSource = this._categoriaNegocio.Traer();
+                cmbCategorias.DisplayMember = "NombreYConvenio";
+                cmbCategorias.ValueMember = "Id";
+            }
+
+            catch (Exception exe)
+            {
+                MessageBox.Show(exe.Message);
+            }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -38,11 +56,11 @@ namespace EstudioContableSpringfieldGUI
         {
             try
             {
-                Categoria categoria = null;
                 ValidarCamposFormulario();
-                categoria = new Categoria(int.Parse(txtIdCategoria.Text), txtNombre.Text, double.Parse(txtBasico.Text), double.Parse(txtPorcRet.Text), chkCCTSi.Checked, txtCCTNum.Text);
-                _estContable.AgregarCategoria(categoria);
-                MessageBox.Show("Categoría agregada correctamente.");
+                Categoria categoria = new Categoria(txtNombre.Text, double.Parse(txtBasico.Text), txtCCTNum.Text);
+                TransactionResult resultado = _categoriaNegocio.Agregar(categoria);
+                MessageBox.Show(resultado.ToString());
+                CargarCategorias();
                 ResetearFormulario();
             }
             catch (Exception exe)
@@ -54,46 +72,23 @@ namespace EstudioContableSpringfieldGUI
         private void ValidarCamposFormulario()
         {
             if (
-                txtIdCategoria.Text == string.Empty ||
                 txtNombre.Text == string.Empty ||
-                (chkCCTSi.Checked && txtCCTNum.Text == string.Empty) ||
-                txtBasico.Text == string.Empty ||
-                txtPorcRet.Text == string.Empty
+                txtBasico.Text == string.Empty
                 )
-            {
+
                 throw new Exception("Ningún campo puede estar vacío");
-            }
-            else if (
-                !int.TryParse(txtIdCategoria.Text, out int id) ||
-                !double.TryParse(txtBasico.Text, out double basico )||
-                !double.TryParse(txtPorcRet.Text, out double porcRet ) 
+
+            if (
+                !double.TryParse(txtBasico.Text, out double basico )
                 )
-            {
                 throw new Exception("Debe ingresar un numero");
-            }
         }
 
         private void ResetearFormulario()
         {
-            txtIdCategoria.Text = string.Empty;
             txtNombre.Text = string.Empty;
-            chkCCTSi.Text = string.Empty;
             txtCCTNum.Text = string.Empty;
             txtBasico.Text = string.Empty;
-            txtPorcRet.Text = string.Empty;
-            this.txtCCTNum.Enabled = false;
-        }
-
-        private void chkCCTSi_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkCCTSi.Checked)
-            {
-                this.txtCCTNum.Enabled = true;
-            }
-            if (chkCCTSi.Checked==false)
-            {
-                this.txtCCTNum.Enabled = false;
-            }
         }
     }
 }

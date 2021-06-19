@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Estudio.Entidades.Entidades
+namespace Estudio.Datos
 {
-
     public static class WebHelper
     {
         static WebClient client;
@@ -18,32 +18,30 @@ namespace Estudio.Entidades.Entidades
         {
             client = new WebClient();
             client.Encoding = Encoding.UTF8;
-            rutaBase = "https://cai-api.azurewebsites.net/api/v1";
-            //rutaBase = ConfigurationManager.AppSettings["URL_API"];
-            client.Headers.Add("ContentType", "application/json");
+            rutaBase = ConfigurationManager.AppSettings["URL_API"];
+            client.Headers.Add("ContentType", "aplicattion/json");
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
+
         public static string Get(string url)
         {
             var uri = rutaBase + url;
-            var responseString = client.DownloadString(uri);
+            var responseString = client.DownloadString(uri);   //json
             return responseString;
         }
+
         public static string Post(string url, NameValueCollection parametros)
         {
             string uri = rutaBase + url;
-
             try
             {
                 var response = client.UploadValues(uri, parametros);
-
-                var responseString = Encoding.Default.GetString(response);
-
+                var responseString = Encoding.Default.GetString(response);   //json
                 return responseString;
             }
-            catch (Exception ex)
+            catch (Exception exe)
             {
-                return "{ \"isOk\":false,\"id\":-1,\"error\":\"Error en el llamado al servicio\"}";
+                return "{ \"isOk\":false,\"id\":-1,\"error\":\"Error en el llamado al servicio\":}";
             }
         }
 
@@ -59,7 +57,7 @@ namespace Estudio.Entidades.Entidades
 
                 return responseString;
             }
-            catch (Exception ex)
+            catch (Exception exe)
             {
                 return "{ \"isOk\":false,\"id\":-1,\"error\":\"Error en el llamado al servicio\"}";
             }
@@ -77,7 +75,7 @@ namespace Estudio.Entidades.Entidades
 
                 return responseString;
             }
-            catch (Exception ex)
+            catch (Exception exe)
             {
                 return "{ \"isOk\":false,\"id\":-1,\"error\":\"Error en el llamado al servicio\"}";
             }

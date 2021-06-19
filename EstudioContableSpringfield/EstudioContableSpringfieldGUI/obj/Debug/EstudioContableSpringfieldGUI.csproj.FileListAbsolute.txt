@@ -37,6 +37,13 @@ C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpri
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.FrmReportes.resources
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Newtonsoft.Json.dll
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.FrmReportes.resources
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Estudio.Negocio.dll
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Estudio.Datos.dll
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Estudio.Negocio.pdb
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\Estudio.Datos.pdb
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\EstudioContableSpringfieldGUI.exe.config
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\EstudioContableSpringfieldGUI.exe
 C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\bin\Debug\EstudioContableSpringfieldGUI.pdb

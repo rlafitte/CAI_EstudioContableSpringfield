@@ -8,37 +8,44 @@ using System.Threading.Tasks;
 
 namespace Estudio.Negocio
 {
-    public class LiqudacionNegocio
+    public class LiquidacionNegocio
     {
-        /*
+        
         private List<Liquidacion> _listaLiquidaciones;
         private LiquidacionMapper _liquidacionMapper;
-        public LiqudacionNegocio()
+
+        public LiquidacionNegocio()
         {
             this._listaLiquidaciones = new List<Liquidacion>();
             this._liquidacionMapper = new LiquidacionMapper();
         }
+
         public List<Liquidacion> Traer()
         {
             this._listaLiquidaciones = this._liquidacionMapper.TraerTodos();
             return this._listaLiquidaciones;
         }
+
         public TransactionResult Agregar (Liquidacion liquidacion)
         {
-            TransactionResult resultado = this._liquidacionMapper.Agregar(liquidacion);
+            TransactionResult resultado = this._liquidacionMapper.Insertar(liquidacion);
             return resultado;
         }
+
+        /*
         public TransactionResult Modificar(Liquidacion liquidacion)
         {
             TransactionResult resultado = this._liquidacionMapper.Modificar(liquidacion);
             return resultado;
         }
+
         public TransactionResult Eliminar(Liquidacion liquidacion)
         {
             TransactionResult resultado = this._liquidacionMapper.Eliminar(liquidacion);
             return resultado;
         }
         */
+        
 
     }
 }

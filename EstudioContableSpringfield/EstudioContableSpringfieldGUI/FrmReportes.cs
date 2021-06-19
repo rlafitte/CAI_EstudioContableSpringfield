@@ -15,18 +15,14 @@ namespace EstudioContableSpringfieldGUI
     public partial class FrmReportes : Form
     {
         private EstudioContable nuevoEstudioContable;
-        private ReportesNegocio _repoNeg;
+        private LiquidacionNegocio _liquidacionNegocio;
 
-        public FrmReportes()
-        {
-            this._repoNeg = new ReportesNegocio();
-            InitializeComponent();
-        }
 
         public FrmReportes(EstudioContable nuevoEstudioContable)
         {
             this.nuevoEstudioContable = nuevoEstudioContable;
-            this._repoNeg = new ReportesNegocio();
+            this._liquidacionNegocio = new LiquidacionNegocio();
+            
             InitializeComponent();
         }
 
@@ -39,23 +35,22 @@ namespace EstudioContableSpringfieldGUI
         private void btnEmpleXEmpre_Click(object sender, EventArgs e)
         {
             lstReporte.DataSource = null;
-            lstReporte.DataSource = _repoNeg.Traer();
-            //lstReporte.Items.Clear();
-            //List<Empresa> _listA = nuevoEstudioContable.Empresas;
+            lstReporte.Items.Clear();
+            List<Empresa> _listA = nuevoEstudioContable.Empresas;
 
-            //foreach(Empresa _em in _listA)
-            //{
+            foreach(Empresa _em in _listA)
+            {
                 
-            //    lstReporte.Items.Add(_em.Nombre);
-            //    _em.ListaEmpleados(lstReporte);
-            //    lstReporte.Items.Add(Environment.NewLine);
-            //}
+                lstReporte.Items.Add(_em.RazonSocial);
+                _em.ListaEmpleados(lstReporte);
+                lstReporte.Items.Add(Environment.NewLine);
+            }
 
         }
 
         private void btnLiqXCat_Click(object sender, EventArgs e)
         {
-            lstReporte.DataSource = null;
+            lstReporte.Items.Clear();
             //List<Categoria> _listA = nuevoEstudioContable.Categorias;
             //List<Liquidacion> _listB = nuevoEstudioContable.Liquidaciones;
             //foreach(Categoria _cat in _listA)
@@ -71,15 +66,15 @@ namespace EstudioContableSpringfieldGUI
             //    }
             //    lstReporte.Items.Add(Environment.NewLine);
             //}
-            Liquidacion liq = new Liquidacion();
+            
             lstReporte.DataSource = null;
-            lstReporte.DataSource = liq.TraerLiq();
+            lstReporte.DataSource = this._liquidacionNegocio.Traer();
 
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            lstReporte.DataSource = null;
+            lstReporte.Items.Clear();
         }
     }
 }

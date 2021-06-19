@@ -8,15 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Estudio.Entidades.Entidades;
+using Estudio.Negocio;
 
 namespace EstudioContableSpringfieldGUI
 {
     public partial class FrmEmpresas : Form
     {
         private EstudioContable _estContable;
+        private EmpresaNegocio _empresaNegocio;
 
         public FrmEmpresas(EstudioContable estudio)
         {
+            this._empresaNegocio = new EmpresaNegocio();
             this._estContable = estudio;
             InitializeComponent();
         }
@@ -25,6 +28,22 @@ namespace EstudioContableSpringfieldGUI
         {
             this.dateTimePicker.Format = DateTimePickerFormat.Custom;
             this.dateTimePicker.CustomFormat = "dd/MM/yyyy";
+
+            CargarEmpresas();
+        }
+        private void CargarEmpresas()
+        {
+            try
+            {
+                cmbEmpresas.DataSource = null;
+                cmbEmpresas.DataSource = this._empresaNegocio.Traer();
+                cmbEmpresas.DisplayMember = "RazonSocial";
+                cmbEmpresas.ValueMember = "Cuit";
+            }
+            catch (Exception exe)
+            {
+                MessageBox.Show(exe.Message);
+            }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -40,16 +59,15 @@ namespace EstudioContableSpringfieldGUI
                 ValidarCamposFormulario();
 
                 string nombre = this.textBox1.Text;
-                string cuil = this.textBox2.Text;
-                string rubro = this.textBox3.Text;
-                DateTime inicioActiv = this.dateTimePicker.Value;
+                long cuit = long.Parse(this.textBox2.Text);
                 string domicilio = this.textBox5.Text;
 
-                Empresa nuevaEmpresa = new Empresa(nombre, cuil, rubro, inicioActiv, domicilio);
+                Empresa nuevaEmpresa = new Empresa(nombre, cuit, domicilio);
 
-                this._estContable.AgregarEmpresa(nuevaEmpresa);
+                TransactionResult resultado = this._empresaNegocio.Agregar(nuevaEmpresa);
 
-                MessageBox.Show("Empresa agregada correctamente.");
+                MessageBox.Show(resultado.DarMensaje());
+                CargarEmpresas();
                 ResetearFormulario();
             }
             catch (Exception ex)
@@ -63,7 +81,6 @@ namespace EstudioContableSpringfieldGUI
             if (
             this.textBox1.Text == "" ||
             this.textBox2.Text == "" ||
-            this.textBox3.Text == "" ||
             this.textBox5.Text == "")
                 throw new Exception("Los campos no deben estar vacíos");
         }
@@ -72,7 +89,6 @@ namespace EstudioContableSpringfieldGUI
         {
             this.textBox1.Text = "";
             this.textBox2.Text = "";
-            this.textBox3.Text = "";
             this.textBox5.Text = "";
         }
     }
