@@ -28,6 +28,22 @@ namespace EstudioContableSpringfieldGUI
         {
             this.dateTimePicker.Format = DateTimePickerFormat.Custom;
             this.dateTimePicker.CustomFormat = "dd/MM/yyyy";
+
+            CargarEmpresas();
+        }
+        private void CargarEmpresas()
+        {
+            try
+            {
+                cmbEmpresas.DataSource = null;
+                cmbEmpresas.DataSource = this._empresaNegocio.Traer();
+                cmbEmpresas.DisplayMember = "RazonSocial";
+                cmbEmpresas.ValueMember = "Cuit";
+            }
+            catch (Exception exe)
+            {
+                MessageBox.Show(exe.Message);
+            }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -43,7 +59,7 @@ namespace EstudioContableSpringfieldGUI
                 ValidarCamposFormulario();
 
                 string nombre = this.textBox1.Text;
-                long cuit = int.Parse(this.textBox2.Text);
+                long cuit = long.Parse(this.textBox2.Text);
                 string domicilio = this.textBox5.Text;
 
                 Empresa nuevaEmpresa = new Empresa(nombre, cuit, domicilio);
@@ -51,6 +67,7 @@ namespace EstudioContableSpringfieldGUI
                 TransactionResult resultado = this._empresaNegocio.Agregar(nuevaEmpresa);
 
                 MessageBox.Show(resultado.DarMensaje());
+                CargarEmpresas();
                 ResetearFormulario();
             }
             catch (Exception ex)

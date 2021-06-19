@@ -27,6 +27,8 @@ namespace Estudio.Entidades.Entidades
         [DataMember(Name = "convenio")]
         public string Convenio { get => _convenio; set => _convenio = value; }
 
+        public string NombreYConvenio { get => $"{this._nombre} - {this.Convenio}"; }
+
         public Categoria(string nombre, double sueldoBasico, string cCT)
         {
             this._nombre = nombre;
@@ -36,7 +38,7 @@ namespace Estudio.Entidades.Entidades
 
         public override string ToString()
         {
-            return $"{this._nombre} - {this.Convenio}";
+            return NombreYConvenio;
         }
     }
 }

@@ -15,13 +15,13 @@ namespace EstudioContableSpringfieldGUI
     public partial class FrmReportes : Form
     {
         private EstudioContable nuevoEstudioContable;
-        private LiqudacionNegocio _liquidacionNegocio;
+        private LiquidacionNegocio _liquidacionNegocio;
 
 
         public FrmReportes(EstudioContable nuevoEstudioContable)
         {
             this.nuevoEstudioContable = nuevoEstudioContable;
-            this._liquidacionNegocio = new LiqudacionNegocio();
+            this._liquidacionNegocio = new LiquidacionNegocio();
             
             InitializeComponent();
         }

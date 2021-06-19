@@ -36,13 +36,23 @@ namespace EstudioContableSpringfieldGUI
 
         private void FrmEmpleados_Load(object sender, EventArgs e)
         {
-            this.comboBox1.DataSource = this._empresaNegocio.Traer();
-            this.comboBox1.ValueMember = "Cuit";
-            this.comboBox1.DisplayMember = "RazonSocial";
+            CargarEmpresas();
+            CargarCategorias();
+            ResetearFormulario();
+        }
 
-            this.comboBox2.DataSource = this._categoriaNegocio.Traer();
-            this.comboBox2.ValueMember = "Id";
-            this.comboBox2.DisplayMember = "Nombre";
+        private void CargarCategorias()
+        {
+            this.cmbCategorias.DataSource = this._categoriaNegocio.Traer();
+            this.cmbCategorias.ValueMember = "Id";
+            this.cmbCategorias.DisplayMember = "Nombre";
+        }
+
+        private void CargarEmpresas()
+        {
+            this.cmbEmpresas.DataSource = this._empresaNegocio.TraerConEmpleados();
+            this.cmbEmpresas.ValueMember = "Cuit";
+            this.cmbEmpresas.DisplayMember = "RazonSocial";
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -51,27 +61,24 @@ namespace EstudioContableSpringfieldGUI
             {
                 ValidarCamposFormulario();
 
-                string nombre = this.textBox1.Text;
-                string apellido = this.textBox2.Text;
-                DateTime fechaNacim = this.dateTimePicker1.Value;
-                string direccion = this.textBox5.Text;
-                string empresa = this.comboBox1.Text;
+                string nombre = this.txtNombre.Text;
+                string apellido = this.txtApellido.Text;
+                DateTime fechaNacim = this.dTPFechaNacimiento.Value;
+                Int64 cuil = Int64.Parse(this.txtCUIL.Text);
+                Empresa empresaSeleccionada = (Empresa)cmbEmpresas.SelectedItem;
+                Categoria categoriaSeleccionada = (Categoria)cmbCategorias.SelectedItem;
 
+                //string empresa = this.cmbEmpresas.Text;
+                //Empresa empresaEmpleado = this._estContable.Empresas.SingleOrDefault(emp => emp.RazonSocial.ToLower() == empresa.ToLower());
 
-                if (!long.TryParse(this.textBox4.Text, out long cuil))
-                    throw new Exception("CUIL no numérico, corrija la entrada por favor");
-
-                if (!int.TryParse(this.textBox6.Text, out int legajo))
-                    throw new Exception("CUIL no numérico, corrija la entrada por favor");
-
-                Categoria categoria = (Categoria)comboBox2.SelectedItem;
-                Empresa empresaEmpleado = this._estContable.Empresas.SingleOrDefault(emp => emp.RazonSocial.ToLower() == empresa.ToLower());
-
-                Empleado nuevoEmpleado = new Empleado(nombre, apellido, legajo, direccion, cuil, empresaEmpleado, categoria, fechaNacim);
+                Empleado nuevoEmpleado = new Empleado(nombre, apellido, fechaNacim, cuil, empresaSeleccionada.Id, categoriaSeleccionada.Id);
 
                 TransactionResult resultado = this._empleadoNegocio.Agregar(nuevoEmpleado);
 
-                MessageBox.Show($"Empleado agregado correctamente: {resultado.Id}");
+                if (resultado.IsOk)
+                    CargarEmpresas();
+
+                MessageBox.Show(resultado.DarMensaje());
                 ResetearFormulario();
             }
             catch (Exception ex)
@@ -82,29 +89,147 @@ namespace EstudioContableSpringfieldGUI
 
         private void ValidarCamposFormulario()
         {
-            if (this.textBox1.Text == "" ||
-                this.textBox2.Text == "" ||
-                this.dateTimePicker1.Text == "" ||
-                this.textBox4.Text == "" ||
-                this.textBox5.Text == "" ||
-                this.textBox6.Text == "" ||
-                this.comboBox1.SelectedIndex == -1||
-                this.comboBox2.SelectedIndex == -1)
+            if (this.txtNombre.Text == "" ||
+                this.txtApellido.Text == "" ||
+                this.dTPFechaNacimiento.Text == "" ||
+                this.txtCUIL.Text == "" ||
+                this.cmbEmpresas.SelectedIndex == -1||
+                this.cmbCategorias.SelectedIndex == -1)
             {
                 throw new Exception("Los campos marcados con * no deben estar vacíos");
             }
+
+            if (!Int64.TryParse(this.txtCUIL.Text, out Int64 cuil))
+                throw new Exception("CUIL no numérico, corrija la entrada por favor");
         }
 
         private void ResetearFormulario()
         {
-            this.textBox1.Text = "";
-            this.textBox2.Text = "";
-            this.dateTimePicker1.Text = "";
-            this.textBox4.Text = "";
-            this.textBox5.Text = "";
-            this.textBox6.Text = "";
-            this.comboBox1.Text = "";
-            this.comboBox2.Text = "";
+            this.txtNombre.Text = "";
+            this.txtApellido.Text = "";
+            this.dTPFechaNacimiento.Text = "";
+            this.txtCUIL.Text = "";
+            this.txtLegajo.Text = "";
+            this.cmbEmpresas.Text = "";
+            this.cmbCategorias.Text = "";
+            this.cmbEmpleados.Text = "";
+            this.cmbCategorias.SelectedIndex = -1;
+
+            this.txtNombre.Enabled = true;
+            this.txtApellido.Enabled = true;
+            this.dTPFechaNacimiento.Enabled = true;
+            this.txtCUIL.Enabled = true;
+        }
+
+        private void cmbEmpresas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarEmpleados();
+            ResetearFormulario();
+        }        
+
+        private void CargarEmpleados()
+        {
+            if (cmbEmpresas.DataSource != null)
+            {
+                Empresa empresaSeleccionada = (Empresa)cmbEmpresas.SelectedItem;
+                cmbEmpleados.DataSource = null;
+                cmbEmpleados.DataSource = empresaSeleccionada.Empleados;
+                this.cmbEmpleados.ValueMember = "Legajo";
+                this.cmbEmpleados.DisplayMember = "ApellidoYNombre";
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            ResetearFormulario();
+        }
+
+        private void cmbEmpleados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DeshabilitarCampos();
+            CargarDatosEmpleado();
+        }
+
+        private void DeshabilitarCampos()
+        {
+            this.txtNombre.Enabled = false;
+            this.txtApellido.Enabled = false;
+            this.dTPFechaNacimiento.Enabled = false;
+            this.txtCUIL.Enabled = false;
+        }
+
+        private void CargarDatosEmpleado()
+        {
+            if(cmbEmpleados.DataSource!=null)
+            {
+                Empleado empleadoSeleccionado = (Empleado)cmbEmpleados.SelectedItem;
+                this.txtNombre.Text = empleadoSeleccionado.Nombre;
+                this.txtApellido.Text = empleadoSeleccionado.Apellido;
+                this.dTPFechaNacimiento.Text = empleadoSeleccionado.FechaNacimiento;
+                this.txtCUIL.Text = empleadoSeleccionado.Cuil.ToString();
+                this.txtLegajo.Text = empleadoSeleccionado.Legajo.ToString();
+                this.cmbCategorias.SelectedValue = empleadoSeleccionado.Categoria.Id; 
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbEmpleados.SelectedItem == null)
+                    throw new Exception("Debe seleccionar un empleado");
+
+                Empleado empleadoSeleccionado = (Empleado)cmbEmpleados.SelectedItem;
+
+                var confirmResult = MessageBox.Show($"¿Está seguro que desea eliminar al empleado {empleadoSeleccionado.ApellidoYNombre}?", "Confirme eliminación", MessageBoxButtons.OKCancel);
+                if(confirmResult==DialogResult.OK)
+                {
+                    TransactionResult resultado = this._empleadoNegocio.Eliminar(empleadoSeleccionado);
+
+                    if (resultado.IsOk)
+                        CargarEmpresas();
+
+                    MessageBox.Show(resultado.DarMensaje());
+                }
+                else
+                {
+                    MessageBox.Show("Eliminación cancelada");
+                }
+                ResetearFormulario();
+            }
+            catch (Exception exe)
+            {
+                MessageBox.Show(exe.Message);
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbEmpleados.SelectedItem == null)
+                    throw new Exception("Debe seleccionar un empleado");
+
+                ValidarCamposFormulario();
+
+                Empleado empleadoSeleccionado = (Empleado)cmbEmpleados.SelectedItem;
+                Categoria categoriaSeleccionada = (Categoria)cmbCategorias.SelectedItem;
+
+                empleadoSeleccionado.IdCategoria = categoriaSeleccionada.Id;
+
+                TransactionResult resultado = this._empleadoNegocio.Modificar(empleadoSeleccionado);
+
+                if (resultado.IsOk)
+                    CargarEmpresas();
+
+                MessageBox.Show(resultado.DarMensaje());
+                ResetearFormulario();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

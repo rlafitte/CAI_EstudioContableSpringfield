@@ -12,28 +12,30 @@ namespace Estudio.Entidades.Entidades
         private string _codLiquidacion;
         private int _mes;
         private int _año;
-        private string _tipo;
         private DateTime _fechaPago;
         private int _id;
         private double _bruto;
         private double _retenciones;
+        private int _idEmpleado;
+        private DateTime _fechaAlta;
+
+        private double _neto;
 
         private Empresa _empresa;
         private Empleado _empleado;
         private Categoria _categoria;
 
-        private double _neto;
+        public double Neto { get => _neto; set => _neto = this._bruto - this._retenciones; }
 
-        public string CodLiquidacion { get => this._codLiquidacion; }
-        public Empresa Empresa { get => this._empresa; }
-        public Empleado Empleado { get => this._empleado; }
-        public Categoria Categoria { get => this._categoria; }
+        public Empresa Empresa { get => this._empresa; set => this._empresa = value; }
+        public Empleado Empleado { get => this._empleado; set => this._empleado = value; }
+        public Categoria Categoria { get => this._categoria; set => this._categoria = value; }
 
         //inicio de datos de post en Swagger
         //idEmpleado
         //integer($int32)
         [DataMember(Name = "idEmpleado")]
-        public int _idEmpleado { get => this._empleado.Legajo; }
+        public int IdEmpleado { get => this._idEmpleado; set => this._idEmpleado = value; }
 
         //Periodo
         //integer($int32)
@@ -44,53 +46,59 @@ namespace Estudio.Entidades.Entidades
         //string
 
         [DataMember(Name = "CodigoTransferencia")]
-        public string CodigoTransferencia { get => this._codLiquidacion; }
+        public string CodigoTransferencia { get => this._codLiquidacion; set => this._codLiquidacion = value; }
 
         [DataMember(Name = "Bruto")]
         //Bruto
         //number($double)
-        public double Bruto { get => this._bruto; }
+        public double Bruto { get => this._bruto; set => this._bruto = value; }
 
         //Descuentos
         //number($double)
         [DataMember(Name = "Descuentos")]
-        public double Descuentos { get => this._retenciones; }
+        public double Descuentos { get => this._retenciones; set => this._retenciones = value; }
 
         //FechaAlta
         //string ($date-time)
         [DataMember(Name = "FechaAlta")]
-        public string FechaAlta { get => this._fechaPago.ToString("yyyy-MM-dd"); }
+        public string FechaAlta { get => this._fechaPago.ToString("yyyy-MM-dd"); set => this._fechaAlta = DateTime.Parse(value + " 00:00:00"); }
 
         //id
         //integer($int32)
         [DataMember(Name = "id")]
-        public int Id { get => this._id; }
+        public int Id { get => this._id; set => this._id = value; }
+
         //fin de datos de post en Swagger
 
 
-        
         public Liquidacion()
         {
         }
 
-        public Liquidacion(string codLiquidacion, int mes, int año, string tipo, DateTime fechaPago, Empresa empresa, Empleado empleado, double porcRetenciones)
+        public Liquidacion(string codLiquidacion, int mes, int año, DateTime fechaPago, int idEmpleado, double bruto, double porcRetenciones)
         {
             this._codLiquidacion = codLiquidacion;
             this._mes = mes;
             this._año = año;
-            this._tipo = tipo;
             this._fechaPago = fechaPago;
-            this._empresa = empresa;
-            this._empleado = empleado;
-            this._categoria = empleado.Categoria;
-            this._bruto = _categoria.SueldoBasico;
+            this._bruto = bruto;
             this._retenciones = this.GetMontoRetenciones(porcRetenciones);
-            this._neto = this.GetSueldoNeto();
+            this._idEmpleado = idEmpleado;
+        }
+        public Liquidacion(double bruto, double porcRetenciones)
+        {
+            this._bruto = bruto;
+            this._retenciones = this.GetMontoRetenciones(porcRetenciones);
+        }
+
+        public double GetMontoRetenciones(double porcRetenciones)
+        {
+            return this._bruto * porcRetenciones / 100;
         }
 
         public override string ToString()
         {
-            return $"Código: {this._codLiquidacion} | Período: {this.Periodo} | Tipo: {this._tipo} | Empresa: {this._empresa} | Empleado: {this._empleado} | Categoria: {this._categoria}";
+            return $"Código: {this._codLiquidacion} | Período: {this.Periodo} | Empresa: {this._empresa} | Empleado: {this._empleado} | Categoria: {this._categoria}";
         }        
 
         public int ObtenerPeriodo(int mes, int año)
@@ -101,15 +109,6 @@ namespace Estudio.Entidades.Entidades
 
             string periodo = $"{año}{stringMes}";
             return int.Parse(periodo);
-        }
-
-        public double GetSueldoNeto()
-        {
-            return this._bruto - this._retenciones;
-        }
-        public double GetMontoRetenciones(double porcRetenciones)
-        {
-            return this._bruto * porcRetenciones / 100;
         }
 
     }
