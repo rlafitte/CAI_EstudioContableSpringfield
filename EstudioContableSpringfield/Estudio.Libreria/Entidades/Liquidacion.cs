@@ -61,7 +61,7 @@ namespace Estudio.Entidades.Entidades
         //FechaAlta
         //string ($date-time)
         [DataMember(Name = "FechaAlta")]
-        public string FechaAlta { get => this._fechaPago.ToString("yyyy-MM-dd"); set => this._fechaAlta = DateTime.Parse(value + " 00:00:00"); }
+        public string FechaAlta { get => this._fechaPago.ToString("yyyy-MM-dd"); set => this._fechaAlta = DateTime.Parse(value); /*DateTime.Parse(value + " 00:00:00";*/ }
 
         //id
         //integer($int32)
@@ -98,7 +98,8 @@ namespace Estudio.Entidades.Entidades
 
         public override string ToString()
         {
-            return $"Código: {this._codLiquidacion} | Período: {this.Periodo} | Empresa: {this._empresa} | Empleado: {this._empleado} | Categoria: {this._categoria}";
+            //return $"Código: {this._codLiquidacion} | Período: {this.Periodo} | Empresa: {this._empresa.Id} | Empleado: {this.IdEmpleado} | Categoria: {this._categoria.Id}";
+            return $"Código: {this._codLiquidacion} | Período: {this.Periodo} | Empleado: {this.IdEmpleado}";
         }        
 
         public int ObtenerPeriodo(int mes, int año)

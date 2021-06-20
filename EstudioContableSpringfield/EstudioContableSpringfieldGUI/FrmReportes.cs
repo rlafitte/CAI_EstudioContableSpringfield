@@ -16,6 +16,7 @@ namespace EstudioContableSpringfieldGUI
     {
         private EstudioContable nuevoEstudioContable;
         private LiquidacionNegocio _liquidacionNegocio;
+        private List<Liquidacion> _listaLiquidaciones;
         private ReportesNegocio _repoNeg;
 
 
@@ -24,6 +25,7 @@ namespace EstudioContableSpringfieldGUI
             this.nuevoEstudioContable = nuevoEstudioContable;
             this._liquidacionNegocio = new LiquidacionNegocio();
             this._repoNeg = new ReportesNegocio();
+            this._listaLiquidaciones = new List<Liquidacion>();
             InitializeComponent();
         }
 
@@ -54,7 +56,6 @@ namespace EstudioContableSpringfieldGUI
 
         private void btnLiqXCat_Click(object sender, EventArgs e)
         {
-            lstReporte.Items.Clear();
             //List<Categoria> _listA = nuevoEstudioContable.Categorias;
             //List<Liquidacion> _listB = nuevoEstudioContable.Liquidaciones;
             //foreach(Categoria _cat in _listA)
@@ -72,7 +73,26 @@ namespace EstudioContableSpringfieldGUI
             //}
             
             lstReporte.DataSource = null;
-            lstReporte.DataSource = this._liquidacionNegocio.Traer();
+            lstReporte.Items.Clear();
+            _listaLiquidaciones = _liquidacionNegocio.Traer();
+            foreach (Liquidacion liq in _listaLiquidaciones)
+            {
+
+                if (liq.Categoria != null)
+                {
+                lstReporte.Items.Add(liq.Categoria);
+
+                }
+                foreach(Liquidacion liqXcat in _listaLiquidaciones)
+                {
+                    if (liqXcat.Categoria == liq.Categoria)
+                    {
+                        lstReporte.Items.Add(liqXcat);
+                    }
+                }
+
+            }
+            //lstReporte.DataSource = this._liquidacionNegocio.Traer();
 
         }
 
