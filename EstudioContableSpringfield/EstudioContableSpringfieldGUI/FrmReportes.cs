@@ -16,13 +16,14 @@ namespace EstudioContableSpringfieldGUI
     {
         private EstudioContable nuevoEstudioContable;
         private LiquidacionNegocio _liquidacionNegocio;
+        private ReportesNegocio _repoNeg;
 
 
         public FrmReportes(EstudioContable nuevoEstudioContable)
         {
             this.nuevoEstudioContable = nuevoEstudioContable;
             this._liquidacionNegocio = new LiquidacionNegocio();
-            
+            this._repoNeg = new ReportesNegocio();
             InitializeComponent();
         }
 
@@ -36,14 +37,17 @@ namespace EstudioContableSpringfieldGUI
         {
             lstReporte.DataSource = null;
             lstReporte.Items.Clear();
-            List<Empresa> _listA = nuevoEstudioContable.Empresas;
+            List<Empresa> _listA = (List<Empresa>)_repoNeg.TraerEmpresas();
 
             foreach(Empresa _em in _listA)
             {
-                
+                if (_em.Cuit> 0)
+                {
+
                 lstReporte.Items.Add(_em.RazonSocial);
                 _em.ListaEmpleados(lstReporte);
                 lstReporte.Items.Add(Environment.NewLine);
+                }
             }
 
         }

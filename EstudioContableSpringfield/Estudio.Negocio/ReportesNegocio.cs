@@ -14,6 +14,7 @@ namespace Estudio.Negocio
         private List<Empresa> _empresas;
         private EmpleadoMapper _empleMap;
         private EmpresaMapper _empreMap;
+        private EmpresaNegocio _empreNeg;
 
         public ReportesNegocio()
         {
@@ -21,6 +22,7 @@ namespace Estudio.Negocio
             this._empresas = new List<Empresa>();
             this._empleMap= new EmpleadoMapper();
             this._empreMap= new EmpresaMapper();
+            this._empreNeg = new EmpresaNegocio();
         }
 
         public List<Empleado> Traer()
@@ -28,6 +30,10 @@ namespace Estudio.Negocio
             this._emple = this._empleMap.TraerTodos();
             this._empresas = this._empreMap.TraerTodos(); 
             return _emple;
+        }
+        public object TraerEmpresas()
+        {
+            return _empreNeg.TraerConEmpleados();
         }
     }
 }
