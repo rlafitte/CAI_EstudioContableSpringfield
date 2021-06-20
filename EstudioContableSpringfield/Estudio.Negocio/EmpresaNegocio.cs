@@ -13,6 +13,7 @@ namespace Estudio.Negocio
         private List<Empresa> _listaEmpresas;
         private EmpresaMapper _empresaMapper;
         private EmpleadoNegocio _empleadoNegocio;
+        private Empresa _empresaVacia;
 
         public EmpresaNegocio()
         {
@@ -23,10 +24,22 @@ namespace Estudio.Negocio
 
         public List<Empresa> Traer()
         {
-            _listaEmpresas = _empresaMapper.TraerTodos();
+            EmpresasFicticias();
+
+
+            //_listaEmpresas = _empresaMapper.TraerTodos();
+            _listaEmpresas.AddRange(_empresaMapper.TraerTodos());
+            _listaEmpresas.OrderBy(o=>o.Cuit);
             return _listaEmpresas;
         }
 
+        private void EmpresasFicticias()
+        {
+            _empresaVacia = new Empresa("  Seleccione", 0, "");
+            _listaEmpresas.Insert(0, _empresaVacia);
+            _empresaVacia = new Empresa(" Nueva empresa", 1, "");
+            _listaEmpresas.Insert(1, _empresaVacia);
+        }
 
         public TransactionResult Agregar(Empresa nuevaEmpresa)
         {

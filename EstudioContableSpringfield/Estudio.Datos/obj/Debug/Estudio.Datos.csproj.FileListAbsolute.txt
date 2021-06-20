@@ -26,7 +26,7 @@ C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpri
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\bin\Debug\Newtonsoft.Json.dll
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\bin\Debug\Estudio.Libreria.pdb
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\bin\Debug\Newtonsoft.Json.xml
-C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\obj\Debug\Estudio.Datos.csprojAssemblyReference.cache
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\obj\Debug\Estudio.Datos.csproj.AssemblyReference.cache
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\obj\Debug\Estudio.Datos.csproj.CoreCompileInputs.cache
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\obj\Debug\Estudio.Datos.csproj.CopyComplete
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Datos\obj\Debug\Estudio.Datos.dll

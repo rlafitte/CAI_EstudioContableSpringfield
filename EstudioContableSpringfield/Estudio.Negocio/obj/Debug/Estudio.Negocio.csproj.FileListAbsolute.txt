@@ -32,7 +32,7 @@ C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpri
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Negocio\bin\Debug\Estudio.Datos.pdb
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Negocio\bin\Debug\Estudio.Libreria.pdb
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Negocio\bin\Debug\Newtonsoft.Json.xml
-C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Negocio\obj\Debug\Estudio.Negocio.csprojAssemblyReference.cache
+C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Negocio\obj\Debug\Estudio.Negocio.csproj.AssemblyReference.cache
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Negocio\obj\Debug\Estudio.Negocio.csproj.CoreCompileInputs.cache
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Negocio\obj\Debug\Estudio.Negocio.csproj.CopyComplete
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Negocio\obj\Debug\Estudio.Negocio.dll

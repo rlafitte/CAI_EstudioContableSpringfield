@@ -90,6 +90,42 @@ namespace EstudioContableSpringfieldGUI
             this.textBox1.Text = "";
             this.textBox2.Text = "";
             this.textBox5.Text = "";
+            this.dateTimePicker.Value = System.DateTime.Now;
+        }
+
+        private void cmbEmpresas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbEmpresas.SelectedIndex == 0)
+            {
+                AgregarBloqueado();
+            }
+            else
+            {
+                MapearDatos((Empresa)cmbEmpresas.SelectedItem);
+                AgregarDesbloqueado();
+            }
+        }
+
+        private void MapearDatos(Empresa empresaSeleccionada)
+        {
+            textBox1.Text = empresaSeleccionada.RazonSocial;
+            textBox2.Text = empresaSeleccionada.Cuit.ToString();
+            if (empresaSeleccionada.FechaAlta.Year > 1900) 
+            { 
+            dateTimePicker.Value = empresaSeleccionada.FechaAlta;
+            }
+            textBox5.Text = empresaSeleccionada.Domicilio;
+        }
+
+        private void AgregarDesbloqueado()
+        {
+            btnAgregar.Enabled = true;
+        }
+
+        private void AgregarBloqueado()
+        {
+            ResetearFormulario();
+            btnAgregar.Enabled = false;
         }
     }
 }
