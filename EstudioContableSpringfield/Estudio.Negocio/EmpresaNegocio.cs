@@ -42,6 +42,28 @@ namespace Estudio.Negocio
             _listaEmpresas.Insert(1, _empresaVacia);
         }
 
+        public object TraerConEmpleadosExistentes()
+        {
+            _empresaVacia = new Empresa("  Seleccione", 0, "");
+            List<Empresa> empresas = new List<Empresa>();
+            empresas.Add(_empresaVacia);
+            empresas.AddRange(_empresaMapper.TraerTodos());
+            //List<Empresa> empresas = _empresaMapper.TraerTodos();
+            List<Empleado> empleados = this._empleadoNegocio.TraerConCategoria();
+
+            foreach (Empresa empresa in empresas)
+            {
+                foreach (Empleado empleado in empleados)
+                {
+
+                    if (empresa.Id > 0 && empresa.Id == empleado.IdEmpresa)
+                        empresa.Empleados.Add(empleado);
+                }
+            }
+            empresas.OrderBy(o => o.Cuit);
+            return empresas;
+        }
+
         public TransactionResult Agregar(Empresa nuevaEmpresa)
         {
             if(EmpresaExiste(nuevaEmpresa))

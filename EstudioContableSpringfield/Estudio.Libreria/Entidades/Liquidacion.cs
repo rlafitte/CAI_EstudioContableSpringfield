@@ -25,7 +25,7 @@ namespace Estudio.Entidades.Entidades
         private Empleado _empleado;
         private Categoria _categoria;
 
-        public double Neto { get => _neto; set => _neto = this._bruto - this._retenciones; }
+        public double Neto { get /*=> _neto; set*/ => _neto = this._bruto - this._retenciones; }
 
         public Empresa Empresa { get => this._empresa; set => this._empresa = value; }
         public Empleado Empleado { get => this._empleado; set => this._empleado = value; }
