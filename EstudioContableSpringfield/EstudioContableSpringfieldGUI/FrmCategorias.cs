@@ -90,5 +90,22 @@ namespace EstudioContableSpringfieldGUI
             txtCCTNum.Text = string.Empty;
             txtBasico.Text = string.Empty;
         }
+
+        private void cmbCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MapearCategoria();
+
+        }
+
+        private void MapearCategoria()
+        {
+            Categoria cat = (Categoria)cmbCategorias.SelectedItem;
+            if (cat != null)
+            {
+                txtNombre.Text = cat.Nombre;
+                txtCCTNum.Text = cat.Id.ToString();
+                txtBasico.Text = cat.SueldoBasico.ToString("0.00");
+            }
+        }
     }
 }

@@ -240,7 +240,7 @@ namespace EstudioContableSpringfieldGUI
         {
             try
             {
-                if (cmbEmpleados.SelectedItem == null)
+                if (cmbEmpleados.SelectedItem == null || cmbEmpleados.SelectedIndex == 0)
                     throw new Exception("Debe seleccionar un empleado");
 
                 ValidarCamposFormulario();

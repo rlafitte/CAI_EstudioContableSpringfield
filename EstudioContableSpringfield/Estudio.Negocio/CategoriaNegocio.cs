@@ -12,6 +12,7 @@ namespace Estudio.Negocio
     {
         private List<Categoria> _listaCategorias;
         private CategoriaMapper _categoriaMapper;
+        private Categoria _categoriaVacia;
 
         public CategoriaNegocio()
         {
@@ -21,7 +22,10 @@ namespace Estudio.Negocio
 
         public List<Categoria> Traer()
         {
-            this._listaCategorias = this._categoriaMapper.TraerTodos();
+            _categoriaVacia = new Categoria("<SELECCION>",0,"");
+            _listaCategorias.Insert(0, _categoriaVacia);
+            //this._listaCategorias = this._categoriaMapper.TraerTodos();
+            _listaCategorias.AddRange(_categoriaMapper.TraerTodos());
             return this._listaCategorias;
         }
 
