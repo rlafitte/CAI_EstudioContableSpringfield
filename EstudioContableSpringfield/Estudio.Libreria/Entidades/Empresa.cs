@@ -63,8 +63,12 @@ namespace Estudio.Entidades.Entidades
             string str = "";
             foreach(Empleado _e in _empleados)
             {
+                if (_e.Cuil > 0)
+                {
+
                 lst.Items.Add(_e.ToString() + Environment.NewLine);
                 //str += _e.ToString() + ";";
+                }
             }
             return;
         }
