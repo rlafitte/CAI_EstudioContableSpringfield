@@ -124,7 +124,7 @@ namespace EstudioContableSpringfieldGUI
         private void cmbEmpresas_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarEmpleados();
-            ResetearFormulario();
+            //ResetearFormulario();
         }        
 
         private void CargarEmpleados()
@@ -136,6 +136,10 @@ namespace EstudioContableSpringfieldGUI
                 cmbEmpleados.DataSource = empresaSeleccionada.Empleados;
                 this.cmbEmpleados.ValueMember = "Legajo";
                 this.cmbEmpleados.DisplayMember = "ApellidoYNombre";
+                
+                CargarDatosEmpleado();
+
+
             }
         }
 
@@ -163,12 +167,24 @@ namespace EstudioContableSpringfieldGUI
             if(cmbEmpleados.DataSource!=null)
             {
                 Empleado empleadoSeleccionado = (Empleado)cmbEmpleados.SelectedItem;
+                if (empleadoSeleccionado != null && empleadoSeleccionado.Nombre != "<<NUEVO EMPLEADO>>")
+                {
+
                 this.txtNombre.Text = empleadoSeleccionado.Nombre;
                 this.txtApellido.Text = empleadoSeleccionado.Apellido;
                 this.dTPFechaNacimiento.Text = empleadoSeleccionado.FechaNacimiento;
                 this.txtCUIL.Text = empleadoSeleccionado.Cuil.ToString();
                 this.txtLegajo.Text = empleadoSeleccionado.Legajo.ToString();
-                this.cmbCategorias.SelectedValue = empleadoSeleccionado.Categoria.Id; 
+                    if (empleadoSeleccionado.Categoria != null)
+                    {
+
+                this.cmbCategorias.SelectedValue = empleadoSeleccionado.Categoria.Id;
+                    }
+                }
+                else
+                {
+                    ResetearFormulario();
+                }
             }
         }
 

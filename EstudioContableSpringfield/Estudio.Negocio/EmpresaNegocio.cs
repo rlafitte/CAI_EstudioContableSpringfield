@@ -14,6 +14,7 @@ namespace Estudio.Negocio
         private EmpresaMapper _empresaMapper;
         private EmpleadoNegocio _empleadoNegocio;
         private Empresa _empresaVacia;
+        private Empleado _empleadoNuevo;
 
         public EmpresaNegocio()
         {
@@ -69,17 +70,28 @@ namespace Estudio.Negocio
 
         public object TraerConEmpleados()
         {
-            List<Empresa> empresas = _empresaMapper.TraerTodos();
+            _empresaVacia = new Empresa("  Seleccione", 0, "");
+            _empleadoNuevo = new Empleado("<<NUEVO EMPLEADO>>");
+            List<Empresa> empresas = new List<Empresa>();
+            empresas.Insert(0, _empresaVacia);
+            empresas.AddRange(_empresaMapper.TraerTodos());
+            //List<Empresa> empresas = _empresaMapper.TraerTodos();
             List<Empleado> empleados = this._empleadoNegocio.TraerConCategoria();
 
             foreach (Empresa empresa in empresas)
             {
+                if (empresa.Id > 0)
+                {
+                    empresa.Empleados.Add(_empleadoNuevo);
+                }
                 foreach (Empleado empleado in empleados)
                 {
-                    if (empresa.Id == empleado.IdEmpresa)
+                    
+                    if (empresa.Id > 0 && empresa.Id == empleado.IdEmpresa && empleado.Nombre != "<<NUEVO EMPLEADO>>")
                         empresa.Empleados.Add(empleado);
                 }
             }
+            empresas.OrderBy(o => o.Cuit);
             return empresas;
         }
     }

@@ -53,6 +53,12 @@ namespace Estudio.Entidades.Entidades
 
         }
 
+        public Empleado(string v)
+        {
+            this.Nombre = v;
+            this.FechaNacimiento = System.DateTime.Now.ToString("yyyy-MM-dd");
+        }
+
         public override string ToString()
         {
             return $"{this._cuil} | {base.ToString()}";
