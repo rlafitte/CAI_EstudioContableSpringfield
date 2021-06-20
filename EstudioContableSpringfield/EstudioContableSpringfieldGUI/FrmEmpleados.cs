@@ -61,19 +61,20 @@ namespace EstudioContableSpringfieldGUI
             {
                 ValidarCamposFormulario();
 
-                string nombre = this.txtNombre.Text;
-                string apellido = this.txtApellido.Text;
-                DateTime fechaNacim = this.dTPFechaNacimiento.Value;
-                Int64 cuil = Int64.Parse(this.txtCUIL.Text);
-                Empresa empresaSeleccionada = (Empresa)cmbEmpresas.SelectedItem;
-                Categoria categoriaSeleccionada = (Categoria)cmbCategorias.SelectedItem;
+                //string nombre = this.txtNombre.Text;
+                //string apellido = this.txtApellido.Text;
+                //DateTime fechaNacim = this.dTPFechaNacimiento.Value;
+                //Int64 cuil = Int64.Parse(this.txtCUIL.Text);
+                //Empresa empresaSeleccionada = (Empresa)cmbEmpresas.SelectedItem;
+                //Categoria categoriaSeleccionada = (Categoria)cmbCategorias.SelectedItem;
 
-                //string empresa = this.cmbEmpresas.Text;
-                //Empresa empresaEmpleado = this._estContable.Empresas.SingleOrDefault(emp => emp.RazonSocial.ToLower() == empresa.ToLower());
+                ////string empresa = this.cmbEmpresas.Text;
+                ////Empresa empresaEmpleado = this._estContable.Empresas.SingleOrDefault(emp => emp.RazonSocial.ToLower() == empresa.ToLower());
 
-                Empleado nuevoEmpleado = new Empleado(nombre, apellido, fechaNacim, cuil, empresaSeleccionada.Id, categoriaSeleccionada.Id);
+                //Empleado nuevoEmpleado = new Empleado(nombre, apellido, fechaNacim, cuil, empresaSeleccionada.Id, categoriaSeleccionada.Id);
 
-                TransactionResult resultado = this._empleadoNegocio.Agregar(nuevoEmpleado);
+                TransactionResult resultado = this._empleadoNegocio.Agregar(MapearEmpleado());
+                //TransactionResult resultado = this._empleadoNegocio.Agregar(nuevoEmpleado);
 
                 if (resultado.IsOk)
                     CargarEmpresas();
@@ -85,6 +86,22 @@ namespace EstudioContableSpringfieldGUI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private Empleado MapearEmpleado()
+        {
+            string nombre = this.txtNombre.Text;
+            string apellido = this.txtApellido.Text;
+            DateTime fechaNacim = this.dTPFechaNacimiento.Value;
+            Int64 cuil = Int64.Parse(this.txtCUIL.Text);
+            Empresa empresaSeleccionada = (Empresa)cmbEmpresas.SelectedItem;
+            Categoria categoriaSeleccionada = (Categoria)cmbCategorias.SelectedItem;
+
+            //string empresa = this.cmbEmpresas.Text;
+            //Empresa empresaEmpleado = this._estContable.Empresas.SingleOrDefault(emp => emp.RazonSocial.ToLower() == empresa.ToLower());
+
+            Empleado nuevoEmpleado = new Empleado(nombre, apellido, fechaNacim, cuil, empresaSeleccionada.Id, categoriaSeleccionada.Id);
+            return nuevoEmpleado;
         }
 
         private void ValidarCamposFormulario()
