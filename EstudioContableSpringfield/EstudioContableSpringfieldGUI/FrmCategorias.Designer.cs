@@ -135,6 +135,7 @@ namespace EstudioContableSpringfieldGUI
             this.cmbCategorias.Size = new System.Drawing.Size(316, 29);
             this.cmbCategorias.Sorted = true;
             this.cmbCategorias.TabIndex = 14;
+            this.cmbCategorias.SelectedIndexChanged += new System.EventHandler(this.cmbCategorias_SelectedIndexChanged);
             // 
             // FrmCategorias
             // 

@@ -58,7 +58,7 @@
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(107, 34);
             this.btnAgregar.TabIndex = 12;
-            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Text = "Agregar/Actualizar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -154,6 +154,7 @@
             this.cmbEmpresas.Size = new System.Drawing.Size(436, 29);
             this.cmbEmpresas.Sorted = true;
             this.cmbEmpresas.TabIndex = 15;
+            this.cmbEmpresas.SelectedIndexChanged += new System.EventHandler(this.cmbEmpresas_SelectedIndexChanged);
             // 
             // FrmEmpresas
             // 

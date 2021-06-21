@@ -61,19 +61,20 @@ namespace EstudioContableSpringfieldGUI
             {
                 ValidarCamposFormulario();
 
-                string nombre = this.txtNombre.Text;
-                string apellido = this.txtApellido.Text;
-                DateTime fechaNacim = this.dTPFechaNacimiento.Value;
-                Int64 cuil = Int64.Parse(this.txtCUIL.Text);
-                Empresa empresaSeleccionada = (Empresa)cmbEmpresas.SelectedItem;
-                Categoria categoriaSeleccionada = (Categoria)cmbCategorias.SelectedItem;
+                //string nombre = this.txtNombre.Text;
+                //string apellido = this.txtApellido.Text;
+                //DateTime fechaNacim = this.dTPFechaNacimiento.Value;
+                //Int64 cuil = Int64.Parse(this.txtCUIL.Text);
+                //Empresa empresaSeleccionada = (Empresa)cmbEmpresas.SelectedItem;
+                //Categoria categoriaSeleccionada = (Categoria)cmbCategorias.SelectedItem;
 
-                //string empresa = this.cmbEmpresas.Text;
-                //Empresa empresaEmpleado = this._estContable.Empresas.SingleOrDefault(emp => emp.RazonSocial.ToLower() == empresa.ToLower());
+                ////string empresa = this.cmbEmpresas.Text;
+                ////Empresa empresaEmpleado = this._estContable.Empresas.SingleOrDefault(emp => emp.RazonSocial.ToLower() == empresa.ToLower());
 
-                Empleado nuevoEmpleado = new Empleado(nombre, apellido, fechaNacim, cuil, empresaSeleccionada.Id, categoriaSeleccionada.Id);
+                //Empleado nuevoEmpleado = new Empleado(nombre, apellido, fechaNacim, cuil, empresaSeleccionada.Id, categoriaSeleccionada.Id);
 
-                TransactionResult resultado = this._empleadoNegocio.Agregar(nuevoEmpleado);
+                TransactionResult resultado = this._empleadoNegocio.Agregar(MapearEmpleado());
+                //TransactionResult resultado = this._empleadoNegocio.Agregar(nuevoEmpleado);
 
                 if (resultado.IsOk)
                     CargarEmpresas();
@@ -85,6 +86,22 @@ namespace EstudioContableSpringfieldGUI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private Empleado MapearEmpleado()
+        {
+            string nombre = this.txtNombre.Text;
+            string apellido = this.txtApellido.Text;
+            DateTime fechaNacim = this.dTPFechaNacimiento.Value;
+            Int64 cuil = Int64.Parse(this.txtCUIL.Text);
+            Empresa empresaSeleccionada = (Empresa)cmbEmpresas.SelectedItem;
+            Categoria categoriaSeleccionada = (Categoria)cmbCategorias.SelectedItem;
+
+            //string empresa = this.cmbEmpresas.Text;
+            //Empresa empresaEmpleado = this._estContable.Empresas.SingleOrDefault(emp => emp.RazonSocial.ToLower() == empresa.ToLower());
+
+            Empleado nuevoEmpleado = new Empleado(nombre, apellido, fechaNacim, cuil, empresaSeleccionada.Id, categoriaSeleccionada.Id);
+            return nuevoEmpleado;
         }
 
         private void ValidarCamposFormulario()
@@ -124,7 +141,7 @@ namespace EstudioContableSpringfieldGUI
         private void cmbEmpresas_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarEmpleados();
-            ResetearFormulario();
+            //ResetearFormulario();
         }        
 
         private void CargarEmpleados()
@@ -136,6 +153,10 @@ namespace EstudioContableSpringfieldGUI
                 cmbEmpleados.DataSource = empresaSeleccionada.Empleados;
                 this.cmbEmpleados.ValueMember = "Legajo";
                 this.cmbEmpleados.DisplayMember = "ApellidoYNombre";
+                
+                CargarDatosEmpleado();
+
+
             }
         }
 
@@ -163,12 +184,24 @@ namespace EstudioContableSpringfieldGUI
             if(cmbEmpleados.DataSource!=null)
             {
                 Empleado empleadoSeleccionado = (Empleado)cmbEmpleados.SelectedItem;
+                if (empleadoSeleccionado != null && empleadoSeleccionado.Nombre != "<<NUEVO EMPLEADO>>")
+                {
+
                 this.txtNombre.Text = empleadoSeleccionado.Nombre;
                 this.txtApellido.Text = empleadoSeleccionado.Apellido;
                 this.dTPFechaNacimiento.Text = empleadoSeleccionado.FechaNacimiento;
                 this.txtCUIL.Text = empleadoSeleccionado.Cuil.ToString();
                 this.txtLegajo.Text = empleadoSeleccionado.Legajo.ToString();
-                this.cmbCategorias.SelectedValue = empleadoSeleccionado.Categoria.Id; 
+                    if (empleadoSeleccionado.Categoria != null)
+                    {
+
+                this.cmbCategorias.SelectedValue = empleadoSeleccionado.Categoria.Id;
+                    }
+                }
+                else
+                {
+                    ResetearFormulario();
+                }
             }
         }
 
@@ -207,7 +240,7 @@ namespace EstudioContableSpringfieldGUI
         {
             try
             {
-                if (cmbEmpleados.SelectedItem == null)
+                if (cmbEmpleados.SelectedItem == null || cmbEmpleados.SelectedIndex == 0)
                     throw new Exception("Debe seleccionar un empleado");
 
                 ValidarCamposFormulario();

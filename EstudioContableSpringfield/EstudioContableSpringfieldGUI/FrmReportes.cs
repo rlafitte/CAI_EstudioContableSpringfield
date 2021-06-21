@@ -16,13 +16,16 @@ namespace EstudioContableSpringfieldGUI
     {
         private EstudioContable nuevoEstudioContable;
         private LiquidacionNegocio _liquidacionNegocio;
+        private List<Liquidacion> _listaLiquidaciones;
+        private ReportesNegocio _repoNeg;
 
 
         public FrmReportes(EstudioContable nuevoEstudioContable)
         {
             this.nuevoEstudioContable = nuevoEstudioContable;
             this._liquidacionNegocio = new LiquidacionNegocio();
-            
+            this._repoNeg = new ReportesNegocio();
+            this._listaLiquidaciones = new List<Liquidacion>();
             InitializeComponent();
         }
 
@@ -36,21 +39,23 @@ namespace EstudioContableSpringfieldGUI
         {
             lstReporte.DataSource = null;
             lstReporte.Items.Clear();
-            List<Empresa> _listA = nuevoEstudioContable.Empresas;
+            List<Empresa> _listA = (List<Empresa>)_repoNeg.TraerEmpresas();
 
             foreach(Empresa _em in _listA)
             {
-                
+                if (_em.Cuit> 0)
+                {
+
                 lstReporte.Items.Add(_em.RazonSocial);
                 _em.ListaEmpleados(lstReporte);
                 lstReporte.Items.Add(Environment.NewLine);
+                }
             }
 
         }
 
         private void btnLiqXCat_Click(object sender, EventArgs e)
         {
-            lstReporte.Items.Clear();
             //List<Categoria> _listA = nuevoEstudioContable.Categorias;
             //List<Liquidacion> _listB = nuevoEstudioContable.Liquidaciones;
             //foreach(Categoria _cat in _listA)
@@ -66,9 +71,47 @@ namespace EstudioContableSpringfieldGUI
             //    }
             //    lstReporte.Items.Add(Environment.NewLine);
             //}
-            
+            List<Empleado> _empleados = _repoNeg.Traer();
+            _empleados.OrderBy(o => o.Categoria);
             lstReporte.DataSource = null;
-            lstReporte.DataSource = this._liquidacionNegocio.Traer();
+            lstReporte.Items.Clear();
+            _listaLiquidaciones = _liquidacionNegocio.Traer();
+
+            foreach (Empleado emp in _empleados)
+            {
+
+                lstReporte.Items.Add("---" + emp.IdCategoria + "---" + System.Environment.NewLine);
+                foreach (Liquidacion liqXcat in _listaLiquidaciones)
+                {
+                    if (liqXcat.Empleado != null && emp.Cuil != null)
+                    {
+
+                    if (liqXcat.Empleado.Cuil == emp.Cuil)
+                    {
+                        lstReporte.Items.Add(liqXcat.ToString());
+                    }
+                    }
+                }
+
+            }
+            //foreach (Liquidacion liq in _listaLiquidaciones)
+            //{
+
+            //    if (liq.Categoria != null)
+            //    {
+            //    lstReporte.Items.Add(liq.Categoria);
+
+            //    }
+            //    foreach(Liquidacion liqXcat in _listaLiquidaciones)
+            //    {
+            //        if (liqXcat.Categoria == liq.Categoria)
+            //        {
+            //            lstReporte.Items.Add(liqXcat);
+            //        }
+            //    }
+
+            //}
+            //lstReporte.DataSource = this._liquidacionNegocio.Traer();
 
         }
 

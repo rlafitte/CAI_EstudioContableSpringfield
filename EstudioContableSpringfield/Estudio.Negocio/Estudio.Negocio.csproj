@@ -47,6 +47,7 @@
     <Compile Include="EmpresaNegocio.cs" />
     <Compile Include="LiquidacionNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportesNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Estudio.Datos\Estudio.Datos.csproj">

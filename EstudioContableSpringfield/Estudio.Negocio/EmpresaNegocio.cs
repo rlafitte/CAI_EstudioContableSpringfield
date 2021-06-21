@@ -13,6 +13,8 @@ namespace Estudio.Negocio
         private List<Empresa> _listaEmpresas;
         private EmpresaMapper _empresaMapper;
         private EmpleadoNegocio _empleadoNegocio;
+        private Empresa _empresaVacia;
+        private Empleado _empleadoNuevo;
 
         public EmpresaNegocio()
         {
@@ -23,10 +25,44 @@ namespace Estudio.Negocio
 
         public List<Empresa> Traer()
         {
-            _listaEmpresas = _empresaMapper.TraerTodos();
+            EmpresasFicticias();
+
+
+            //_listaEmpresas = _empresaMapper.TraerTodos();
+            _listaEmpresas.AddRange(_empresaMapper.TraerTodos());
+            _listaEmpresas.OrderBy(o=>o.Cuit);
             return _listaEmpresas;
         }
 
+        private void EmpresasFicticias()
+        {
+            _empresaVacia = new Empresa("  Seleccione", 0, "");
+            _listaEmpresas.Insert(0, _empresaVacia);
+            _empresaVacia = new Empresa(" Nueva empresa", 1, "");
+            _listaEmpresas.Insert(1, _empresaVacia);
+        }
+
+        public object TraerConEmpleadosExistentes()
+        {
+            _empresaVacia = new Empresa("  Seleccione", 0, "");
+            List<Empresa> empresas = new List<Empresa>();
+            empresas.Add(_empresaVacia);
+            empresas.AddRange(_empresaMapper.TraerTodos());
+            //List<Empresa> empresas = _empresaMapper.TraerTodos();
+            List<Empleado> empleados = this._empleadoNegocio.TraerConCategoria();
+
+            foreach (Empresa empresa in empresas)
+            {
+                foreach (Empleado empleado in empleados)
+                {
+
+                    if (empresa.Id > 0 && empresa.Id == empleado.IdEmpresa)
+                        empresa.Empleados.Add(empleado);
+                }
+            }
+            empresas.OrderBy(o => o.Cuit);
+            return empresas;
+        }
 
         public TransactionResult Agregar(Empresa nuevaEmpresa)
         {
@@ -56,17 +92,28 @@ namespace Estudio.Negocio
 
         public object TraerConEmpleados()
         {
-            List<Empresa> empresas = _empresaMapper.TraerTodos();
+            _empresaVacia = new Empresa("  Seleccione", 0, "");
+            _empleadoNuevo = new Empleado("<<NUEVO EMPLEADO>>");
+            List<Empresa> empresas = new List<Empresa>();
+            empresas.Insert(0, _empresaVacia);
+            empresas.AddRange(_empresaMapper.TraerTodos());
+            //List<Empresa> empresas = _empresaMapper.TraerTodos();
             List<Empleado> empleados = this._empleadoNegocio.TraerConCategoria();
 
             foreach (Empresa empresa in empresas)
             {
+                if (empresa.Id > 0)
+                {
+                    empresa.Empleados.Add(_empleadoNuevo);
+                }
                 foreach (Empleado empleado in empleados)
                 {
-                    if (empresa.Id == empleado.IdEmpresa)
+                    
+                    if (empresa.Id > 0 && empresa.Id == empleado.IdEmpresa && empleado.Nombre != "<<NUEVO EMPLEADO>>")
                         empresa.Empleados.Add(empleado);
                 }
             }
+            empresas.OrderBy(o => o.Cuit);
             return empresas;
         }
     }

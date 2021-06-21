@@ -34,7 +34,7 @@ namespace EstudioContableSpringfieldGUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.cmbEmpresas.DataSource = this._empresaNegocio.TraerConEmpleados();
+            this.cmbEmpresas.DataSource = this._empresaNegocio.TraerConEmpleadosExistentes();
             this.cmbEmpresas.ValueMember = "Cuit";
             this.cmbEmpresas.DisplayMember = "RazonSocial";
 
@@ -60,6 +60,9 @@ namespace EstudioContableSpringfieldGUI
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (cmbEmpresas.SelectedIndex > 0)
+            {
+
             try
             {
                 ValidarCamposFormulario();
@@ -86,6 +89,11 @@ namespace EstudioContableSpringfieldGUI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            }
+            else
+            {
+                MessageBox.Show("Por favor seleccione una empresa.");
             }
         }
 
@@ -118,6 +126,9 @@ namespace EstudioContableSpringfieldGUI
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbEmpresas.SelectedIndex > 0)
+            {
+
             //Creé un método que trae todo, se podría reemplazar lo que dejé comentado 
 
             //string nombreEmpresa = this.comboBox1.Text;
@@ -131,13 +142,18 @@ namespace EstudioContableSpringfieldGUI
             this.cmbEmpleados.ValueMember = "Legajo";
             this.cmbEmpleados.DisplayMember = "ApellidoYNombre";
             this.cmbEmpleados.Enabled = true;
+            }
+            else
+            {
+                ResetearFormulario();
+            }
         }
 
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Lo comenté porque me tira error y todavía no lo arreglé
-            //MostrarMontosLiquidacion();
+            MostrarMontosLiquidacion();
         }
 
         private void MostrarMontosLiquidacion()
@@ -146,6 +162,10 @@ namespace EstudioContableSpringfieldGUI
             {
                 Empleado empleadoLiquidacion = (Empleado)cmbEmpleados.SelectedItem;
 
+                if (txtPorcRet.Text == "")
+                {
+                    txtPorcRet.Text = "0";
+                }
                 //Hacer text box de porc retencion editable?
                 Liquidacion calculoLiquidacion = new Liquidacion(empleadoLiquidacion.Categoria.SueldoBasico, double.Parse(txtPorcRet.Text));
 
