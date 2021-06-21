@@ -71,27 +71,46 @@ namespace EstudioContableSpringfieldGUI
             //    }
             //    lstReporte.Items.Add(Environment.NewLine);
             //}
-            
+            List<Empleado> _empleados = _repoNeg.Traer();
+            _empleados.OrderBy(o => o.Categoria);
             lstReporte.DataSource = null;
             lstReporte.Items.Clear();
             _listaLiquidaciones = _liquidacionNegocio.Traer();
-            foreach (Liquidacion liq in _listaLiquidaciones)
+
+            foreach (Empleado emp in _empleados)
             {
 
-                if (liq.Categoria != null)
+                lstReporte.Items.Add("---" + emp.IdCategoria + "---" + System.Environment.NewLine);
+                foreach (Liquidacion liqXcat in _listaLiquidaciones)
                 {
-                lstReporte.Items.Add(liq.Categoria);
-
-                }
-                foreach(Liquidacion liqXcat in _listaLiquidaciones)
-                {
-                    if (liqXcat.Categoria == liq.Categoria)
+                    if (liqXcat.Empleado != null && emp.Cuil != null)
                     {
-                        lstReporte.Items.Add(liqXcat);
+
+                    if (liqXcat.Empleado.Cuil == emp.Cuil)
+                    {
+                        lstReporte.Items.Add(liqXcat.ToString());
+                    }
                     }
                 }
 
             }
+            //foreach (Liquidacion liq in _listaLiquidaciones)
+            //{
+
+            //    if (liq.Categoria != null)
+            //    {
+            //    lstReporte.Items.Add(liq.Categoria);
+
+            //    }
+            //    foreach(Liquidacion liqXcat in _listaLiquidaciones)
+            //    {
+            //        if (liqXcat.Categoria == liq.Categoria)
+            //        {
+            //            lstReporte.Items.Add(liqXcat);
+            //        }
+            //    }
+
+            //}
             //lstReporte.DataSource = this._liquidacionNegocio.Traer();
 
         }

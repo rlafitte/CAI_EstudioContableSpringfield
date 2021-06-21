@@ -23,7 +23,7 @@ namespace Estudio.Negocio
         public List<Liquidacion> Traer()
         {
             this._listaLiquidaciones = this._liquidacionMapper.TraerTodos();
-            _listaLiquidaciones.OrderBy(o => o.Categoria);
+            //_listaLiquidaciones.OrderBy(o => o.Categoria);
             return this._listaLiquidaciones;
         }
 

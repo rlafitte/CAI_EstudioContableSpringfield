@@ -28,7 +28,7 @@ namespace Estudio.Negocio
         public List<Empleado> Traer()
         {
             this._emple = this._empleMap.TraerTodos();
-            this._empresas = this._empreMap.TraerTodos(); 
+            //this._empresas = this._empreMap.TraerTodos(); 
             return _emple;
         }
         public object TraerEmpresas()
