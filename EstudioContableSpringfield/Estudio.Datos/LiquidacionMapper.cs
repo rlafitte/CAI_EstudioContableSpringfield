@@ -45,6 +45,15 @@ namespace Estudio.Datos
 
             return lst;
         }
+
+        public TransactionResult Eliminar(Liquidacion liqSeleccionada)
+        {
+            NameValueCollection parametros = ReverseMap(liqSeleccionada);
+            string json = WebHelper.Delete($"{rutaMapperPOST_PUT_DELETE}/{liqSeleccionada.Id}", parametros);
+            TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
+            return resultado;
+        }
+
         private NameValueCollection ReverseMap(Liquidacion liquidacion)
         {
             NameValueCollection n = new NameValueCollection();

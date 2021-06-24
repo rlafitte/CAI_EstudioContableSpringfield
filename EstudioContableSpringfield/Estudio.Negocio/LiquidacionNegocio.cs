@@ -33,6 +33,12 @@ namespace Estudio.Negocio
             return resultado;
         }
 
+        public TransactionResult Eliminar(Liquidacion liqSeleccionada)
+        {
+            TransactionResult resultado = this._liquidacionMapper.Eliminar(liqSeleccionada);
+            return resultado;
+        }
+
         /*
         public TransactionResult Modificar(Liquidacion liquidacion)
         {
@@ -46,7 +52,7 @@ namespace Estudio.Negocio
             return resultado;
         }
         */
-        
+
 
     }
 }
