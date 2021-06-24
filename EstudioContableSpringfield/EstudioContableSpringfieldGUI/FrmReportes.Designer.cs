@@ -34,6 +34,7 @@ namespace EstudioContableSpringfieldGUI
             this.lstReporte = new System.Windows.Forms.ListBox();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnEliminarLiq = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEmpleXEmpre
@@ -84,11 +85,23 @@ namespace EstudioContableSpringfieldGUI
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // btnEliminarLiq
+            // 
+            this.btnEliminarLiq.Enabled = false;
+            this.btnEliminarLiq.Location = new System.Drawing.Point(255, 397);
+            this.btnEliminarLiq.Name = "btnEliminarLiq";
+            this.btnEliminarLiq.Size = new System.Drawing.Size(161, 22);
+            this.btnEliminarLiq.TabIndex = 5;
+            this.btnEliminarLiq.Text = "Eliminar Liquidación";
+            this.btnEliminarLiq.UseVisualStyleBackColor = true;
+            this.btnEliminarLiq.Click += new System.EventHandler(this.btnEliminarLiq_Click_1);
+            // 
             // FrmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEliminarLiq);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lstReporte);
@@ -107,5 +120,6 @@ namespace EstudioContableSpringfieldGUI
         private System.Windows.Forms.ListBox lstReporte;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnEliminarLiq;
     }
 }

@@ -31,6 +31,7 @@ namespace EstudioContableSpringfieldGUI
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
+            btnEliminarLiq.Enabled = false;
             this.Owner.Show();
             this.Close();
         }
@@ -51,6 +52,7 @@ namespace EstudioContableSpringfieldGUI
                 lstReporte.Items.Add(Environment.NewLine);
                 }
             }
+            btnEliminarLiq.Enabled = false;
 
         }
 
@@ -71,8 +73,14 @@ namespace EstudioContableSpringfieldGUI
             //    }
             //    lstReporte.Items.Add(Environment.NewLine);
             //}
-            List<Empleado> _empleados = _repoNeg.Traer();
-            _empleados.OrderBy(o => o.Categoria);
+            CargarLiquidaciones();
+
+        }
+
+        private void CargarLiquidaciones()
+        {
+            List<Empleado> _empleados = _repoNeg.Traer().OrderBy(o=>o.IdCategoria).ToList();
+            
             lstReporte.DataSource = null;
             lstReporte.Items.Clear();
             _listaLiquidaciones = _liquidacionNegocio.Traer();
@@ -80,44 +88,70 @@ namespace EstudioContableSpringfieldGUI
             foreach (Empleado emp in _empleados)
             {
 
-                lstReporte.Items.Add("---" + emp.IdCategoria + "---" + System.Environment.NewLine);
+                lstReporte.Items.Add("--- Categoría: " + emp.IdCategoria + "---" + System.Environment.NewLine);
                 foreach (Liquidacion liqXcat in _listaLiquidaciones)
                 {
-                    if (liqXcat.Empleado != null && emp.Cuil != null)
+                    if (liqXcat.IdEmpleado != null && emp.Legajo != null)
                     {
 
-                    if (liqXcat.Empleado.Cuil == emp.Cuil)
+                    if (liqXcat.IdEmpleado == emp.Legajo)
                     {
-                        lstReporte.Items.Add(liqXcat.ToString());
+                        lstReporte.Items.Add(liqXcat);
                     }
                     }
                 }
 
             }
-            //foreach (Liquidacion liq in _listaLiquidaciones)
-            //{
-
-            //    if (liq.Categoria != null)
-            //    {
-            //    lstReporte.Items.Add(liq.Categoria);
-
-            //    }
-            //    foreach(Liquidacion liqXcat in _listaLiquidaciones)
-            //    {
-            //        if (liqXcat.Categoria == liq.Categoria)
-            //        {
-            //            lstReporte.Items.Add(liqXcat);
-            //        }
-            //    }
-
-            //}
-            //lstReporte.DataSource = this._liquidacionNegocio.Traer();
-
+            btnEliminarLiq.Enabled = true;
+            
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             lstReporte.Items.Clear();
+            btnEliminarLiq.Enabled = false;
+        }
+
+        //private void btnEliminarLiq_Click(object sender, EventArgs e)
+        //{
+        //}
+
+        private void btnEliminarLiq_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+            if (lstReporte.SelectedIndex < 0)
+                {
+                    throw new Exception("Seleccione una liquidación");
+                }
+
+                Liquidacion liqSeleccionada = (Liquidacion)lstReporte.SelectedItem;
+
+                var confirmResult = MessageBox.Show($"¿Está seguro que desea eliminar la liquidación {liqSeleccionada.Id}?", "Confirme eliminación", MessageBoxButtons.OKCancel);
+                if (confirmResult == DialogResult.OK)
+                {
+                TransactionResult resultado = this._liquidacionNegocio.Eliminar(liqSeleccionada);
+                    //        TransactionResult resultado = this._empleadoNegocio.Eliminar(empleadoSeleccionado);
+
+                    if (resultado.IsOk)
+                    {
+                        CargarLiquidaciones();
+                        MessageBox.Show("Liquidación eliminada correctamente");
+                    }         
+
+                    else
+                    {
+                        MessageBox.Show("Eliminación cancelada");
+                    }
+                }
+                CargarLiquidaciones();    
+
+            }
+            catch (Exception exe)
+            {
+                MessageBox.Show(exe.Message);
+            }
+
         }
     }
 }
