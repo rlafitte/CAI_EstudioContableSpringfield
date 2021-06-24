@@ -120,7 +120,7 @@ namespace EstudioContableSpringfieldGUI
 
         private void btnEmpresas_Click(object sender, EventArgs e)
         {
-            FrmEmpresas frm = new FrmEmpresas(_nuevoEstudioContable);
+            FrmEmpresas frm = new FrmEmpresas();
             frm.Owner = this;
             frm.Show();
             this.Hide();
@@ -128,7 +128,7 @@ namespace EstudioContableSpringfieldGUI
 
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
-            FrmEmpleados frm = new FrmEmpleados(_nuevoEstudioContable);
+            FrmEmpleados frm = new FrmEmpleados();
             frm.Owner = this;
             frm.Show();
             this.Hide();

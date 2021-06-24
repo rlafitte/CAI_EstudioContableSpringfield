@@ -17,10 +17,10 @@ namespace EstudioContableSpringfieldGUI
         private EstudioContable _estContable;
         private EmpresaNegocio _empresaNegocio;
 
-        public FrmEmpresas(EstudioContable estudio)
+        public FrmEmpresas()
         {
             this._empresaNegocio = new EmpresaNegocio();
-            this._estContable = estudio;
+            
             InitializeComponent();
         }
 
