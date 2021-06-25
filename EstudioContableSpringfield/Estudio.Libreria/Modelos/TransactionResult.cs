@@ -20,7 +20,7 @@ namespace Estudio.Entidades.Entidades
         public string DarMensaje()
         {
             if (this.IsOk)
-                return $"Guardado! Id: {this.Id}";
+                return $"Operación exitosa! Id: {this.Id}";
 
             return $"Hubo un error. Error: {this.Error}";
         }
