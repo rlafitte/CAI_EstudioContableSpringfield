@@ -126,7 +126,6 @@
             this.cmbCategorias.Location = new System.Drawing.Point(205, 343);
             this.cmbCategorias.Name = "cmbCategorias";
             this.cmbCategorias.Size = new System.Drawing.Size(199, 29);
-            this.cmbCategorias.Sorted = true;
             this.cmbCategorias.TabIndex = 18;
             // 
             // dTPFechaNacimiento
@@ -186,7 +185,6 @@
             this.cmbEmpresas.Location = new System.Drawing.Point(205, 66);
             this.cmbEmpresas.Name = "cmbEmpresas";
             this.cmbEmpresas.Size = new System.Drawing.Size(198, 29);
-            this.cmbEmpresas.Sorted = true;
             this.cmbEmpresas.TabIndex = 2;
             this.cmbEmpresas.SelectedIndexChanged += new System.EventHandler(this.cmbEmpresas_SelectedIndexChanged);
             // 
@@ -198,7 +196,6 @@
             this.cmbEmpleados.Location = new System.Drawing.Point(205, 99);
             this.cmbEmpleados.Name = "cmbEmpleados";
             this.cmbEmpleados.Size = new System.Drawing.Size(198, 29);
-            this.cmbEmpleados.Sorted = true;
             this.cmbEmpleados.TabIndex = 4;
             this.cmbEmpleados.SelectedIndexChanged += new System.EventHandler(this.cmbEmpleados_SelectedIndexChanged);
             // 

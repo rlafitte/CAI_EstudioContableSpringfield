@@ -228,6 +228,9 @@ namespace EstudioContableSpringfieldGUI
                 cmbCategorias.Enabled = false;
                 btnEliminarLiq.Hide();
             }
+            else
+                cmbEmpresas.Enabled = false;
+
             lstReporte.DataSource = null;
         }
 
@@ -241,6 +244,12 @@ namespace EstudioContableSpringfieldGUI
                 cmbEmpresas.Enabled = false;
                 btnEliminarLiq.Show();
             }
+            else
+            {
+                cmbCategorias.Enabled = false;
+                btnEliminarLiq.Hide();
+            }
+
             lstReporte.DataSource = null;
         }
 
