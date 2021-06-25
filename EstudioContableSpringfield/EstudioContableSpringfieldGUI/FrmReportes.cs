@@ -109,7 +109,7 @@ namespace EstudioContableSpringfieldGUI
                 lstReporte.DataSource = empresaSeleccionada.Empleados;
                 this.lstReporte.ValueMember = "Legajo";
 
-                if (lstReporte.Items.Count == 0)
+                if (lstReporte.Items.Count == 0 && cmbEmpresas.SelectedIndex != 0)
                     CargarMensajeDatosVacios();
             }
         }
