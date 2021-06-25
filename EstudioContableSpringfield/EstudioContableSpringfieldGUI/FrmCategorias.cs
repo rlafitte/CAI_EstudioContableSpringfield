@@ -103,7 +103,7 @@ namespace EstudioContableSpringfieldGUI
             if (cat != null)
             {
                 txtNombre.Text = cat.Nombre;
-                txtCCTNum.Text = cat.Id.ToString();
+                txtCCTNum.Text = cat.Convenio.ToString();
                 txtBasico.Text = cat.SueldoBasico.ToString("0.00");
             }
         }
