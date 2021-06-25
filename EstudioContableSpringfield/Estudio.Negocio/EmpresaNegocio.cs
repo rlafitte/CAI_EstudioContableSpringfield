@@ -25,6 +25,7 @@ namespace Estudio.Negocio
 
         public List<Empresa> Traer()
         {
+            _listaEmpresas.Clear();
             AgregarEncabezadoLista();
             _listaEmpresas.AddRange(_empresaMapper.TraerTodos());
             _listaEmpresas.OrderBy(o=>o.Cuit);
