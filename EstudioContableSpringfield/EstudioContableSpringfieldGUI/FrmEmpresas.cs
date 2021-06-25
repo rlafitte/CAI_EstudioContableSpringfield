@@ -66,10 +66,18 @@ namespace EstudioContableSpringfieldGUI
                 ValidarCamposFormulario();
 
                 string nombre = this.textBox1.Text;
-                long cuit = long.Parse(this.textBox2.Text);
+                string cuit = this.textBox2.Text;
                 string domicilio = this.textBox5.Text;
 
-                Empresa nuevaEmpresa = new Empresa(nombre, cuit, domicilio);
+                long longCuit = VerificarCUIT(cuit);
+
+                if (longCuit == -1)
+                {
+                    MessageBox.Show("El CUIT debe ser un número");
+                    return;
+                }
+
+                Empresa nuevaEmpresa = new Empresa(nombre, longCuit, domicilio);
 
                 TransactionResult resultado = this._empresaNegocio.Agregar(nuevaEmpresa);
 
@@ -92,11 +100,19 @@ namespace EstudioContableSpringfieldGUI
                 Empresa empresaSeleccionada = (Empresa)cmbEmpresas.SelectedItem;
 
                 string nombre = this.textBox1.Text;
-                long cuit = long.Parse(this.textBox2.Text);
+                string cuit = this.textBox2.Text;
                 string domicilio = this.textBox5.Text;
 
+                long longCuit = VerificarCUIT(cuit);
+
+                if (longCuit == -1)
+                {
+                    MessageBox.Show("El CUIT debe ser un número");
+                    return;
+                }
+
                 empresaSeleccionada.RazonSocial = nombre;
-                empresaSeleccionada.Cuit = cuit;
+                empresaSeleccionada.Cuit = longCuit;
                 empresaSeleccionada.Domicilio = domicilio;
 
                 TransactionResult resultadoModif = this._empresaNegocio.Modificar(empresaSeleccionada);
@@ -169,6 +185,14 @@ namespace EstudioContableSpringfieldGUI
             ResetearFormulario();
             btnAgregar.Enabled = stateAgregar;
             btnModificar.Enabled = stateModif;
+        }
+
+        private long VerificarCUIT(string cuit)
+        {
+            if (!long.TryParse(cuit, out long longCuit))
+                return -1;
+
+            return longCuit;
         }
     }
 }

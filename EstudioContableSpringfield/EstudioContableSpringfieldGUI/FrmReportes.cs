@@ -19,6 +19,7 @@ namespace EstudioContableSpringfieldGUI
         private LiquidacionNegocio _liquidacionNegocio;
         private EmpresaNegocio _empresaNegocio;
         private List<Liquidacion> _listaLiquidaciones;
+        private List<string> _listaDatosVacios;
 
 
         public FrmReportes()
@@ -27,6 +28,9 @@ namespace EstudioContableSpringfieldGUI
             this._liquidacionNegocio = new LiquidacionNegocio();
             this._empresaNegocio = new EmpresaNegocio();
             this._listaLiquidaciones = new List<Liquidacion>();
+
+            this._listaDatosVacios = new List<string>();
+            this._listaDatosVacios.Add("No hay datos para mostrar.");
             InitializeComponent();
         }
 
@@ -35,6 +39,10 @@ namespace EstudioContableSpringfieldGUI
             CargarEmpresas();
             CargarLiquidaciones();
             CargarCategorias();
+            cmbEmpresas.Enabled = false;
+            cmbCategorias.Enabled = false;
+            btnEliminarLiq.Enabled = false;
+            btnEliminarLiq.Hide();
         }
 
         private void CargarLiquidaciones()
@@ -100,6 +108,9 @@ namespace EstudioContableSpringfieldGUI
                 lstReporte.DataSource = null;
                 lstReporte.DataSource = empresaSeleccionada.Empleados;
                 this.lstReporte.ValueMember = "Legajo";
+
+                if (lstReporte.Items.Count == 0)
+                    CargarMensajeDatosVacios();
             }
         }
 
@@ -123,6 +134,9 @@ namespace EstudioContableSpringfieldGUI
 
                 lstReporte.DataSource = null;
                 lstReporte.DataSource = liquidacionesPorCategoria;
+
+                if (lstReporte.Items.Count == 0 && cmbEmpresas.SelectedIndex != 0)
+                    CargarMensajeDatosVacios();
             }
         }
 
@@ -163,8 +177,6 @@ namespace EstudioContableSpringfieldGUI
             {
                 MessageBox.Show(exe.Message);
             }
-            
-
         }
 
         private void LimpiarLista()
@@ -174,7 +186,8 @@ namespace EstudioContableSpringfieldGUI
 
         private void lstReporte_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnEliminarLiq.Enabled = true;
+            if (checkBoxLiq.Checked && cmbCategorias.SelectedIndex != 0)
+                btnEliminarLiq.Enabled = true;
         }
 
         private void btnEnviar_Click(object sender, EventArgs e)
@@ -203,6 +216,37 @@ namespace EstudioContableSpringfieldGUI
                 MessageBox.Show(exe.Message);
             }
 
+        }
+
+        private void checkBoxEmpleados_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxEmpleados.Checked)
+            {
+                cmbEmpresas.Enabled = true;
+                cmbCategorias.SelectedIndex = 0;
+                checkBoxLiq.Checked = false;
+                cmbCategorias.Enabled = false;
+                btnEliminarLiq.Hide();
+            }
+            lstReporte.DataSource = null;
+        }
+
+        private void checkBoxLiq_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxLiq.Checked)
+            {
+                cmbCategorias.Enabled = true;
+                cmbEmpresas.SelectedIndex = 0;
+                checkBoxEmpleados.Checked = false;
+                cmbEmpresas.Enabled = false;
+                btnEliminarLiq.Show();
+            }
+            lstReporte.DataSource = null;
+        }
+
+        private void CargarMensajeDatosVacios()
+        {
+            lstReporte.DataSource = _listaDatosVacios;
         }
     }
 }

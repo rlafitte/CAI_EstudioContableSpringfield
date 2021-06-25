@@ -35,6 +35,7 @@ namespace EstudioContableSpringfieldGUI
             this.label2 = new System.Windows.Forms.Label();
             this.txtMensaje = new System.Windows.Forms.TextBox();
             this.btnEnviar = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -95,11 +96,22 @@ namespace EstudioContableSpringfieldGUI
             this.btnEnviar.UseVisualStyleBackColor = true;
             this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(12, 310);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(81, 25);
+            this.btnVolver.TabIndex = 6;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // FrmEnviarMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 347);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.txtMensaje);
             this.Controls.Add(this.txtAsunto);
@@ -122,5 +134,6 @@ namespace EstudioContableSpringfieldGUI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMensaje;
         private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.Button btnVolver;
     }
 }
