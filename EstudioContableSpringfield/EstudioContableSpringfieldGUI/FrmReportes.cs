@@ -14,15 +14,15 @@ namespace EstudioContableSpringfieldGUI
 {
     public partial class FrmReportes : Form
     {
-        private EstudioContable nuevoEstudioContable;
+        
         private LiquidacionNegocio _liquidacionNegocio;
         private List<Liquidacion> _listaLiquidaciones;
         private ReportesNegocio _repoNeg;
 
 
-        public FrmReportes(EstudioContable nuevoEstudioContable)
+        public FrmReportes()
         {
-            this.nuevoEstudioContable = nuevoEstudioContable;
+            
             this._liquidacionNegocio = new LiquidacionNegocio();
             this._repoNeg = new ReportesNegocio();
             this._listaLiquidaciones = new List<Liquidacion>();
@@ -58,21 +58,7 @@ namespace EstudioContableSpringfieldGUI
 
         private void btnLiqXCat_Click(object sender, EventArgs e)
         {
-            //List<Categoria> _listA = nuevoEstudioContable.Categorias;
-            //List<Liquidacion> _listB = nuevoEstudioContable.Liquidaciones;
-            //foreach(Categoria _cat in _listA)
-            //{
-            //    lstReporte.Items.Add("Categoría: " + _cat.IdCategoria);
-            //    //lstReporte.Items.Add(_cat.)
-            //    foreach(Liquidacion _liq in _listB)
-            //    {
-            //        if (_cat.IdCategoria == _liq.Categoria.IdCategoria)
-            //        {
-            //        lstReporte.Items.Add("---" + _liq.ToString());
-            //        }
-            //    }
-            //    lstReporte.Items.Add(Environment.NewLine);
-            //}
+
             CargarLiquidaciones();
 
         }
@@ -87,7 +73,7 @@ namespace EstudioContableSpringfieldGUI
 
             foreach (Empleado emp in _empleados)
             {
-
+                
                 lstReporte.Items.Add("--- Categoría: " + emp.IdCategoria + "---" + System.Environment.NewLine);
                 foreach (Liquidacion liqXcat in _listaLiquidaciones)
                 {
@@ -96,10 +82,14 @@ namespace EstudioContableSpringfieldGUI
 
                     if (liqXcat.IdEmpleado == emp.Legajo)
                     {
+
                         lstReporte.Items.Add(liqXcat);
                     }
+                        
+
                     }
                 }
+
 
             }
             btnEliminarLiq.Enabled = true;

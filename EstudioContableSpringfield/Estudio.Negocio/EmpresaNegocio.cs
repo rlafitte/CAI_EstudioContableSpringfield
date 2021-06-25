@@ -42,7 +42,7 @@ namespace Estudio.Negocio
             _listaEmpresas.Insert(1, _empresaVacia);
         }
 
-        public object TraerConEmpleadosExistentes()
+        public List<Empresa> TraerConEmpleadosExistentes()
         {
             _empresaVacia = new Empresa("  Seleccione", 0, "");
             List<Empresa> empresas = new List<Empresa>();
@@ -90,7 +90,7 @@ namespace Estudio.Negocio
             return resultado;
         }
 
-        public object TraerConEmpleados()
+        public List<Empresa> TraerConEmpleados()
         {
             _empresaVacia = new Empresa("  Seleccione", 0, "");
             _empleadoNuevo = new Empleado("<<NUEVO EMPLEADO>>");

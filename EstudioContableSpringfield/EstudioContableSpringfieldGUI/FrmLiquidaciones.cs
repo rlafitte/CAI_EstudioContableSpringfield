@@ -14,17 +14,16 @@ namespace EstudioContableSpringfieldGUI
 {
     public partial class FrmLiquidacion : Form
     {
-        //Ya podría eliminarse lo de estudio contable
-        private EstudioContable _estContable;
+        
 
         private LiquidacionNegocio _liquidacionNegocio;
         private EmpresaNegocio _empresaNegocio;
         private EmpleadoNegocio _empleadoNegocio;
 
 
-        public FrmLiquidacion(EstudioContable estudio)
+        public FrmLiquidacion()
         {
-            this._estContable = estudio;
+            
 
             this._liquidacionNegocio = new LiquidacionNegocio();
             this._empresaNegocio = new EmpresaNegocio();
@@ -73,11 +72,6 @@ namespace EstudioContableSpringfieldGUI
                 DateTime fechaPago = this.dateFechaPago.Value;
                 Empleado empleado = (Empleado)cmbEmpleados.SelectedItem;
 
-                //string empresaTexto = this.cmbEmpresas.Text;
-                //string empleadoTexto = this.cmbEmpleados.Text;
-
-                //Empresa empresa = BuscarEmpresa(empresaTexto);
-                //Empleado empleado = BuscarEmpleado(empleadoTexto, empresa);
 
                 Liquidacion nuevaLiq = new Liquidacion(codLiq, mes, año, fechaPago, empleado.Legajo, empleado.Categoria.SueldoBasico, double.Parse(txtPorcRet.Text));
 
@@ -129,13 +123,9 @@ namespace EstudioContableSpringfieldGUI
             if (cmbEmpresas.SelectedIndex > 0)
             {
 
-            //Creé un método que trae todo, se podría reemplazar lo que dejé comentado 
-
-            //string nombreEmpresa = this.comboBox1.Text;
-            //Empresa empresaSeleccionada = this._empresaNegocio.Traer().SingleOrDefault(empresa => empresa.RazonSocial.ToLower() == nombreEmpresa.ToLower());
             Empresa empresaSeleccionada = (Empresa)cmbEmpresas.SelectedItem;
 
-            //List<Empleado> empleadosEmpresa = this._empleadoNegocio.Traer().FindAll(emp => emp.IdEmpresa == empresaSeleccionada.Id);
+
             List<Empleado> empleadosEmpresa = empresaSeleccionada.Empleados;
 
             this.cmbEmpleados.DataSource = empleadosEmpresa;
@@ -152,7 +142,7 @@ namespace EstudioContableSpringfieldGUI
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Lo comenté porque me tira error y todavía no lo arreglé
+            
             MostrarMontosLiquidacion();
         }
 
@@ -166,7 +156,7 @@ namespace EstudioContableSpringfieldGUI
                 {
                     txtPorcRet.Text = "0";
                 }
-                //Hacer text box de porc retencion editable?
+                
                 Liquidacion calculoLiquidacion = new Liquidacion(empleadoLiquidacion.Categoria.SueldoBasico, double.Parse(txtPorcRet.Text));
 
                 txtBruto.Text = calculoLiquidacion.Bruto.ToString("0.00");
@@ -175,27 +165,6 @@ namespace EstudioContableSpringfieldGUI
             }
         }
 
-        /* 
-        private Empresa BuscarEmpresa(string nombreEmpresa)
-        {
-            Empresa empresaEncontrada = this._estContable.Empresas.SingleOrDefault(empresa => empresa.RazonSocial == nombreEmpresa);
-
-            if (empresaEncontrada is null)
-                throw new Exception("No existe la empresa");
-
-            return empresaEncontrada;
-        }
-
-        
-        private Empleado BuscarEmpleado(string nombreEmpleado, Empresa empresa)
-        {
-            Empleado empleadoEncontrado = empresa.Empleados.SingleOrDefault(empleado => empleado.Nombre == nombreEmpleado);
-
-            if (empleadoEncontrado is null)
-                throw new Exception("No existe el empleado");
-
-            return empleadoEncontrado;
-        }
-        */
+       
     }
 }

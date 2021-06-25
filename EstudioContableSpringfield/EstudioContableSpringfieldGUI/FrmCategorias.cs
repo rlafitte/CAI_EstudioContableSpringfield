@@ -15,11 +15,11 @@ namespace EstudioContableSpringfieldGUI
     public partial class FrmCategorias : Form
     {
         private CategoriaNegocio _categoriaNegocio;
-        private EstudioContable _estContable;
+        
 
-        public FrmCategorias(EstudioContable estudio)
+        public FrmCategorias()
         {
-            this._estContable = estudio;
+        
             this._categoriaNegocio = new CategoriaNegocio();
             InitializeComponent();
         }
