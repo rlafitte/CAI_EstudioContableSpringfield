@@ -98,8 +98,7 @@ namespace Estudio.Entidades.Entidades
 
         public override string ToString()
         {
-            //return $"Código: {this._codLiquidacion} | Período: {this.Periodo} | Empresa: {this._empresa.Id} | Empleado: {this.IdEmpleado} | Categoria: {this._categoria.Id}";
-            return $"Código: {this._codLiquidacion} | Período: {this.Periodo} | Empleado: {this.IdEmpleado}";
+            return $"Código: {this._codLiquidacion} | Período: {this.Periodo} | Empleado: {this._empleado.ApellidoYNombre} | Categoría: { this._categoria.NombreYConvenio} | Neto: ARS { this._neto.ToString("0.00")}" ;            
         }        
 
         public int ObtenerPeriodo(int mes, int año)

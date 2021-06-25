@@ -16,98 +16,117 @@ namespace EstudioContableSpringfieldGUI
     {
         
         private LiquidacionNegocio _liquidacionNegocio;
+        private EmpresaNegocio _empresaNegocio;
         private List<Liquidacion> _listaLiquidaciones;
-        private ReportesNegocio _repoNeg;
 
 
         public FrmReportes()
         {
             
             this._liquidacionNegocio = new LiquidacionNegocio();
-            this._repoNeg = new ReportesNegocio();
+            this._empresaNegocio = new EmpresaNegocio();
             this._listaLiquidaciones = new List<Liquidacion>();
             InitializeComponent();
         }
 
-        private void btnVolver_Click(object sender, EventArgs e)
+        private void FrmReportes_Load(object sender, EventArgs e)
         {
-            btnEliminarLiq.Enabled = false;
-            this.Owner.Show();
-            this.Close();
-        }
-
-        private void btnEmpleXEmpre_Click(object sender, EventArgs e)
-        {
-            lstReporte.DataSource = null;
-            lstReporte.Items.Clear();
-            List<Empresa> _listA = (List<Empresa>)_repoNeg.TraerEmpresas();
-
-            foreach(Empresa _em in _listA)
-            {
-                if (_em.Cuit> 0)
-                {
-
-                lstReporte.Items.Add(_em.RazonSocial);
-                _em.ListaEmpleados(lstReporte);
-                lstReporte.Items.Add(Environment.NewLine);
-                }
-            }
-            btnEliminarLiq.Enabled = false;
-
-        }
-
-        private void btnLiqXCat_Click(object sender, EventArgs e)
-        {
-
+            CargarEmpresas();
             CargarLiquidaciones();
-
+            CargarCategorias();
         }
 
         private void CargarLiquidaciones()
         {
-            List<Empleado> _empleados = _repoNeg.Traer().OrderBy(o=>o.IdCategoria).ToList();
-            
-            lstReporte.DataSource = null;
-            lstReporte.Items.Clear();
-            _listaLiquidaciones = _liquidacionNegocio.Traer();
-
-            foreach (Empleado emp in _empleados)
-            {
-                
-                lstReporte.Items.Add("--- Categoría: " + emp.IdCategoria + "---" + System.Environment.NewLine);
-                foreach (Liquidacion liqXcat in _listaLiquidaciones)
-                {
-                    if (liqXcat.IdEmpleado != null && emp.Legajo != null)
-                    {
-
-                    if (liqXcat.IdEmpleado == emp.Legajo)
-                    {
-
-                        lstReporte.Items.Add(liqXcat);
-                    }
-                        
-
-                    }
-                }
-
-
-            }
-            btnEliminarLiq.Enabled = true;
-            
+            this._listaLiquidaciones = this._liquidacionNegocio.TraerConCategoria();
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
+        private void CargarCategorias()
         {
-            lstReporte.Items.Clear();
+            try
+            {
+                List<Categoria> categoriasConLiquidaciones = new List<Categoria>();
+                categoriasConLiquidaciones.Add(new Categoria("  Seleccione", 0, ""));
+
+                foreach (Liquidacion liquidacion in this._listaLiquidaciones)
+                    if (!categoriasConLiquidaciones.Contains(liquidacion.Categoria))
+                        categoriasConLiquidaciones.Add(liquidacion.Categoria);
+
+
+                cmbCategorias.DataSource = null;
+                cmbCategorias.DataSource = categoriasConLiquidaciones;
+                cmbCategorias.DisplayMember = "Nombre";
+                cmbCategorias.ValueMember = "Id";
+
+            }
+            catch (Exception exe)
+            {
+                MessageBox.Show(exe.Message);
+            }
+        }
+
+        private void CargarEmpresas()
+        {
+            try
+            {
+                cmbEmpresas.DataSource = null;
+                cmbEmpresas.DataSource = this._empresaNegocio.TraerConEmpleadosExistentes();
+                cmbEmpresas.DisplayMember = "RazonSocial";
+                cmbEmpresas.ValueMember = "Cuit";
+            }
+            catch (Exception exe)
+            {
+                MessageBox.Show(exe.Message);
+            }
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Close();
+        }
+
+        private void cmbEmpresas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarListaEmpleados();
+        }
+
+        private void CargarListaEmpleados()
+        {
+            if (cmbEmpresas.DataSource != null)
+            {
+                Empresa empresaSeleccionada = (Empresa)cmbEmpresas.SelectedItem;
+                lstReporte.DataSource = null;
+                lstReporte.DataSource = empresaSeleccionada.Empleados;
+                this.lstReporte.ValueMember = "Legajo";
+            }
+        }
+
+
+        private void cmbLiquidaciones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarListaLiquidaciones();
             btnEliminarLiq.Enabled = false;
         }
 
-        //private void btnEliminarLiq_Click(object sender, EventArgs e)
-        //{
-        //}
+        private void CargarListaLiquidaciones()
+        {
+            if (cmbCategorias.DataSource != null)
+            {
+                Categoria categoriaSeleccionada = (Categoria)cmbCategorias.SelectedItem;
+
+                List<Liquidacion> liquidacionesPorCategoria = new List<Liquidacion>();
+                foreach (Liquidacion liquidacion in this._listaLiquidaciones)
+                    if (liquidacion.Categoria.Id == categoriaSeleccionada.Id)
+                        liquidacionesPorCategoria.Add(liquidacion);
+
+                lstReporte.DataSource = null;
+                lstReporte.DataSource = liquidacionesPorCategoria;
+            }
+        }
 
         private void btnEliminarLiq_Click_1(object sender, EventArgs e)
-        {
+        {            
             try
             {
             if (lstReporte.SelectedIndex < 0)
@@ -121,7 +140,6 @@ namespace EstudioContableSpringfieldGUI
                 if (confirmResult == DialogResult.OK)
                 {
                 TransactionResult resultado = this._liquidacionNegocio.Eliminar(liqSeleccionada);
-                    //        TransactionResult resultado = this._empleadoNegocio.Eliminar(empleadoSeleccionado);
 
                     if (resultado.IsOk)
                     {
@@ -134,14 +152,28 @@ namespace EstudioContableSpringfieldGUI
                         MessageBox.Show("Eliminación cancelada");
                     }
                 }
-                CargarLiquidaciones();    
+                CargarLiquidaciones();
+                CargarCategorias();
+                LimpiarLista();
+                btnEliminarLiq.Enabled = false;
 
             }
             catch (Exception exe)
             {
                 MessageBox.Show(exe.Message);
             }
+            
 
+        }
+
+        private void LimpiarLista()
+        {
+            lstReporte.DataSource = null;
+        }
+
+        private void lstReporte_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnEliminarLiq.Enabled = true;
         }
     }
 }

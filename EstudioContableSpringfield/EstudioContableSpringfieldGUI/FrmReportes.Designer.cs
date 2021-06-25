@@ -29,45 +29,30 @@ namespace EstudioContableSpringfieldGUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnEmpleXEmpre = new System.Windows.Forms.Button();
-            this.btnLiqXCat = new System.Windows.Forms.Button();
             this.lstReporte = new System.Windows.Forms.ListBox();
             this.btnVolver = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnEliminarLiq = new System.Windows.Forms.Button();
+            this.cmbEmpresas = new System.Windows.Forms.ComboBox();
+            this.cmbCategorias = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnEnviar = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnEmpleXEmpre
-            // 
-            this.btnEmpleXEmpre.Location = new System.Drawing.Point(123, 36);
-            this.btnEmpleXEmpre.Name = "btnEmpleXEmpre";
-            this.btnEmpleXEmpre.Size = new System.Drawing.Size(190, 40);
-            this.btnEmpleXEmpre.TabIndex = 0;
-            this.btnEmpleXEmpre.Text = "Empleados por Empresas";
-            this.btnEmpleXEmpre.UseVisualStyleBackColor = true;
-            this.btnEmpleXEmpre.Click += new System.EventHandler(this.btnEmpleXEmpre_Click);
-            // 
-            // btnLiqXCat
-            // 
-            this.btnLiqXCat.Location = new System.Drawing.Point(439, 36);
-            this.btnLiqXCat.Name = "btnLiqXCat";
-            this.btnLiqXCat.Size = new System.Drawing.Size(190, 40);
-            this.btnLiqXCat.TabIndex = 1;
-            this.btnLiqXCat.Text = "Liquidaciones por Categorías";
-            this.btnLiqXCat.UseVisualStyleBackColor = true;
-            this.btnLiqXCat.Click += new System.EventHandler(this.btnLiqXCat_Click);
             // 
             // lstReporte
             // 
+            this.lstReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.lstReporte.FormattingEnabled = true;
-            this.lstReporte.Location = new System.Drawing.Point(12, 120);
+            this.lstReporte.ItemHeight = 15;
+            this.lstReporte.Location = new System.Drawing.Point(12, 135);
             this.lstReporte.Name = "lstReporte";
-            this.lstReporte.Size = new System.Drawing.Size(776, 238);
+            this.lstReporte.Size = new System.Drawing.Size(776, 214);
             this.lstReporte.TabIndex = 2;
+            this.lstReporte.SelectedIndexChanged += new System.EventHandler(this.lstReporte_SelectedIndexChanged);
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(35, 395);
+            this.btnVolver.Location = new System.Drawing.Point(12, 413);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(81, 25);
             this.btnVolver.TabIndex = 3;
@@ -75,51 +60,99 @@ namespace EstudioContableSpringfieldGUI
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(145, 395);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(81, 25);
-            this.btnLimpiar.TabIndex = 4;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
             // btnEliminarLiq
             // 
             this.btnEliminarLiq.Enabled = false;
-            this.btnEliminarLiq.Location = new System.Drawing.Point(255, 397);
+            this.btnEliminarLiq.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnEliminarLiq.Location = new System.Drawing.Point(661, 364);
             this.btnEliminarLiq.Name = "btnEliminarLiq";
-            this.btnEliminarLiq.Size = new System.Drawing.Size(161, 22);
+            this.btnEliminarLiq.Size = new System.Drawing.Size(127, 34);
             this.btnEliminarLiq.TabIndex = 5;
             this.btnEliminarLiq.Text = "Eliminar Liquidación";
             this.btnEliminarLiq.UseVisualStyleBackColor = true;
             this.btnEliminarLiq.Click += new System.EventHandler(this.btnEliminarLiq_Click_1);
+            // 
+            // cmbEmpresas
+            // 
+            this.cmbEmpresas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEmpresas.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.cmbEmpresas.FormattingEnabled = true;
+            this.cmbEmpresas.Location = new System.Drawing.Point(260, 12);
+            this.cmbEmpresas.Name = "cmbEmpresas";
+            this.cmbEmpresas.Size = new System.Drawing.Size(236, 29);
+            this.cmbEmpresas.TabIndex = 6;
+            this.cmbEmpresas.SelectedIndexChanged += new System.EventHandler(this.cmbEmpresas_SelectedIndexChanged);
+            // 
+            // cmbCategorias
+            // 
+            this.cmbCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategorias.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.cmbCategorias.FormattingEnabled = true;
+            this.cmbCategorias.Location = new System.Drawing.Point(260, 47);
+            this.cmbCategorias.Name = "cmbCategorias";
+            this.cmbCategorias.Size = new System.Drawing.Size(236, 29);
+            this.cmbCategorias.TabIndex = 7;
+            this.cmbCategorias.SelectedIndexChanged += new System.EventHandler(this.cmbLiquidaciones_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(178, 21);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Empleados por empresa";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label2.Location = new System.Drawing.Point(12, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(201, 21);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Liquidaciones por categoría";
+            // 
+            // btnEnviar
+            // 
+            this.btnEnviar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnEnviar.Location = new System.Drawing.Point(420, 87);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(76, 30);
+            this.btnEnviar.TabIndex = 10;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = true;
             // 
             // FrmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEnviar);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbCategorias);
+            this.Controls.Add(this.cmbEmpresas);
             this.Controls.Add(this.btnEliminarLiq);
-            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lstReporte);
-            this.Controls.Add(this.btnLiqXCat);
-            this.Controls.Add(this.btnEmpleXEmpre);
             this.Name = "FrmReportes";
             this.Text = "Reportes";
+            this.Load += new System.EventHandler(this.FrmReportes_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnEmpleXEmpre;
-        private System.Windows.Forms.Button btnLiqXCat;
         private System.Windows.Forms.ListBox lstReporte;
         private System.Windows.Forms.Button btnVolver;
-        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnEliminarLiq;
+        private System.Windows.Forms.ComboBox cmbEmpresas;
+        private System.Windows.Forms.ComboBox cmbCategorias;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnEnviar;
     }
 }

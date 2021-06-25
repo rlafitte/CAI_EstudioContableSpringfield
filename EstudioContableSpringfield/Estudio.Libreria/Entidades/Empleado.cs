@@ -18,7 +18,6 @@ namespace Estudio.Entidades.Entidades
         private DateTime _fechaAlta;
         private Categoria _categoria;
 
-        //cargamos la empresa al hacer el get? serviría para algo en reportes/consultas?
         private Empresa _empresa;
         public Empresa Empresa { get => _empresa; set => _empresa = value; }
 
@@ -61,7 +60,7 @@ namespace Estudio.Entidades.Entidades
 
         public override string ToString()
         {
-            return $"{this._cuil} | {base.ToString()}";
+            return $"{this._cuil} | {base.ToString()} | Ingreso: {this._fechaAlta.ToString("yyyy-MM-dd")} | Básico: {this._categoria.SueldoBasico} - {this._categoria.NombreYConvenio}";
         }
 
     }

@@ -14,7 +14,6 @@ namespace EstudioContableSpringfieldGUI
 {
     public partial class FrmEmpresas : Form
     {
-        private EstudioContable _estContable;
         private EmpresaNegocio _empresaNegocio;
 
         public FrmEmpresas()

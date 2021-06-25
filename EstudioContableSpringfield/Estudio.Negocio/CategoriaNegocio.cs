@@ -2,6 +2,7 @@
 using Estudio.Entidades.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,19 +15,35 @@ namespace Estudio.Negocio
         private CategoriaMapper _categoriaMapper;
         private Categoria _categoriaVacia;
 
+        static string salarioMinimoVitalMovil;
+
+
         public CategoriaNegocio()
         {
             this._listaCategorias = new List<Categoria>();
             this._categoriaMapper = new CategoriaMapper();
+
+            salarioMinimoVitalMovil = ConfigurationManager.AppSettings["SMVM"];
         }
 
         public List<Categoria> Traer()
         {
-            _categoriaVacia = new Categoria("<SELECCION>",0,"");
+            _categoriaVacia = new Categoria("  Seleccione", 0, "");
             _listaCategorias.Insert(0, _categoriaVacia);
-            //this._listaCategorias = this._categoriaMapper.TraerTodos();
-            _listaCategorias.AddRange(_categoriaMapper.TraerTodos());
+            _listaCategorias.AddRange(TraerCategoriasFiltradas());
             return this._listaCategorias;
+        }
+
+
+        private List<Categoria> TraerCategoriasFiltradas()
+        {
+            List<Categoria> categoriasFiltradas = new List<Categoria>();
+
+            foreach (Categoria categoria in this._categoriaMapper.TraerTodos())
+                if (categoria.SueldoBasico > double.Parse(salarioMinimoVitalMovil))
+                    categoriasFiltradas.Add(categoria);
+
+            return categoriasFiltradas;
         }
 
         public TransactionResult Agregar(Categoria nuevaCategoria)
