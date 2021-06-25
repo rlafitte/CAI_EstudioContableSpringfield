@@ -1,5 +1,7 @@
-﻿using Estudio.Datos;
+﻿
+using Estudio.Datos;
 using Estudio.Entidades.Entidades;
+using Estudio.Libreria.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +15,14 @@ namespace Estudio.Negocio
         
         private List<Liquidacion> _listaLiquidaciones;
         private LiquidacionMapper _liquidacionMapper;
+        private EmailMapper _emailMapper;
         private EmpleadoNegocio _empleadoNegocio;
 
         public LiquidacionNegocio()
         {
             this._listaLiquidaciones = new List<Liquidacion>();
             this._liquidacionMapper = new LiquidacionMapper();
+            this._emailMapper = new EmailMapper();
             this._empleadoNegocio = new EmpleadoNegocio();
         }
 
@@ -45,6 +49,11 @@ namespace Estudio.Negocio
                 }
             }
             return liquidaciones;
+        }
+
+        public TransactionResult EnviarReporte (Email email)
+        {
+            return this._emailMapper.Agregar(email);
         }
 
         public TransactionResult Agregar (Liquidacion liquidacion)

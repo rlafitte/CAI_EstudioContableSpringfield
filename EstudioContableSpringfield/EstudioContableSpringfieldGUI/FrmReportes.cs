@@ -1,4 +1,5 @@
-﻿using Estudio.Entidades.Entidades;
+﻿
+using Estudio.Entidades.Entidades;
 using Estudio.Negocio;
 using System;
 using System.Collections.Generic;
@@ -55,7 +56,7 @@ namespace EstudioContableSpringfieldGUI
 
                 cmbCategorias.DataSource = null;
                 cmbCategorias.DataSource = categoriasConLiquidaciones;
-                cmbCategorias.DisplayMember = "Nombre";
+                cmbCategorias.DisplayMember = "NombreYConvenio";
                 cmbCategorias.ValueMember = "Id";
 
             }
@@ -174,6 +175,34 @@ namespace EstudioContableSpringfieldGUI
         private void lstReporte_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarLiq.Enabled = true;
+        }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {            
+            try
+            {
+                if (lstReporte.DataSource == null)
+                    throw new Exception("Debe seleccionar un reporte");
+
+                string cuerpoMensaje = "";
+                foreach (object obj in lstReporte.Items)
+                    cuerpoMensaje = cuerpoMensaje + obj.ToString() + "\n";
+
+                FrmEnviarMail frmEnviar = new FrmEnviarMail(cuerpoMensaje);
+                frmEnviar.Owner = this;
+                frmEnviar.Show();
+                this.Hide();
+
+                CargarLiquidaciones();
+                CargarCategorias();
+                LimpiarLista();
+                btnEliminarLiq.Enabled = false;
+            }
+            catch (Exception exe)
+            {
+                MessageBox.Show(exe.Message);
+            }
+
         }
     }
 }

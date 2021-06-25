@@ -73,3 +73,4 @@ C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpri
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.csproj.CopyComplete
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.exe
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.pdb
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\EstudioContableSpringfieldGUI\obj\Debug\EstudioContableSpringfieldGUI.FrmEnviarMail.resources

@@ -12,16 +12,18 @@ namespace Estudio.Datos
 {
     public class CategoriaMapper
     {
-        static string rutaMapper;
+        static string rutaMapperGET;
+        static string rutaMapperPOST_PUT_DELETE;
 
         public CategoriaMapper()
         {
-            rutaMapper = ConfigurationManager.AppSettings["URL_CATEGORIAS"];
+            rutaMapperGET = ConfigurationManager.AppSettings["URL_CATEGORIAS"];
+            rutaMapperPOST_PUT_DELETE = ConfigurationManager.AppSettings["URL_CATEGORIA"];
         }
 
         public List<Categoria> TraerTodos()
         {
-            string json = WebHelper.Get(rutaMapper);
+            string json = WebHelper.Get(rutaMapperGET);
             List<Categoria> resultado = MapList(json);
             return resultado;
         }
@@ -35,7 +37,7 @@ namespace Estudio.Datos
         public TransactionResult Agregar(Categoria categoria)
         {
             NameValueCollection parametros = ReverseMap(categoria);
-            string json = WebHelper.Post(rutaMapper, parametros);
+            string json = WebHelper.Post(rutaMapperPOST_PUT_DELETE, parametros);
             TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
             return resultado;
         }
