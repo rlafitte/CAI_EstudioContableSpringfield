@@ -37,6 +37,8 @@ namespace EstudioContableSpringfieldGUI
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnEnviar = new System.Windows.Forms.Button();
+            this.checkBoxEmpleados = new System.Windows.Forms.CheckBox();
+            this.checkBoxLiq = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lstReporte
@@ -64,9 +66,9 @@ namespace EstudioContableSpringfieldGUI
             // 
             this.btnEliminarLiq.Enabled = false;
             this.btnEliminarLiq.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnEliminarLiq.Location = new System.Drawing.Point(661, 404);
+            this.btnEliminarLiq.Location = new System.Drawing.Point(528, 355);
             this.btnEliminarLiq.Name = "btnEliminarLiq";
-            this.btnEliminarLiq.Size = new System.Drawing.Size(127, 34);
+            this.btnEliminarLiq.Size = new System.Drawing.Size(127, 30);
             this.btnEliminarLiq.TabIndex = 5;
             this.btnEliminarLiq.Text = "Eliminar Liquidación";
             this.btnEliminarLiq.UseVisualStyleBackColor = true;
@@ -98,7 +100,7 @@ namespace EstudioContableSpringfieldGUI
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Location = new System.Drawing.Point(12, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 21);
             this.label1.TabIndex = 8;
@@ -108,7 +110,7 @@ namespace EstudioContableSpringfieldGUI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label2.Location = new System.Drawing.Point(12, 47);
+            this.label2.Location = new System.Drawing.Point(12, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(201, 21);
             this.label2.TabIndex = 9;
@@ -121,15 +123,37 @@ namespace EstudioContableSpringfieldGUI
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(127, 30);
             this.btnEnviar.TabIndex = 10;
-            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.Text = "Enviar por E-mail";
             this.btnEnviar.UseVisualStyleBackColor = true;
             this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
+            // 
+            // checkBoxEmpleados
+            // 
+            this.checkBoxEmpleados.AutoSize = true;
+            this.checkBoxEmpleados.Location = new System.Drawing.Point(219, 21);
+            this.checkBoxEmpleados.Name = "checkBoxEmpleados";
+            this.checkBoxEmpleados.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxEmpleados.TabIndex = 11;
+            this.checkBoxEmpleados.UseVisualStyleBackColor = true;
+            this.checkBoxEmpleados.CheckedChanged += new System.EventHandler(this.checkBoxEmpleados_CheckedChanged);
+            // 
+            // checkBoxLiq
+            // 
+            this.checkBoxLiq.AutoSize = true;
+            this.checkBoxLiq.Location = new System.Drawing.Point(219, 56);
+            this.checkBoxLiq.Name = "checkBoxLiq";
+            this.checkBoxLiq.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxLiq.TabIndex = 12;
+            this.checkBoxLiq.UseVisualStyleBackColor = true;
+            this.checkBoxLiq.CheckedChanged += new System.EventHandler(this.checkBoxLiq_CheckedChanged);
             // 
             // FrmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBoxLiq);
+            this.Controls.Add(this.checkBoxEmpleados);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -155,5 +179,7 @@ namespace EstudioContableSpringfieldGUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.CheckBox checkBoxEmpleados;
+        private System.Windows.Forms.CheckBox checkBoxLiq;
     }
 }

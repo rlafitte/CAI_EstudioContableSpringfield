@@ -105,6 +105,11 @@ namespace EstudioContableSpringfieldGUI
 
             if (!Int64.TryParse(this.txtCUIL.Text, out Int64 cuil))
                 throw new Exception("CUIL no numérico, corrija la entrada por favor");
+
+            bool esMayorDeEdad = ValidarMayoriaEdad();
+
+            if (!esMayorDeEdad)
+                throw new Exception("El empleado no cumple la mayoría de edad");
         }
 
         private void ResetearFormulario()
@@ -250,6 +255,14 @@ namespace EstudioContableSpringfieldGUI
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private bool ValidarMayoriaEdad()
+        {
+            if (DateTime.Now.Year - dTPFechaNacimiento.Value.Year >= 18)
+                return true;
+
+            return false;
         }
     }
 }

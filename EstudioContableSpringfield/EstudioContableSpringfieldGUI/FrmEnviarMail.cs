@@ -63,5 +63,11 @@ namespace EstudioContableSpringfieldGUI
             if (txtMensaje.Text == string.Empty)
                 throw new Exception("Mensaje: El campo no puede estar vacío");
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Close();
+        }
     }
 }

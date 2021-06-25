@@ -7,14 +7,6 @@ C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSprin
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Entidades.csproj.CopyComplete
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.dll
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.pdb
-C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Estudio.Libreria.dll
-C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Estudio.Libreria.pdb
-C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Newtonsoft.Json.dll
-C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Newtonsoft.Json.xml
-C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Entidades.csproj.CoreCompileInputs.cache
-C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Entidades.csproj.CopyComplete
-C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.dll
-C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.pdb
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Estudio.Libreria.dll
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Estudio.Libreria.pdb
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Newtonsoft.Json.dll
@@ -24,4 +16,11 @@ C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpri
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Entidades.csproj.CopyComplete
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.dll
 C:\Users\renar\Desktop\CAI\TP\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.pdb
-C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Entidades.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Estudio.Libreria.dll
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Estudio.Libreria.pdb
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\bin\Debug\Newtonsoft.Json.xml
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Entidades.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Entidades.csproj.CopyComplete
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.dll
+C:\Users\User\Desktop\Sebaa\Facultad\Materias\CAI\Ejercicios\CAI_EstudioContableSpringfield\EstudioContableSpringfield\Estudio.Libreria\obj\Debug\Estudio.Libreria.pdb

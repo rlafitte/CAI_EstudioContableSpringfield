@@ -24,7 +24,7 @@ namespace EstudioContableSpringfieldGUI
 
         public FrmConsulta()
         {
-
+            this._listaLiquidacionesTotales = new List<Liquidacion>();
             this._liquidacionesXCodigo = new List<Liquidacion>();
             this._liqNeg = new LiquidacionNegocio();
             this._empleNeg = new EmpleadoNegocio();
@@ -235,8 +235,8 @@ namespace EstudioContableSpringfieldGUI
         private void FrmConsulta_Load(object sender, EventArgs e)
         {
             comboBox1.DataSource = null;
-            _listaLiquidacionesTotales = _liqNeg.Traer();
-            comboBox1.DataSource = _listaLiquidacionesTotales;
+            this._listaLiquidacionesTotales = _liqNeg.Traer();
+            comboBox1.DataSource = this._listaLiquidacionesTotales;
             comboBox1.DisplayMember = "CodigoTransferencia";
             listaEmpresas = _empreNeg.TraerConEmpleadosExistentes();
 
