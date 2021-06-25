@@ -44,9 +44,9 @@ namespace EstudioContableSpringfieldGUI
             this.lstReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.lstReporte.FormattingEnabled = true;
             this.lstReporte.ItemHeight = 15;
-            this.lstReporte.Location = new System.Drawing.Point(12, 135);
+            this.lstReporte.Location = new System.Drawing.Point(12, 105);
             this.lstReporte.Name = "lstReporte";
-            this.lstReporte.Size = new System.Drawing.Size(776, 214);
+            this.lstReporte.Size = new System.Drawing.Size(776, 244);
             this.lstReporte.TabIndex = 2;
             this.lstReporte.SelectedIndexChanged += new System.EventHandler(this.lstReporte_SelectedIndexChanged);
             // 
@@ -64,7 +64,7 @@ namespace EstudioContableSpringfieldGUI
             // 
             this.btnEliminarLiq.Enabled = false;
             this.btnEliminarLiq.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnEliminarLiq.Location = new System.Drawing.Point(661, 364);
+            this.btnEliminarLiq.Location = new System.Drawing.Point(661, 404);
             this.btnEliminarLiq.Name = "btnEliminarLiq";
             this.btnEliminarLiq.Size = new System.Drawing.Size(127, 34);
             this.btnEliminarLiq.TabIndex = 5;
@@ -117,12 +117,13 @@ namespace EstudioContableSpringfieldGUI
             // btnEnviar
             // 
             this.btnEnviar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnEnviar.Location = new System.Drawing.Point(420, 87);
+            this.btnEnviar.Location = new System.Drawing.Point(661, 355);
             this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(76, 30);
+            this.btnEnviar.Size = new System.Drawing.Size(127, 30);
             this.btnEnviar.TabIndex = 10;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // FrmReportes
             // 
