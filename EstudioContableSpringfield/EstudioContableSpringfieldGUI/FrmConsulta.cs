@@ -14,16 +14,16 @@ namespace EstudioContableSpringfieldGUI
 {
     public partial class FrmConsulta : Form
     {
-        private List<Liquidacion> _listaLiquidaciones;
+        private List<Liquidacion> _listaLiquidacionesTotales;
         private List<Liquidacion> _liquidacionesXCodigo;
         private LiquidacionNegocio _liqNeg;
         private EmpleadoNegocio _empleNeg;
         private EmpresaNegocio _empreNeg;
         private List<Empresa> listaEmpresas;
 
-        public FrmConsulta(List<Liquidacion> listaLiq)
+        public FrmConsulta()
         {
-            this._listaLiquidaciones = listaLiq;
+
             this._liquidacionesXCodigo = new List<Liquidacion>();
             this._liqNeg = new LiquidacionNegocio();
             this._empleNeg = new EmpleadoNegocio();
@@ -85,6 +85,10 @@ namespace EstudioContableSpringfieldGUI
                         }
                     }
                 }
+                if (listaSalida.Count<= 0)
+                {
+                    MessageBox.Show("No hay datos para mostrar.");
+                }
 
                 this.list1.DataSource = null;
                 this.list1.DataSource = listaSalida;
@@ -107,8 +111,6 @@ namespace EstudioContableSpringfieldGUI
                 foreach (Liquidacion liq in this._liquidacionesXCodigo)
                 {
 
-                    //foreach (Empresa emp in listaEmpresas)
-                    //{
                         foreach (Empleado _empleado in empleados)
                         {
 
@@ -125,7 +127,11 @@ namespace EstudioContableSpringfieldGUI
 
 
                         }
-                    //}
+           
+                }
+                if (listaSalida.Count <= 0)
+                {
+                    MessageBox.Show("No hay datos para mostrar.");
                 }
 
                 this.list1.DataSource = null;
@@ -135,48 +141,54 @@ namespace EstudioContableSpringfieldGUI
             {
                 MessageBox.Show(ex.Message);
             }
-            //try
-            //{
-            //    ValidarCodigoReadOnly();
 
-            //    List<Empleado> listaEmpleados = _empleNeg.Traer();
-
-            //    foreach (Liquidacion liq in this._liquidacionesXCodigo)
-            //    {
-            //        //if (!listaEmpleados.Contains(liq.IdEmpleado))
-            //        //    listaEmpleados.Add(liq.Empleado);
-            //    }
-
-            //    this.list1.DataSource = null;
-            //    this.list1.DataSource = listaEmpleados;
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
         }
 
         private void btnConsultaCategoria_Click(object sender, EventArgs e)
         {
+
             try
             {
                 ValidarCodigoReadOnly();
 
-                List<Categoria> listaCategorias = new List<Categoria>();
 
+                List<Categoria> listaSalida = new List<Categoria>();
+                List<Empleado> empleados = _empleNeg.TraerConCategoria();
                 foreach (Liquidacion liq in this._liquidacionesXCodigo)
                 {
-                    if (!listaCategorias.Contains(liq.Categoria))
-                        listaCategorias.Add(liq.Categoria);
+
+
+                    foreach (Empleado _empleado in empleados)
+                    {
+
+
+                        if (_empleado.Legajo == liq.IdEmpleado)
+                        {
+
+                            if (!listaSalida.Contains(_empleado.Categoria))
+                            {
+                                listaSalida.Add(_empleado.Categoria);
+
+                            }
+                        }
+
+
+                    }
+                    
+                }
+                if (listaSalida.Count <= 0)
+                {
+                    MessageBox.Show("No hay datos para mostrar.");
                 }
 
                 this.list1.DataSource = null;
-                this.list1.DataSource = listaCategorias;
+                this.list1.DataSource = listaSalida;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -189,7 +201,7 @@ namespace EstudioContableSpringfieldGUI
         {
             List<Liquidacion> liquidacionesPorCodigo = new List<Liquidacion>();
 
-            foreach (Liquidacion liq in this._listaLiquidaciones)
+            foreach (Liquidacion liq in this._listaLiquidacionesTotales)
             {
                 if (liq.CodigoTransferencia == codigo)
                     liquidacionesPorCodigo.Add(liq);
@@ -222,8 +234,8 @@ namespace EstudioContableSpringfieldGUI
         private void FrmConsulta_Load(object sender, EventArgs e)
         {
             comboBox1.DataSource = null;
-            _listaLiquidaciones = _liqNeg.Traer();
-            comboBox1.DataSource = _listaLiquidaciones;
+            _listaLiquidacionesTotales = _liqNeg.Traer();
+            comboBox1.DataSource = _listaLiquidacionesTotales;
             comboBox1.DisplayMember = "CodigoTransferencia";
             listaEmpresas = _empreNeg.TraerConEmpleadosExistentes();
 
@@ -234,6 +246,7 @@ namespace EstudioContableSpringfieldGUI
             this.btnConsultaEmpresa.Enabled = false;
             this.btnConsultaEmpleado.Enabled = false;
             this.btnConsultaCategoria.Enabled = false;
+            VaciarLista();
         }
     }
 }
