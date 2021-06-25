@@ -28,14 +28,14 @@ namespace Estudio.Negocio
 
         public List<Categoria> Traer()
         {
-            _categoriaVacia = new Categoria("<SELECCION>",0,"");
+            _categoriaVacia = new Categoria("  Seleccione", 0, "");
             _listaCategorias.Insert(0, _categoriaVacia);
             _listaCategorias.AddRange(TraerCategoriasFiltradas());
             return this._listaCategorias;
         }
 
 
-        public List<Categoria> TraerCategoriasFiltradas()
+        private List<Categoria> TraerCategoriasFiltradas()
         {
             List<Categoria> categoriasFiltradas = new List<Categoria>();
 

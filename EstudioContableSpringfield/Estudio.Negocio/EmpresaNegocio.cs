@@ -25,15 +25,13 @@ namespace Estudio.Negocio
 
         public List<Empresa> Traer()
         {
-            EmpresasFicticias();
-
-            //_listaEmpresas = _empresaMapper.TraerTodos();
+            AgregarEncabezadoLista();
             _listaEmpresas.AddRange(_empresaMapper.TraerTodos());
             _listaEmpresas.OrderBy(o=>o.Cuit);
             return _listaEmpresas;
         }
 
-        private void EmpresasFicticias()
+        private void AgregarEncabezadoLista()
         {
             _empresaVacia = new Empresa("  Seleccione", 0, "");
             _listaEmpresas.Insert(0, _empresaVacia);

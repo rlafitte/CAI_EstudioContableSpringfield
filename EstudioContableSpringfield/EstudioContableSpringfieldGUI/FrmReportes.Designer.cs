@@ -36,14 +36,17 @@ namespace EstudioContableSpringfieldGUI
             this.cmbCategorias = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnEnviar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lstReporte
             // 
+            this.lstReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.lstReporte.FormattingEnabled = true;
-            this.lstReporte.Location = new System.Drawing.Point(12, 120);
+            this.lstReporte.ItemHeight = 15;
+            this.lstReporte.Location = new System.Drawing.Point(12, 135);
             this.lstReporte.Name = "lstReporte";
-            this.lstReporte.Size = new System.Drawing.Size(776, 238);
+            this.lstReporte.Size = new System.Drawing.Size(776, 214);
             this.lstReporte.TabIndex = 2;
             this.lstReporte.SelectedIndexChanged += new System.EventHandler(this.lstReporte_SelectedIndexChanged);
             // 
@@ -60,10 +63,10 @@ namespace EstudioContableSpringfieldGUI
             // btnEliminarLiq
             // 
             this.btnEliminarLiq.Enabled = false;
-            this.btnEliminarLiq.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnEliminarLiq.Location = new System.Drawing.Point(615, 364);
+            this.btnEliminarLiq.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnEliminarLiq.Location = new System.Drawing.Point(661, 364);
             this.btnEliminarLiq.Name = "btnEliminarLiq";
-            this.btnEliminarLiq.Size = new System.Drawing.Size(173, 34);
+            this.btnEliminarLiq.Size = new System.Drawing.Size(127, 34);
             this.btnEliminarLiq.TabIndex = 5;
             this.btnEliminarLiq.Text = "Eliminar Liquidación";
             this.btnEliminarLiq.UseVisualStyleBackColor = true;
@@ -95,7 +98,7 @@ namespace EstudioContableSpringfieldGUI
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label1.Location = new System.Drawing.Point(26, 12);
+            this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 21);
             this.label1.TabIndex = 8;
@@ -105,17 +108,28 @@ namespace EstudioContableSpringfieldGUI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label2.Location = new System.Drawing.Point(26, 47);
+            this.label2.Location = new System.Drawing.Point(12, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(201, 21);
             this.label2.TabIndex = 9;
             this.label2.Text = "Liquidaciones por categoría";
+            // 
+            // btnEnviar
+            // 
+            this.btnEnviar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnEnviar.Location = new System.Drawing.Point(420, 87);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(76, 30);
+            this.btnEnviar.TabIndex = 10;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = true;
             // 
             // FrmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbCategorias);
@@ -139,5 +153,6 @@ namespace EstudioContableSpringfieldGUI
         private System.Windows.Forms.ComboBox cmbCategorias;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnEnviar;
     }
 }

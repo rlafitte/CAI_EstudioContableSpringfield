@@ -60,7 +60,7 @@ namespace Estudio.Entidades.Entidades
 
         public override string ToString()
         {
-            return $"{this._cuil} | {base.ToString()}";
+            return $"{this._cuil} | {base.ToString()} | Ingreso: {this._fechaAlta.ToString("yyyy-MM-dd")} | Básico: {this._categoria.SueldoBasico} - {this._categoria.NombreYConvenio}";
         }
 
     }

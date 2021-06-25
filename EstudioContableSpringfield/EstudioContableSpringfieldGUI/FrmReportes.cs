@@ -46,6 +46,7 @@ namespace EstudioContableSpringfieldGUI
             try
             {
                 List<Categoria> categoriasConLiquidaciones = new List<Categoria>();
+                categoriasConLiquidaciones.Add(new Categoria("  Seleccione", 0, ""));
 
                 foreach (Liquidacion liquidacion in this._listaLiquidaciones)
                     if (!categoriasConLiquidaciones.Contains(liquidacion.Categoria))
@@ -98,7 +99,6 @@ namespace EstudioContableSpringfieldGUI
                 lstReporte.DataSource = null;
                 lstReporte.DataSource = empresaSeleccionada.Empleados;
                 this.lstReporte.ValueMember = "Legajo";
-                this.lstReporte.DisplayMember = "ApellidoYNombre";
             }
         }
 
