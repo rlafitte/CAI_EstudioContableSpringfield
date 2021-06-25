@@ -18,7 +18,6 @@ namespace Estudio.Entidades.Entidades
         private DateTime _fechaAlta;
         private Categoria _categoria;
 
-        //cargamos la empresa al hacer el get? serviría para algo en reportes/consultas?
         private Empresa _empresa;
         public Empresa Empresa { get => _empresa; set => _empresa = value; }
 

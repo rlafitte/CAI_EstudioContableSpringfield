@@ -27,7 +27,6 @@ namespace Estudio.Negocio
         {
             EmpresasFicticias();
 
-
             //_listaEmpresas = _empresaMapper.TraerTodos();
             _listaEmpresas.AddRange(_empresaMapper.TraerTodos());
             _listaEmpresas.OrderBy(o=>o.Cuit);

@@ -13,19 +13,37 @@ namespace Estudio.Negocio
         
         private List<Liquidacion> _listaLiquidaciones;
         private LiquidacionMapper _liquidacionMapper;
+        private EmpleadoNegocio _empleadoNegocio;
 
         public LiquidacionNegocio()
         {
             this._listaLiquidaciones = new List<Liquidacion>();
             this._liquidacionMapper = new LiquidacionMapper();
+            this._empleadoNegocio = new EmpleadoNegocio();
         }
 
         public List<Liquidacion> Traer()
         {
             this._listaLiquidaciones = this._liquidacionMapper.TraerTodos();
-            //_listaLiquidaciones.OrderBy(o => o.Categoria);
-
             return this._listaLiquidaciones;
+        }
+
+        public List<Liquidacion> TraerConCategoria()
+        {
+            List<Liquidacion> liquidaciones = this._liquidacionMapper.TraerTodos();
+            List<Empleado> empleados = this._empleadoNegocio.TraerConCategoria();
+            foreach (Liquidacion liquidacion in liquidaciones)
+            {
+                foreach (Empleado empleado in empleados)
+                {
+                    if (liquidacion.IdEmpleado == empleado.Legajo)
+                    {
+                        liquidacion.Categoria = empleado.Categoria;
+                        liquidacion.Empleado = empleado;
+                    }
+                }
+            }
+            return liquidaciones;
         }
 
         public TransactionResult Agregar (Liquidacion liquidacion)
