@@ -59,7 +59,7 @@ namespace EstudioContableSpringfieldGUI
                 ValidarCamposFormulario();
                 Categoria categoria = new Categoria(txtNombre.Text, double.Parse(txtBasico.Text), txtCCTNum.Text);
                 TransactionResult resultado = _categoriaNegocio.Agregar(categoria);
-                MessageBox.Show(resultado.ToString());
+                MessageBox.Show(resultado.DarMensaje());
                 CargarCategorias();
                 ResetearFormulario();
             }
