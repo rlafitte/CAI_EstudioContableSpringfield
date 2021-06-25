@@ -24,6 +24,7 @@ namespace Estudio.Negocio
         {
             this._listaLiquidaciones = this._liquidacionMapper.TraerTodos();
             //_listaLiquidaciones.OrderBy(o => o.Categoria);
+
             return this._listaLiquidaciones;
         }
 
