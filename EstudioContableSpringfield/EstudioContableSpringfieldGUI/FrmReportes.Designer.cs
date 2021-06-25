@@ -45,6 +45,7 @@ namespace EstudioContableSpringfieldGUI
             this.lstReporte.Name = "lstReporte";
             this.lstReporte.Size = new System.Drawing.Size(776, 238);
             this.lstReporte.TabIndex = 2;
+            this.lstReporte.SelectedIndexChanged += new System.EventHandler(this.lstReporte_SelectedIndexChanged);
             // 
             // btnVolver
             // 
@@ -59,9 +60,10 @@ namespace EstudioContableSpringfieldGUI
             // btnEliminarLiq
             // 
             this.btnEliminarLiq.Enabled = false;
-            this.btnEliminarLiq.Location = new System.Drawing.Point(627, 364);
+            this.btnEliminarLiq.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnEliminarLiq.Location = new System.Drawing.Point(615, 364);
             this.btnEliminarLiq.Name = "btnEliminarLiq";
-            this.btnEliminarLiq.Size = new System.Drawing.Size(161, 22);
+            this.btnEliminarLiq.Size = new System.Drawing.Size(173, 34);
             this.btnEliminarLiq.TabIndex = 5;
             this.btnEliminarLiq.Text = "Eliminar Liquidación";
             this.btnEliminarLiq.UseVisualStyleBackColor = true;

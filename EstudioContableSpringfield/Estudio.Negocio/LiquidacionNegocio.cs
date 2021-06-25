@@ -30,9 +30,9 @@ namespace Estudio.Negocio
 
         public List<Liquidacion> TraerConCategoria()
         {
-            List<Liquidacion> liquidaciones = this._liquidacionMapper.TraerTodos();
+            List<Liquidacion> liquidaciones = new List<Liquidacion>();
             List<Empleado> empleados = this._empleadoNegocio.TraerConCategoria();
-            foreach (Liquidacion liquidacion in liquidaciones)
+            foreach (Liquidacion liquidacion in this._liquidacionMapper.TraerTodos())
             {
                 foreach (Empleado empleado in empleados)
                 {
@@ -40,6 +40,7 @@ namespace Estudio.Negocio
                     {
                         liquidacion.Categoria = empleado.Categoria;
                         liquidacion.Empleado = empleado;
+                        liquidaciones.Add(liquidacion);
                     }
                 }
             }

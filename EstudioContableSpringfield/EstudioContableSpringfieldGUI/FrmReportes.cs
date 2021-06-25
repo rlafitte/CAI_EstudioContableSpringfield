@@ -106,6 +106,7 @@ namespace EstudioContableSpringfieldGUI
         private void cmbLiquidaciones_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarListaLiquidaciones();
+            btnEliminarLiq.Enabled = false;
         }
 
         private void CargarListaLiquidaciones()
@@ -115,7 +116,7 @@ namespace EstudioContableSpringfieldGUI
                 Categoria categoriaSeleccionada = (Categoria)cmbCategorias.SelectedItem;
 
                 List<Liquidacion> liquidacionesPorCategoria = new List<Liquidacion>();
-                foreach (Liquidacion liquidacion in liquidacionesPorCategoria)
+                foreach (Liquidacion liquidacion in this._listaLiquidaciones)
                     if (liquidacion.Categoria.Id == categoriaSeleccionada.Id)
                         liquidacionesPorCategoria.Add(liquidacion);
 
@@ -125,8 +126,7 @@ namespace EstudioContableSpringfieldGUI
         }
 
         private void btnEliminarLiq_Click_1(object sender, EventArgs e)
-        {
-            
+        {            
             try
             {
             if (lstReporte.SelectedIndex < 0)
@@ -152,7 +152,10 @@ namespace EstudioContableSpringfieldGUI
                         MessageBox.Show("Eliminación cancelada");
                     }
                 }
-                CargarLiquidaciones();    
+                CargarLiquidaciones();
+                CargarCategorias();
+                LimpiarLista();
+                btnEliminarLiq.Enabled = false;
 
             }
             catch (Exception exe)
@@ -161,6 +164,16 @@ namespace EstudioContableSpringfieldGUI
             }
             
 
+        }
+
+        private void LimpiarLista()
+        {
+            lstReporte.DataSource = null;
+        }
+
+        private void lstReporte_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnEliminarLiq.Enabled = true;
         }
     }
 }
