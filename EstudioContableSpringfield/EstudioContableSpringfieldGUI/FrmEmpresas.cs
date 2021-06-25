@@ -15,6 +15,7 @@ namespace EstudioContableSpringfieldGUI
     public partial class FrmEmpresas : Form
     {
         private EmpresaNegocio _empresaNegocio;
+        private List<Empresa> _empresasAPI;
 
         public FrmEmpresas()
         {
@@ -28,21 +29,28 @@ namespace EstudioContableSpringfieldGUI
             this.dateTimePicker.Format = DateTimePickerFormat.Custom;
             this.dateTimePicker.CustomFormat = "dd/MM/yyyy";
 
-            CargarEmpresas();
+            TraerEmpresasAPI();
         }
-        private void CargarEmpresas()
+
+        private void TraerEmpresasAPI()
         {
             try
             {
                 cmbEmpresas.DataSource = null;
-                cmbEmpresas.DataSource = this._empresaNegocio.Traer();
-                cmbEmpresas.DisplayMember = "RazonSocial";
-                cmbEmpresas.ValueMember = "Cuit";
+                this._empresasAPI = this._empresaNegocio.Traer();
+                CargarEmpresas();
             }
             catch (Exception exe)
             {
                 MessageBox.Show(exe.Message);
             }
+        }
+        private void CargarEmpresas()
+        {
+            cmbEmpresas.DataSource = this._empresasAPI;
+            cmbEmpresas.DisplayMember = "RazonSocial";
+            cmbEmpresas.ValueMember = "Cuit";
+            cmbEmpresas.SelectedIndex = 0;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -66,8 +74,35 @@ namespace EstudioContableSpringfieldGUI
                 TransactionResult resultado = this._empresaNegocio.Agregar(nuevaEmpresa);
 
                 MessageBox.Show(resultado.DarMensaje());
-                CargarEmpresas();
+                TraerEmpresasAPI();
                 ResetearFormulario();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ValidarCamposFormulario();
+
+                Empresa empresaSeleccionada = (Empresa)cmbEmpresas.SelectedItem;
+
+                string nombre = this.textBox1.Text;
+                long cuit = long.Parse(this.textBox2.Text);
+                string domicilio = this.textBox5.Text;
+
+                empresaSeleccionada.RazonSocial = nombre;
+                empresaSeleccionada.Cuit = cuit;
+                empresaSeleccionada.Domicilio = domicilio;
+
+                TransactionResult resultadoModif = this._empresaNegocio.Modificar(empresaSeleccionada);
+
+                MessageBox.Show(resultadoModif.DarMensaje());
+                TraerEmpresasAPI();
             }
             catch (Exception ex)
             {
@@ -94,14 +129,27 @@ namespace EstudioContableSpringfieldGUI
 
         private void cmbEmpresas_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbEmpresas.DataSource == null)
+                return;
+
             if (cmbEmpresas.SelectedIndex == 0)
             {
-                AgregarBloqueado();
+                DesactivarBotones(false, false);
             }
             else
             {
+                if (cmbEmpresas.SelectedIndex != 1)
+                {
+                    DesactivarBotones(false, true);
+                    dateTimePicker.Enabled = false;
+                }
+                else
+                {
+                    DesactivarBotones(true, false);
+                    dateTimePicker.Enabled = true;
+                }
+
                 MapearDatos((Empresa)cmbEmpresas.SelectedItem);
-                AgregarDesbloqueado();
             }
         }
 
@@ -109,22 +157,18 @@ namespace EstudioContableSpringfieldGUI
         {
             textBox1.Text = empresaSeleccionada.RazonSocial;
             textBox2.Text = empresaSeleccionada.Cuit.ToString();
-            if (empresaSeleccionada.FechaAlta.Year > 1900) 
+            if (empresaSeleccionada.FechaAlta.Year > 1900)
             { 
             dateTimePicker.Value = empresaSeleccionada.FechaAlta;
             }
             textBox5.Text = empresaSeleccionada.Domicilio;
         }
 
-        private void AgregarDesbloqueado()
-        {
-            btnAgregar.Enabled = true;
-        }
-
-        private void AgregarBloqueado()
+        private void DesactivarBotones(bool stateAgregar, bool stateModif)
         {
             ResetearFormulario();
-            btnAgregar.Enabled = false;
+            btnAgregar.Enabled = stateAgregar;
+            btnModificar.Enabled = stateModif;
         }
     }
 }

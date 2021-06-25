@@ -99,7 +99,7 @@ namespace Estudio.Entidades.Entidades
         public override string ToString()
         {
             return $"Código: {this._codLiquidacion} | Período: {this.Periodo} | Empleado: {this._empleado.ApellidoYNombre} | Categoría: { this._categoria.NombreYConvenio} | Neto: ARS { this._neto.ToString("0.00")}" ;            
-        }        
+        }
 
         public int ObtenerPeriodo(int mes, int año)
         {

@@ -40,6 +40,7 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.cmbEmpresas = new System.Windows.Forms.ComboBox();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVolver
@@ -58,7 +59,7 @@
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(107, 34);
             this.btnAgregar.TabIndex = 12;
-            this.btnAgregar.Text = "Agregar/Actualizar";
+            this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -156,11 +157,22 @@
             this.cmbEmpresas.TabIndex = 15;
             this.cmbEmpresas.SelectedIndexChanged += new System.EventHandler(this.cmbEmpresas_SelectedIndexChanged);
             // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(358, 307);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(107, 34);
+            this.btnModificar.TabIndex = 16;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
             // FrmEmpresas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 387);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.cmbEmpresas);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.textBox5);
@@ -194,5 +206,6 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.ComboBox cmbEmpresas;
+        private System.Windows.Forms.Button btnModificar;
     }
 }
