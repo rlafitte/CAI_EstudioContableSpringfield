@@ -237,7 +237,7 @@ namespace EstudioContableSpringfieldGUI
             comboBox1.DataSource = null;
             this._listaLiquidacionesTotales = _liqNeg.TraerConCategoria();
             comboBox1.DataSource = this._listaLiquidacionesTotales;
-            //comboBox1.DisplayMember = "CodigoTransferencia";
+            comboBox1.DisplayMember = "CodigoTransferencia";
             listaEmpresas = _empreNeg.TraerConEmpleadosExistentes();
 
         }
