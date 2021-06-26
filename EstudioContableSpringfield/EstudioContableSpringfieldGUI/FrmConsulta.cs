@@ -108,7 +108,7 @@ namespace EstudioContableSpringfieldGUI
 
 
                 List<Empleado> listaSalida = new List<Empleado>();
-                List<Empleado> empleados = _empleNeg.Traer();
+                List<Empleado> empleados = _empleNeg.TraerConCategoria();
                 foreach (Liquidacion liq in this._liquidacionesXCodigo)
                 {
 
@@ -235,9 +235,9 @@ namespace EstudioContableSpringfieldGUI
         private void FrmConsulta_Load(object sender, EventArgs e)
         {
             comboBox1.DataSource = null;
-            this._listaLiquidacionesTotales = _liqNeg.Traer();
+            this._listaLiquidacionesTotales = _liqNeg.TraerConCategoria();
             comboBox1.DataSource = this._listaLiquidacionesTotales;
-            comboBox1.DisplayMember = "CodigoTransferencia";
+            //comboBox1.DisplayMember = "CodigoTransferencia";
             listaEmpresas = _empreNeg.TraerConEmpleadosExistentes();
 
         }
